@@ -16,6 +16,7 @@ public class Resistor extends Element {
             case 'k': resistance*=10e3; break;
             case 'M': resistance*=10e6; break;
             case 'G': resistance*=10e9; break;
+           // System.out.print("salmress");
         }
     }
 }

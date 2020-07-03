@@ -16,6 +16,7 @@ public class Inductor extends Element {
             case 'k': inductance*=10e3; break;
             case 'M': inductance*=10e6; break;
             case 'G': inductance*=10e9; break;
+           // System.out.print("salaminnddd");
         }
     }
 }
