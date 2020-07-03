@@ -8,7 +8,7 @@ public class Main {
         System.out.println("by");
         System.out.println("hierfun");
         System.out.println("hierfun");
-       System.o
+       System.out.println("hihihihihi");
 
 
     }
