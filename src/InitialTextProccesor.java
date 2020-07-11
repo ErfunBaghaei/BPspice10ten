@@ -4,24 +4,58 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InitialTextProccesor {
-    File file;
-    ArrayList<Element> elements=new ArrayList<Element>();
 
+    File file;
+    int [] [] graph ;
+    ArrayList<Union> unions = new ArrayList();
+    ArrayList<Element> elements=new ArrayList<Element>();
+    ArrayList<Node> nodes= new ArrayList();
+    ArrayList<Node> nodes2 = new ArrayList();
+    double deltai,deltav,deltat,time;
+    Node node1= new Node();
+    Union union;
     InitialTextProccesor(File file){
         this.file=file;
     }
-
-
     public void start(){
         String currentLineInput;
-        int lineNumber=1;
-
+        int lineNumber=1,flag=0,i,j,k,first=0,next=0;
         try {
             Scanner fileScan = new Scanner(file);
             currentLineInput=fileScan.nextLine();
 
 
             while (fileScan.hasNextLine()) {
+              flag=0;
+              for (j=currentLineInput.indexOf(' ')+1;;j++) if (currentLineInput.charAt(j)==' ') break;
+              node1=new Node();
+              node1.name=currentLineInput.substring(currentLineInput.indexOf(' ')+1,j);
+              for (i=0;i<nodes.size();i++) if (nodes.get(i).name.equals(node1.name)){
+                  first=i;
+                  flag=1;
+              }
+              if (flag==0) {
+                  nodes.add(node1);
+                  first=nodes.size()-1;
+                  nodes.get(nodes.size()-1).union=first;
+              }
+              else flag=0;
+
+              for (k=j+1;;k++) if (currentLineInput.charAt(k)==' ') break;
+              node1=new Node();
+              node1.name=currentLineInput.substring(j+1,k);
+                for (i=0;i<nodes.size();i++) if (nodes.get(i).name.equals(node1.name)) {
+                    next=i;
+                    flag=1;
+                }
+                if (flag==0){
+                    nodes.add(node1);
+                    next=nodes.size()-1;
+                    nodes.get(nodes.size()-1).union=next;
+                }
+                else flag=0;
+                if (graph[next][first]!=12)graph[next][first]=1;
+                if (graph[first][next]!=12)graph[first][next]=1;
 
                 if (currentLineInput.charAt(0)=='*')
                     star();
@@ -31,7 +65,8 @@ public class InitialTextProccesor {
 
                 else if(currentLineInput.charAt(0)=='c'||currentLineInput.charAt(0)=='C')
                     createCapacitor(currentLineInput);
-
+                else if(currentLineInput.charAt(0)=='r'||currentLineInput.charAt(0)=='R')
+                    createResistor(currentLineInput);
                 else if(currentLineInput.charAt(0)=='l'||currentLineInput.charAt(0)=='L')
                     createInductor(currentLineInput);
 
@@ -42,13 +77,25 @@ public class InitialTextProccesor {
                     createVoltageControledCurrentSource(currentLineInput);
 
                 else if(currentLineInput.charAt(0)=='v'||currentLineInput.charAt(0)=='V')
+                {
                     createVoltageSource(currentLineInput);
+                    graph[next][first]=12;
+                    graph[first][next]=12;
+                }
 
                 else if(currentLineInput.charAt(0)=='h'||currentLineInput.charAt(0)=='H')
+                {
                     createCurrentControledVoltageSource(currentLineInput);
+                    graph[next][first]=12;
+                    graph[first][next]=12;
+                }
 
                 else if(currentLineInput.charAt(0)=='e'||currentLineInput.charAt(0)=='E')
+                {
                     createVoltageControledVoltageSource(currentLineInput);
+                    graph[next][first]=12;
+                    graph[first][next]=12;
+                }
 
                 else if ((currentLineInput.charAt(0)=='d'||currentLineInput.charAt(0)=='D')
                         &&!(currentLineInput.charAt(1)=='v'||currentLineInput.charAt(1)=='V')
@@ -58,18 +105,18 @@ public class InitialTextProccesor {
 
                 else if(currentLineInput.indexOf("DV")==0||currentLineInput.indexOf("dV")==0
                         ||currentLineInput.indexOf("dv")==0||currentLineInput.indexOf("Dv")==0)
-                    setVoltagetick(currentLineInput);
+                    deltav=setVoltagetick(currentLineInput);
 
                 else if(currentLineInput.indexOf("di")==0||currentLineInput.indexOf("dI")==0
                         ||currentLineInput.indexOf("Di")==0||currentLineInput.indexOf("DI")==0)
-                    setCurrenttick(currentLineInput);
+                    deltai=setCurrenttick(currentLineInput);
 
                 else if(currentLineInput.indexOf("dt")==0||currentLineInput.indexOf("dT")==0
                         ||currentLineInput.indexOf("Dt")==0||currentLineInput.indexOf("DT")==0)
-                    setTimetick(currentLineInput);
+                    deltat=setTimetick(currentLineInput);
 
                 else if(currentLineInput.indexOf(".tran")==0)
-                    setEndTime(currentLineInput);
+                    time=setEndTime(currentLineInput);
 
                 currentLineInput=fileScan.nextLine();
                 lineNumber++;
@@ -81,7 +128,60 @@ public class InitialTextProccesor {
         }
 
     }
+    public void solv(){
+        Solver solver= new Solver(unions,elements,nodes,graph,deltav,deltat,deltai,time);
+    }
+    public void set_union(){
+        int i;
+     while (nodes2.size()>0){
+         union= new Union();
+         union.name= nodes2.get(0).union;
+         for (i=0;i<nodes2.size();i++){
+             if (nodes2.get(i).union==union.name){
+                 union.nod.add(nodes2.get(i));
+                 nodes2.remove(nodes2.get(i));
+             }
+         }
+         unions.add(union);
+     }
+    }
+    public void create_union() {
+        int i,n=0,j;
+     nodes.get(0).added=true;
+     nodes2.add(nodes.get(0));
+     for (i=0;i<nodes.size();i++){
+         if (nodes.get(i).added==false){
+             if (graph[0][i]==1) {
+                 nodes.get(i).added=true;
+                 nodes2.add(nodes.get(i));
+             }
+             if (graph[0][i]==12){
+                 nodes.get(i).added=true;
+                 nodes.get(i).union=0;
+                 nodes2.add(nodes.get(i));
+             }
+         }
+     }
+     while (nodes2.size()<nodes.size()){
+        for (i=nodes2.size()-1;i>=0;i--){
+            for (j=0;j<nodes.size();j++) if (nodes.get(j).name.equals(nodes2.get(i).name)) n=j;
+            for (j=0;j<nodes.size();j++){
+                if (nodes.get(j).added==false) {
+                    if (graph[n][j] == 1) {
+                        nodes.get(j).added = true;
+                        nodes2.add(nodes.get(j));
+                    }
+                }
+                    if (graph[n][j]==12){
+                        nodes.get(j).added=true;
+                        nodes.get(j).union=nodes2.get(i).union;
+                        nodes2.add(nodes.get(j));
+                    }
 
+            }
+        }
+     }
+    }
     public void star(){
         //Do Nothing :)
     }
@@ -95,7 +195,7 @@ public class InitialTextProccesor {
     public void createCapacitor(String currentLineInput){
         elements.add(new Capacitor(currentLineInput));
     }
-
+    public void createResistor(String currentLineInput){ elements.add(new Resistor(currentLineInput));}
     public void createInductor(String currentLineInput){
         elements.add(new Inductor(currentLineInput));
     }
@@ -117,17 +217,68 @@ public class InitialTextProccesor {
     public void createIdealDiode(String currentLineInput){
         elements.add(new IdealDiode(currentLineInput));
     }
-    public void setCurrenttick(String currentLineInput){
-
+    public double setCurrenttick(String currentLineInput){
+          double i;
+          if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
+          else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
+              switch (currentLineInput.charAt(currentLineInput.length()-1)){
+                  case 'p': i*=10e-12; break;
+                  case 'n': i*=10e-9; break;
+                  case 'u': i*=10e-6; break;
+                  case 'm': i*=10e-3; break;
+                  case 'k': i*=10e3; break;
+                  case 'M': i*=10e6; break;
+                  case 'G': i*=10e9; break;
+          }
+          return i;
     }
-    public void setVoltagetick(String currentLineInput){
+    public double setVoltagetick(String currentLineInput){
+        double i;
+        if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
+        else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
+        switch (currentLineInput.charAt(currentLineInput.length()-1)){
+            case 'p': i*=10e-12; break;
+            case 'n': i*=10e-9; break;
+            case 'u': i*=10e-6; break;
+            case 'm': i*=10e-3; break;
+            case 'k': i*=10e3; break;
+            case 'M': i*=10e6; break;
+            case 'G': i*=10e9; break;
 
+        }
+        return i;
     }
-    public void setTimetick(String currentLineInput){
+    public double setTimetick(String currentLineInput){
+        double i;
+        if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
+        else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
+        switch (currentLineInput.charAt(currentLineInput.length()-1)){
+            case 'p': i*=10e-12; break;
+            case 'n': i*=10e-9; break;
+            case 'u': i*=10e-6; break;
+            case 'm': i*=10e-3; break;
+            case 'k': i*=10e3; break;
+            case 'M': i*=10e6; break;
+            case 'G': i*=10e9; break;
 
+        }
+        return i;
     }
-    public void setEndTime(String currentLineInput){
+    public double setEndTime(String currentLineInput){
+        double i;
+        if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
+        else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
+        switch (currentLineInput.charAt(currentLineInput.length()-1)){
+            case 'p': i*=10e-12; break;
+            case 'n': i*=10e-9; break;
+            case 'u': i*=10e-6; break;
+            case 'm': i*=10e-3; break;
+            case 'k': i*=10e3; break;
+            case 'M': i*=10e6; break;
+            case 'G': i*=10e9; break;
 
+        }
+        return i;
     }
 
 }
