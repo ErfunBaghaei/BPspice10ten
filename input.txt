@@ -1,8 +1,11 @@
 * hi this is a test
 l1 1 2 1
 c3 1 2 2
+r1 1 2 4
+c4 0 2 2
 l2 0 2 1
 l3 0 1 1
+v1 0 1 1 0 0 0
 .tran 10m
 dv 1m
 dI 1m
