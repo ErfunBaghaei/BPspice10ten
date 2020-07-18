@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.desktop.SystemEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,8 +28,8 @@ public class DrawKit {
     public void groundDrawer(){
         ImageIcon gndImage=new ImageIcon("gnd.png");
         JLabel gnd = new JLabel(gndImage);
-        nodeDrawer(3);
-        gnd.setBounds(nodeCoordinates.get(10).x+53, nodeCoordinates.get(10).y +83, 54, 34);
+        nodeDrawer(4);
+        gnd.setBounds(nodeCoordinates.get(10).x+134, nodeCoordinates.get(10).y +83, 54, 34);
         circuit.add(gnd);
 
     }
@@ -214,13 +215,13 @@ public class DrawKit {
         int max = maximum(nodeP, nodeM);
         if (nodeP - nodeM == 1 || nodeM - nodeP == 1) {
             inductorHorizontal = new JLabel(inductorHorizontalimage);
-            inductorHorizontal.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 41, 80, 80);
+            inductorHorizontal.setBounds(nodeCoordinates.get(min).x-1, nodeCoordinates.get(min).y - 41, 80, 80);
 
             circuit.add(inductorHorizontal);
         } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
             inductorVertical = new JLabel(inductorVerticalimage);
             System.out.println(nodeCoordinates.get(max).x);
-            inductorVertical.setBounds(nodeCoordinates.get(max).x - 40, nodeCoordinates.get(max).y + 1, 80, 80);
+            inductorVertical.setBounds(nodeCoordinates.get(max).x - 41, nodeCoordinates.get(max).y + 1, 80, 80);
 
             circuit.add(inductorVertical);
         }
@@ -328,8 +329,8 @@ public class DrawKit {
                     case "vs":
                         voltageSourceDrawer(currentNode, currentNode + up);
                         break;
-                    case "vc":
-                        voltageSourceDrawer(currentNode, currentNode + up);
+                    case "cs":
+                        currentSourceDrawer(currentNode, currentNode + up);
                         break;
 
                 }
@@ -376,8 +377,8 @@ public class DrawKit {
                     case "vs":
                         voltageSourceDrawer(currentNode , currentNode  + up);
                         break;
-                    case "vc":
-                        voltageSourceDrawer(currentNode , currentNode  + up);
+                    case "cs":
+                        currentSourceDrawer(currentNode , currentNode  + up);
                         break;
 
                 }
@@ -388,7 +389,7 @@ public class DrawKit {
 
                 if(i!=elements.size()-1) {
                     wireDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
-                    wireDrawer(currentNode+2*down,currentNode+2*down+right);
+                    wireDrawer(currentNode+down,currentNode+down+right);
                 }
 
                 currentNode += right;
@@ -411,7 +412,6 @@ public class DrawKit {
                 if ((elements.get(i).node2.equals(node.get(1).name) && elements.get(i).node1.equals("0"))
                         ||(elements.get(i).node1.equals(node.get(1).name) && elements.get(i).node2.equals("0"))) {
 
-
                     wireDrawer(currentNode, currentNode + down);
                     wireDrawer(currentNode + up, currentNode + 2 * up);
 
@@ -430,12 +430,14 @@ public class DrawKit {
                         case "r":
                             resistorDrawer(currentNode, currentNode + up);
                             break;
-
+                        case "l":
+                            inductorDrawer(currentNode, currentNode + up);
+                            break;
                         case "vs":
                             voltageSourceDrawer(currentNode, currentNode + up);
                             break;
-                        case "vc":
-                            voltageSourceDrawer(currentNode, currentNode + up);
+                        case "cs":
+                            currentSourceDrawer(currentNode, currentNode + up);
                             break;
 
                     }
@@ -447,11 +449,10 @@ public class DrawKit {
             currentNode -= right;
             for (int i = 0; i < elements.size(); i++) {
                 type = elements.get(i).type;
-                if (elements.get(i).node2.equals(node.get(2).name) && !elements.get(i).node1.equals(node.get(1).name)
-                        ||elements.get(i).node1.equals(node.get(2).name) && !elements.get(i).node2.equals(node.get(1).name)) {
+                if (elements.get(i).node2.equals(node.get(2).name) && elements.get(i).node1.equals(node.get(1).name)
+                        ||elements.get(i).node1.equals(node.get(2).name) && elements.get(i).node2.equals(node.get(1).name)) {
 
-                    System.out.println("go to right");
-
+                    System.out.println("didididdidididi 2222");
                     switch (type) {
                         case "c":
                             capacitorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
@@ -464,12 +465,11 @@ public class DrawKit {
                         case "l":
                             inductorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
-
                         case "vs":
                             voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
-                        case "vc":
-                            voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                        case "cs":
+                            currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
 
                     }
@@ -478,11 +478,13 @@ public class DrawKit {
                 }
             }
             for (int i = 0; i < elements.size(); i++) {
+
+
                 type = elements.get(i).type;
                 if ((elements.get(i).node2.equals(node.get(2).name) && elements.get(i).node1.equals("0"))
                         ||(elements.get(i).node1.equals(node.get(2).name) && elements.get(i).node2.equals("0"))) {
 
-
+                    System.out.println("didididdidididi 3333");
                     wireDrawer(currentNode, currentNode + down);
                     wireDrawer(currentNode + up, currentNode + 2 * up);
                     wireDrawer(currentNode + down, currentNode + down + left);
@@ -500,12 +502,14 @@ public class DrawKit {
                         case "r":
                             resistorDrawer(currentNode, currentNode + up);
                             break;
-
+                        case "l":
+                            inductorDrawer(currentNode, currentNode + up);
+                            break;
                         case "vs":
                             voltageSourceDrawer(currentNode, currentNode + up);
                             break;
-                        case "vc":
-                            voltageSourceDrawer(currentNode, currentNode + up);
+                        case "cs":
+                            currentSourceDrawer(currentNode, currentNode + up);
                             break;
 
                     }
@@ -514,6 +518,12 @@ public class DrawKit {
 
 
             }
+
+        }
+
+
+
+        if(node.size()==4){
 
         }
 

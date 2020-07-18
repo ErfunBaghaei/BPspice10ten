@@ -24,7 +24,6 @@ public class WireDrawer extends JPanel {
         setPreferredSize(new Dimension (670,420));
         g2d.drawLine(200,1200,300,200);
 
-        // g2d.drawLine(nodePCoordinatex,nodePCoordinatey,nodeMCoordinatex,nodeMCoordinatey);
 
     }
 
