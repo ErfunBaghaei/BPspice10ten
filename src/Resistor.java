@@ -1,6 +1,7 @@
 public class Resistor extends Element {
     String input;
     public Resistor(String input){
+        super.type="r";
         this.input=input;
         String [] info =input.split("\\s+");
         name = info[0];
@@ -16,7 +17,6 @@ public class Resistor extends Element {
             case 'k': resistance*=10e3; break;
             case 'M': resistance*=10e6; break;
             case 'G': resistance*=10e9; break;
-           // System.out.print("salmress");
         }
     }
 }

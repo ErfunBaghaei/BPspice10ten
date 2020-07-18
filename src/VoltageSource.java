@@ -1,6 +1,7 @@
 public class VoltageSource extends Element {
     String input;
     public VoltageSource(String input){
+        super.type="vs";
         this.input=input;
         String [] info =input.split("\\s+");
         name = info[0];
