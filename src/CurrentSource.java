@@ -1,6 +1,7 @@
 public class CurrentSource extends Element{
     String input;
     public CurrentSource(String input){
+        super.type="cs";
         this.input=input;
         String [] info =input.split("\\s+");
         name = info[0];

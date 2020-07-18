@@ -1,6 +1,7 @@
 public class Capacitor extends Element {
     String input;
     public Capacitor(String input){
+        super.type="c";
         this.input=input;
         String [] info =input.split("\\s+");
         name = info[0];
@@ -16,7 +17,7 @@ public class Capacitor extends Element {
             case 'k': capacity*=10e3; break;
             case 'M': capacity*=10e6; break;
             case 'G': capacity*=10e9; break;
-           // System.out.print("yeeeees");
+            // System.out.print("yeeeees");
         }
     }
 }
