@@ -20,6 +20,7 @@ public class Capacitor extends Element {
             // System.out.print("yeeeees");
 
             ///check this
+            //checked
 
         }
     }
