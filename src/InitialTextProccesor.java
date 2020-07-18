@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class InitialTextProccesor {
@@ -11,6 +12,12 @@ public class InitialTextProccesor {
     ArrayList<Element> elements=new ArrayList<Element>();
     ArrayList<Node> nodes= new ArrayList();
     ArrayList<Node> nodes2 = new ArrayList();
+
+
+    ArrayList<Node> nodeNormal=new ArrayList();
+
+
+
     double deltai,deltav,deltat,time;
     Node node1= new Node();
     Union union;
@@ -23,16 +30,16 @@ public class InitialTextProccesor {
 
 
     String currentLineInput;
-    public void start(){
+    public void start() {
 
-        for(int hh=0;hh<1000;hh++)
-            for(int kk=0;kk<1000;kk++)
-                graph[hh][kk]=0;
+        for (int hh = 0; hh < 1000; hh++)
+            for (int kk = 0; kk < 1000; kk++)
+                graph[hh][kk] = 0;
 
 
         try {
             Scanner fileScan = new Scanner(file);
-            currentLineInput=fileScan.nextLine();
+            currentLineInput = fileScan.nextLine();
 
 
             while (fileScan.hasNextLine()) {
@@ -96,12 +103,20 @@ public class InitialTextProccesor {
                         time = setEndTime(currentLineInput);
 
 
-
                 }
                 currentLineInput = fileScan.nextLine();
                 lineNumber++;
-            }
 
+
+            }
+            int i = 0;
+            boolean flag=false;
+            while (!nodes.get(i).name.equals("0")) {
+                i++;
+                flag=true;
+            }
+            if(flag)
+             Collections.swap(nodes,i,0);
 
         } catch (FileNotFoundException e) {
             System.out.println(e);
