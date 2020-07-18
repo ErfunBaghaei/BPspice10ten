@@ -1,6 +1,8 @@
 public class Inductor extends Element {
     String input;
+
     public Inductor(String input){
+        super.type="l";
         this.input=input;
         String [] info =input.split("\\s+");
         name = info[0];
@@ -16,7 +18,6 @@ public class Inductor extends Element {
             case 'k': inductance*=10e3; break;
             case 'M': inductance*=10e6; break;
             case 'G': inductance*=10e9; break;
-           // System.out.print("salaminnddd");
         }
     }
 }

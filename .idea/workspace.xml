@@ -2,7 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ACVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BPSPICE10IMAGE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BPSPICEIMAGE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capacitorHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capacitorVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capcitorHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capcitorVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/currentSourceDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/currentSourceLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/currentSourceRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/currentSourceUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diodeDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diodeLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diodeRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diodeUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inductorHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inductorVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resistoVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resistor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resistorHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resistorVertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GraphPaint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MapPoints.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/voltageSourceDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/voltageSourceLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/voltageSourceRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/voltageSourceUP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wireHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wireVertical.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IdealDiode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IdealDiode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inductor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inductor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +57,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1eB7IwAkEqzGr1DJXfziC5R2SCA" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -78,7 +118,7 @@
       <workItem from="1594470584123" duration="1285000" />
       <workItem from="1594472965602" duration="5000" />
       <workItem from="1594476849408" duration="385000" />
-      <workItem from="1595059044661" duration="559000" />
+      <workItem from="1595059044661" duration="896000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -87,21 +127,30 @@
       <option name="project" value="LOCAL" />
       <updated>1595059106200</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="3rd commit">
+      <created>1595059816443</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595059816444</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="2nd commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd commit" />
+    <MESSAGE value="3rd commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="3rd commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595059105472">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595060025319">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595059105472" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595060025319" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1593784884562">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
