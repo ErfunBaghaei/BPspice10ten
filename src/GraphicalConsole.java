@@ -23,9 +23,17 @@ public class GraphicalConsole {
         //"HI,Welcome to BPSPICE 10 \n First you should open a txt file..."
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
                 "l1 1 2 1\n" +
-                "c3 1 2 2\n"+
-                "l2 0 2 1\n" +
-                "l3 0 1 1\n" +
+                "c1 1 2 2\n"+
+                "c2 0 2 1\n" +
+                "l3 0 2 2\n"+
+                "l2 0 1 1\n" +
+                "i1 0 1 5 0 0 0\n"+
+                "r1 0 3 1\n"+
+                "v2 1 3 4 0 0 0\n"+
+                "r2 1 3 1\n"+
+                "r3 0 3 1\n"+
+                "v1 2 3 5 0 0 0\n"+
+                "r4 3 2 4\n"+
                 ".tran 10m\n" +
                 "dv 1m\n" +
                 "dI 1m\n" +
