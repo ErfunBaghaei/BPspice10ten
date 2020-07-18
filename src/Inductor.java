@@ -11,13 +11,13 @@ public class Inductor extends Element {
         if (info[3].charAt(info[3].length()-1)>='0'&&info[3].charAt(info[3].length()-1)<='9') inductance = Integer.parseInt(info[3]);
         else inductance = Integer.parseInt(info[3].substring(0,info[3].length()-1));
         switch (info[3].charAt(info[3].length()-1)){
-            case 'p': inductance*=10e-12; break;
-            case 'n': inductance*=10e-9; break;
-            case 'u': inductance*=10e-6; break;
-            case 'm': inductance*=10e-3; break;
-            case 'k': inductance*=10e3; break;
-            case 'M': inductance*=10e6; break;
-            case 'G': inductance*=10e9; break;
+            case 'p': inductance*=1e-12; break;
+            case 'n': inductance*=1e-9; break;
+            case 'u': inductance*=1e-6; break;
+            case 'm': inductance*=1e-3; break;
+            case 'k': inductance*=1e3; break;
+            case 'M': inductance*=1e6; break;
+            case 'G': inductance*=1e9; break;
         }
     }
 }

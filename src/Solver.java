@@ -20,7 +20,7 @@ public class Solver {
 
         this.snodes=c;
         this.sgraph=d;
-        System.out.println(di+"    llllll"+dt+"    llllll"+dv+"    llllll"+a.size()+"    llllll"+sunions.size()+"    llllll"+selements.size()+"    llllll"+snodes.size());
+        System.out.println(di+"    "+dt+"   "+dv+"    "+a.size()+"    "+sunions.size()+"    "+selements.size()+"    "+snodes.size());
 
 
     }

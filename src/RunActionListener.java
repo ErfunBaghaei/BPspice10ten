@@ -34,8 +34,9 @@ public class RunActionListener implements ActionListener {
         circuitDrawer(initialTextProccesor);
 
 
-
-        //initialTextProccesor.solve();
+        initialTextProccesor.create_union();
+        initialTextProccesor.set_union();
+        initialTextProccesor.solve();
 
 
     }

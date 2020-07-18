@@ -10,13 +10,13 @@ public class Resistor extends Element {
         if (info[3].charAt(info[3].length()-1)>='0'&&info[3].charAt(info[3].length()-1)<='9') resistance = Integer.parseInt(info[3]);
         else resistance = Integer.parseInt(info[3].substring(0,info[3].length()-1));
         switch (info[3].charAt(info[3].length()-1)){
-            case 'p': resistance*=10e-12; break;
-            case 'n': resistance*=10e-9; break;
-            case 'u': resistance*=10e-6; break;
-            case 'm': resistance*=10e-3; break;
-            case 'k': resistance*=10e3; break;
-            case 'M': resistance*=10e6; break;
-            case 'G': resistance*=10e9; break;
+            case 'p': resistance*=1e-12; break;
+            case 'n': resistance*=1e-9; break;
+            case 'u': resistance*=1e-6; break;
+            case 'm': resistance*=1e-3; break;
+            case 'k': resistance*=1e3; break;
+            case 'M': resistance*=1e6; break;
+            case 'G': resistance*=1e9; break;
         }
     }
 }

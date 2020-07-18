@@ -237,28 +237,28 @@ public class InitialTextProccesor {
         if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
         else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
         switch (currentLineInput.charAt(currentLineInput.length()-1)){
-            case 'p': i*=10e-12; break;
-            case 'n': i*=10e-9; break;
-            case 'u': i*=10e-6; break;
-            case 'm': i*=10e-3; break;
-            case 'k': i*=10e3; break;
-            case 'M': i*=10e6; break;
-            case 'G': i*=10e9; break;
+            case 'p': i*=1e-12; break;
+            case 'n': i*=1e-9; break;
+            case 'u': i*=1e-6; break;
+            case 'm': i*=1e-3; break;
+            case 'k': i*=1e3; break;
+            case 'M': i*=1e6; break;
+            case 'G': i*=1e9; break;
         }
         return i;
     }
     public double setVoltagetick(String currentLineInput){
         double i;
-        if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
+        if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) i= Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
         else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
         switch (currentLineInput.charAt(currentLineInput.length()-1)){
-            case 'p': i*=10e-12; break;
-            case 'n': i*=10e-9; break;
-            case 'u': i*=10e-6; break;
-            case 'm': i*=10e-3; break;
-            case 'k': i*=10e3; break;
-            case 'M': i*=10e6; break;
-            case 'G': i*=10e9; break;
+            case 'p': i*=1e-12; break;
+            case 'n': i*=1e-9; break;
+            case 'u': i*=1e-6; break;
+            case 'm': i*=1e-3; break;
+            case 'k': i*=1e3; break;
+            case 'M': i*=1e6; break;
+            case 'G': i*=1e9; break;
 
         }
         return i;
@@ -268,13 +268,13 @@ public class InitialTextProccesor {
         if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
         else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
         switch (currentLineInput.charAt(currentLineInput.length()-1)){
-            case 'p': i*=10e-12; break;
-            case 'n': i*=10e-9; break;
-            case 'u': i*=10e-6; break;
-            case 'm': i*=10e-3; break;
-            case 'k': i*=10e3; break;
-            case 'M': i*=10e6; break;
-            case 'G': i*=10e9; break;
+            case 'p': i*=1e-12; break;
+            case 'n': i*=1e-9; break;
+            case 'u': i*=1e-6; break;
+            case 'm': i*=1e-3; break;
+            case 'k': i*=1e3; break;
+            case 'M': i*=1e6; break;
+            case 'G': i*=1e9; break;
 
         }
         return i;
@@ -284,13 +284,13 @@ public class InitialTextProccesor {
         if (currentLineInput.charAt(currentLineInput.length()-1)>='0'&&(currentLineInput.charAt(currentLineInput.length()-1)<='9')) return Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1));
         else i=Double.parseDouble(currentLineInput.substring(currentLineInput.indexOf(' ')+1,currentLineInput.length()-1));
         switch (currentLineInput.charAt(currentLineInput.length()-1)){
-            case 'p': i*=10e-12; break;
-            case 'n': i*=10e-9; break;
-            case 'u': i*=10e-6; break;
-            case 'm': i*=10e-3; break;
-            case 'k': i*=10e3; break;
-            case 'M': i*=10e6; break;
-            case 'G': i*=10e9; break;
+            case 'p': i*=1e-12; break;
+            case 'n': i*=1e-9; break;
+            case 'u': i*=1e-6; break;
+            case 'm': i*=1e-3; break;
+            case 'k': i*=1e3; break;
+            case 'M': i*=1e6; break;
+            case 'G': i*=1e9; break;
 
         }
         return i;
