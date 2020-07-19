@@ -17,10 +17,6 @@ public class Capacitor extends Element {
             case 'k': capacity*=1e3; break;
             case 'M': capacity*=1e6; break;
             case 'G': capacity*=1e9; break;
-            // System.out.print("yeeeees");
-
-            ///check this
-            //checked
 
         }
     }

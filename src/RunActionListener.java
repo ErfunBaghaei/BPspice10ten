@@ -9,10 +9,12 @@ public class RunActionListener implements ActionListener {
     JPanel circuit;
     File file;
     JTextArea textConsole;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file){
+    JFrame circuitFrame;
+    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame){
         this.circuit=circuit;
         this.file=file;
         this.textConsole=textConsole;
+        this.circuitFrame=circuitFrame;
     }
 
     InitialTextProccesor initialTextProccesor;
@@ -32,11 +34,12 @@ public class RunActionListener implements ActionListener {
         initialTextProccesor.start();
 
         circuitDrawer(initialTextProccesor);
-
+        circuitFrame.add(circuit);
+        circuitFrame.setVisible(true);
 
         initialTextProccesor.create_union();
         initialTextProccesor.set_union();
-        initialTextProccesor.solve();
+        //initialTextProccesor.solve();
 
 
     }
@@ -45,30 +48,6 @@ public class RunActionListener implements ActionListener {
 
         DrawKit drawKit=new DrawKit(initialTextProccesor, circuit);
         drawKit.circuitDrawer();
-
-        // drawKit.wireDrawer(1,9);
-        //   drawKit.wireDrawer(25,17);
-        //   drawKit.wireDrawer(2,1);
-        //   drawKit.capacitorDrawer(2,3);
-        //   drawKit.wireDrawer(4,3);
-        //   drawKit.wireDrawer(4,5);
-        //   drawKit.resistorDrawer(6,5);
-        //   drawKit.wireDrawer(7,6);
-        //   drawKit.wireDrawer(7,15);
-        //   drawKit.capacitorDrawer(15,23);
-        //   drawKit.wireDrawer(31,23);
-        //   drawKit.wireDrawer(31,30);
-        //   drawKit.inductorDrawer(30,29);
-        //   drawKit.wireDrawer(29,28);
-        //   drawKit.diodeDrawer(28,27);
-        //   drawKit.wireDrawer(27,26);
-        //   drawKit.voltageSourceDrawer(26,25);
-        //   drawKit.currentSourceDrawer(9,17);
-
-
-
-
-
         circuit.revalidate();
 
         circuit.repaint();

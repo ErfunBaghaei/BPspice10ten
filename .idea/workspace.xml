@@ -4,9 +4,12 @@
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Capacitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DrawKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawKit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RunActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RunActionListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +89,8 @@
       <workItem from="1594470584123" duration="1285000" />
       <workItem from="1594472965602" duration="5000" />
       <workItem from="1594476849408" duration="385000" />
-      <workItem from="1595059044661" duration="14825000" />
+      <workItem from="1595059044661" duration="15195000" />
+      <workItem from="1595168458210" duration="1495000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -137,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595069991057</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="phase 2 is about to finish">
+      <created>1595076742316</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1595076742316</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,48 +163,57 @@
     <MESSAGE value="graphic commit" />
     <MESSAGE value="bugs fixed" />
     <MESSAGE value="check" />
-    <option name="LAST_COMMIT_MESSAGE" value="check" />
+    <MESSAGE value="phase 2 is about to finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="phase 2 is about to finish" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595069990486">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595076739049">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595069990486" />
-    <state width="811" height="173" key="GridCell.Tab.0.bottom" timestamp="1595076636315">
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595076739049" />
+    <state width="1493" height="173" key="GridCell.Tab.0.bottom" timestamp="1595170087272">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="811" height="173" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595076636315" />
-    <state width="811" height="173" key="GridCell.Tab.0.center" timestamp="1595076636315">
+    <state width="1493" height="173" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595170087272" />
+    <state width="1493" height="173" key="GridCell.Tab.0.center" timestamp="1595170087272">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="811" height="173" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595076636315" />
-    <state width="811" height="173" key="GridCell.Tab.0.left" timestamp="1595076636315">
+    <state width="1493" height="173" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595170087272" />
+    <state width="1493" height="173" key="GridCell.Tab.0.left" timestamp="1595170087272">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="811" height="173" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595076636315" />
-    <state width="811" height="173" key="GridCell.Tab.0.right" timestamp="1595076636315">
+    <state width="1493" height="173" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595170087272" />
+    <state width="1493" height="173" key="GridCell.Tab.0.right" timestamp="1595170087272">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="811" height="173" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595076636315" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595069995883">
+    <state width="1493" height="173" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595170087272" />
+    <state x="142" y="138" key="MultipleFileMergeDialog" timestamp="1595076788735">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595069995883" />
+    <state x="142" y="138" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1595076788735" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595076911416">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595076911416" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595070389347">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595168476551">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595070389347" />
-    <state x="85" y="193" key="run.anything.popup" timestamp="1595069977572">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595168476551" />
+    <state x="85" y="193" key="run.anything.popup" timestamp="1595168512874">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="85" y="193" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1595069977572" />
+    <state x="85" y="193" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1595168512874" />
+    <state x="425" y="71" width="670" height="676" key="search.everywhere.popup" timestamp="1595169171518">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="71" width="670" height="676" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1595169171518" />
   </component>
 </project>

@@ -249,8 +249,6 @@ public class DrawKit {
             circuit.add(wireHorizontal);
         } else if (max - min == 8) {
             wireVertical = new JLabel(wireVerticalimage);
-
-            System.out.println("knekncencienvie" + max);
             wireVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(wireVertical);
@@ -417,7 +415,6 @@ public class DrawKit {
             type = elements.get(i).type;
             if ((elements.get(i).node2.equals(node3.get(1).name) && elements.get(i).node1.equals("0"))
                     || (elements.get(i).node1.equals(node3.get(1).name) && elements.get(i).node2.equals("0"))) {
-                System.out.println("didididdidididi 1111");
                 wireDrawer(currentNode, currentNode + down);
                 wireDrawer(currentNode + up, currentNode + 2 * up);
 
@@ -459,7 +456,6 @@ public class DrawKit {
             type = elements.get(i).type;
             if (elements.get(i).node2.equals(node3.get(2).name) && elements.get(i).node1.equals(node3.get(1).name)
                     || elements.get(i).node1.equals(node3.get(2).name) && elements.get(i).node2.equals(node3.get(1).name)) {
-                System.out.println("didididdidididi 2222");
                 switch (type) {
                     case "c":
                         capacitorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);

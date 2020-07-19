@@ -136,8 +136,6 @@ public class InitialTextProccesor {
     }
     public void set_union(){
 
-        System.out.println(nodes2.size()+"    ijiji");
-
         int i;
         while (nodes2.size()>0){
             union= new Union();

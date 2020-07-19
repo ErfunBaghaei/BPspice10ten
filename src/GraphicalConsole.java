@@ -45,7 +45,7 @@ public class GraphicalConsole {
 
         JPanel loading=new JPanel();
 
-        Font  font = new Font(Font.SERIF, Font.PLAIN,  16);
+        Font font = new Font(Font.SERIF, Font.PLAIN,  16);
 
         loading.add(startImageLabel);
 
@@ -70,8 +70,11 @@ public class GraphicalConsole {
 
         textConsole.setFont(font);
 
-
+        JFrame circuitFrame=new JFrame("Circuit Graph");
         JPanel circuit = new MapPoints();
+
+
+
         JPanel outPutInformations=new JPanel();
         JMenuBar menuBar = new JMenuBar();
         circuit.setLayout(null);
@@ -79,7 +82,9 @@ public class GraphicalConsole {
 
 
 
-        textConsole.setBounds(10,60,840,725);
+        textConsole.setBounds(10,60,740,725);
+
+        outPutInformations.setBounds(750,60,770,725);
 
         loading.setBounds(480,250,497,300);
 
@@ -91,11 +96,13 @@ public class GraphicalConsole {
 
         open.setBounds(271,35,90,20);
 
-        mainPage.setBounds(0,1,1800,1000);
+        mainPage.setBounds(0,0,1800,1000);
 
         circuit.setBounds(850,60,670,500);
 
-        outPutInformations.setBounds(850,560,670,225);
+        circuitFrame.setBounds(0,1,700,560);
+
+
 
 
         circuit.setBackground(Color.WHITE);
@@ -162,7 +169,7 @@ public class GraphicalConsole {
 
 
 
-        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file);
+        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame);
         run.addActionListener(runActionListener);
 
         ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener);
@@ -171,7 +178,7 @@ public class GraphicalConsole {
 
         Container container = mainPage.getContentPane();
         container.setBackground(Color.WHITE);
-        Border border = BorderFactory.createLineBorder(Color.GREEN, 3, true);
+        Border border = BorderFactory.createLineBorder(new Color(187, 146, 204), 3, true);
         JRootPane rootPane = mainPage.getRootPane();
 
 
@@ -209,7 +216,7 @@ public class GraphicalConsole {
         loading.setVisible(false);
         mainPage.setVisible(false);
         mainPage.add(textConsole);
-        mainPage.add(circuit);
+        //mainPage.add(circuit);
         mainPage.add(outPutInformations);
         mainPage.add(menuBar);
         mainPage.add(run);
