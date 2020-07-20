@@ -10,8 +10,8 @@ public class RunActionListener implements ActionListener {
     File file;
     JTextArea textConsole;
     JFrame circuitFrame,mainPage;
-    JLabel outPutInformationsLabel;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JLabel outPutInformationsLabel){
+    JTextArea outPutInformationsLabel;
+    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel){
         this.circuit=circuit;
         this.file=file;
         this.textConsole=textConsole;
@@ -33,7 +33,6 @@ public class RunActionListener implements ActionListener {
         }
 
         initialTextProccesor = new InitialTextProccesor(file);
-
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
         OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor);
 
@@ -49,9 +48,9 @@ public class RunActionListener implements ActionListener {
             initialTextProccesor.create_union();
             initialTextProccesor.set_union();
 
-            initialTextProccesor.solve();
-            //System.out.println("hierfan");
-            outPutInformationPrint.printOut();
+            //initialTextProccesor.solve();
+            outPutInformationsLabel.setText("");
+            outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
         }

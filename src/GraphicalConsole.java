@@ -4,25 +4,17 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import static java.awt.Component.CENTER_ALIGNMENT;
+
 public class GraphicalConsole {
 
 
     public void run() {
 
         MapPoints mapPoints=new MapPoints();
-//* hi this is a test
-//v1 0 1 1 0 0 0
-//r1 0 1 5
-//r3 1 2 2
-//c1 0 2 5
-//r2 0 2 4
-//.tran 10m
-//dv 1m
-//dI 1m
-//dT 10u
-        //"HI,Welcome to BPSPICE 10 \n First you should open a txt file..."
+
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
-               "l1 1 2 1\n" +
+                "l1 1 2 1\n" +
                 "c1 1 2 2\n"+
                 "c2 0 2 1\n" +
                 "l3 0 2 2\n"+
@@ -34,12 +26,10 @@ public class GraphicalConsole {
                 "r3 0 3 1\n"+
                 "v1 2 3 5 0 0 0\n"+
                 "r4 3 2 4\n"+
-                ".tran 10m\n" +
+                ".tran 1\n" +
                 "dv 1m\n" +
                 "dI 1m\n" +
-                "dT 10m\n"+
-               /*"v1 0 1 5 0 0 0\n"+
-                "r1 0 1 5\n"+*/
+                "dT 50m\n"+
                 "END");
 
         ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");
@@ -48,7 +38,7 @@ public class GraphicalConsole {
 
         JPanel loading=new JPanel();
 
-        Font font = new Font(Font.SERIF, Font.PLAIN,  16);
+
 
         loading.add(startImageLabel);
 
@@ -62,32 +52,40 @@ public class GraphicalConsole {
 
         JFrame mainPage = new JFrame("BPSPICE10");
 
-        JLabel outPutInformationsLabel=new JLabel("Results will be shown here",SwingConstants.LEFT);
+        JPanel outPutInformationsPanel=new JPanel();
 
-        outPutInformationsLabel.setBounds(850,480,670,305);
+        JTextArea outPutInformationsLabel=new JTextArea("Results will be shown here:");
+        outPutInformationsLabel.setEditable(false);
+
+        outPutInformationsLabel.setForeground(Color.WHITE);
 
         outPutInformationsLabel.setBackground(Color.BLUE);
 
-        outPutInformationsLabel.setForeground(Color.WHITE);
+        Font font = new Font(Font.SERIF, Font.PLAIN,  16);
+
+        Font font1 = new Font(Font.SERIF, Font.PLAIN,  14);
+
+        outPutInformationsLabel.setFont(font1.deriveFont(font1.getStyle() | Font.BOLD));
+
+
+        outPutInformationsLabel.setFont(font1);
+
+
 
 
         textConsole.setFont(font);
 
         JFrame circuitFrame=new JFrame("Circuit Graph");
+
         JPanel circuit = new MapPoints();
 
-
-
-        JPanel outPutInformations=new JPanel();
         JMenuBar menuBar = new JMenuBar();
+
         circuit.setLayout(null);
 
+        textConsole.setBounds(10,60,570,725);
 
 
-
-        textConsole.setBounds(10,60,740,725);
-
-        outPutInformations.setBounds(750,60,770,725);
 
         loading.setBounds(480,250,497,300);
 
@@ -105,11 +103,14 @@ public class GraphicalConsole {
 
         circuitFrame.setBounds(0,1,700,560);
 
+        JScrollPane scroll = new JScrollPane (outPutInformationsLabel,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(580,60,940,725);
+        outPutInformationsLabel.setBounds(580,60,940,725);
 
 
 
         circuit.setBackground(Color.WHITE);
-        outPutInformations.setBackground(Color.BLUE);
 
 
 
@@ -189,7 +190,7 @@ public class GraphicalConsole {
         rootPane.setBorder(border);
         circuit.setBorder(border);
         textConsole.setBorder(border);
-        outPutInformations.setBorder(border);
+        outPutInformationsLabel.setBorder(border);
 
         mainPage.setLayout(null);
 
@@ -212,15 +213,10 @@ public class GraphicalConsole {
 
 
 
-
-
-        outPutInformations.add(outPutInformationsLabel);
-
         loading.setVisible(false);
         mainPage.setVisible(false);
         mainPage.add(textConsole);
-        //mainPage.add(circuit);
-        mainPage.add(outPutInformations);
+        mainPage.add(scroll);
         mainPage.add(menuBar);
         mainPage.add(run);
         mainPage.add(open);

@@ -134,8 +134,6 @@ public class DrawKit {
 
             circuit.add(voltageSourceLeft);
         }
-
-
     }
 
     public void currentSourceDrawer(int nodeP, int nodeM) {
@@ -196,7 +194,6 @@ public class DrawKit {
             circuit.add(capacitorHorizontal);
         } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
             capacitorVertical = new JLabel(capacitorVerticalimage);
-            System.out.println(nodeCoordinates.get(max).x);
             capacitorVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(capacitorVertical);
@@ -222,7 +219,7 @@ public class DrawKit {
             circuit.add(inductorHorizontal);
         } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
             inductorVertical = new JLabel(inductorVerticalimage);
-            System.out.println(nodeCoordinates.get(max).x);
+
             inductorVertical.setBounds(nodeCoordinates.get(max).x - 41, nodeCoordinates.get(max).y + 1, 80, 80);
 
             circuit.add(inductorVertical);
@@ -316,7 +313,6 @@ public class DrawKit {
 
         if (node.size() == 4) {
 
-            System.out.println("started");
             fourNode(node);
 
         }
@@ -370,7 +366,6 @@ public class DrawKit {
         type = elements.get(0).type;
 
         for (int i = 0; i < elements.size(); i++) {
-            System.out.println("hihihii" + "  " + i);
             type = elements.get(i).type;
             switch (type) {
                 case "c":
@@ -609,19 +604,19 @@ public class DrawKit {
             }
         }
 
-        boolean threeTOone=false;
-        currentNode+=left;
-        boolean flag4=false;
-        boolean flag5=true;
+        boolean threeTOone = false;
+        currentNode += left;
+        boolean flag4 = false;
+        boolean flag5 = true;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             if (elements.get(i).node1.equals(lastNode.name) || elements.get(i).node2.equals(lastNode.name)) {
                 int temp = Integer.parseInt(elements.get(i).node1) + Integer.parseInt(elements.get(i).node2) - Integer.parseInt(lastNode.name);
                 String elseNode = Integer.toString(temp);
                 if (elseNode.equals(node4.get(1).name)) {
-                    if(flag5)
-                        currentNode = currentNode + 2 * up+right;
-                    flag5=false;
+                    if (flag5)
+                        currentNode = currentNode + 2 * up + right;
+                    flag5 = false;
                     switch (type) {
                         case "c":
                             capacitorDrawer(currentNode, currentNode + left);
@@ -639,21 +634,21 @@ public class DrawKit {
                             currentSourceDrawer(currentNode, currentNode + left);
                             break;
                     }
-                    if(flag4) {
+                    if (flag4) {
                         wireDrawer(currentNode, currentNode + down);
                         wireDrawer(currentNode + left, currentNode + down + left);
                     }
-                    currentNode+=up;
-                    flag4=true;
-                    threeTOone=true;
+                    currentNode += up;
+                    flag4 = true;
+                    threeTOone = true;
                 }
-                if(threeTOone){
-                    wireDrawer(26,34);
-                    wireDrawer(34,42);
-                    wireDrawer(42,45);
-                    wireDrawer(45,48);
-                    wireDrawer(48,40);
-                    wireDrawer(40,32);
+                if (threeTOone) {
+                    wireDrawer(26, 34);
+                    wireDrawer(34, 42);
+                    wireDrawer(42, 45);
+                    wireDrawer(45, 48);
+                    wireDrawer(48, 40);
+                    wireDrawer(40, 32);
                 }
 
 
