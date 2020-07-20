@@ -9,12 +9,13 @@ public class RunActionListener implements ActionListener {
     JPanel circuit;
     File file;
     JTextArea textConsole;
-    JFrame circuitFrame;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame){
+    JFrame circuitFrame,mainPage;
+    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage){
         this.circuit=circuit;
         this.file=file;
         this.textConsole=textConsole;
         this.circuitFrame=circuitFrame;
+        this.mainPage=mainPage;
     }
 
     InitialTextProccesor initialTextProccesor;
@@ -30,8 +31,11 @@ public class RunActionListener implements ActionListener {
         }
 
         initialTextProccesor = new InitialTextProccesor(file);
+        ErrorFinder errorFinder=new ErrorFinder(mainPage,initialTextProccesor);
 
         initialTextProccesor.start();
+
+        errorFinder.find();
 
         circuitDrawer(initialTextProccesor);
         circuitFrame.add(circuit);
@@ -39,6 +43,7 @@ public class RunActionListener implements ActionListener {
 
         initialTextProccesor.create_union();
         initialTextProccesor.set_union();
+
         //initialTextProccesor.solve();
 
 

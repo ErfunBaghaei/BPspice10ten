@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ErrorFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RunActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RunActionListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +88,7 @@
       <workItem from="1594476849408" duration="385000" />
       <workItem from="1595059044661" duration="15195000" />
       <workItem from="1595168458210" duration="1970000" />
-      <workItem from="1595235002151" duration="476000" />
+      <workItem from="1595235002151" duration="1015000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -157,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595170396456</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="phase 2 is about to finish1">
+      <created>1595235717860</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1595235717860</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,10 +187,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 is about to finish1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595170394316">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595235715836">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595170394316" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595235715836" />
     <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595235629071">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -205,10 +215,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="142" y="138" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1595076788735" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595170399886">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595235718946">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595170399886" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595235718946" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
