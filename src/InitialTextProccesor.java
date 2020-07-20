@@ -125,20 +125,33 @@ public class InitialTextProccesor {
             }
             if(flag)
              Collections.swap(nodes,i,0);
-            int [] nodeNames=new int[nodes.size()+2];
+            int [] nodeNames=new int[nodes.size()];
 
             for(int k=0;k<nodes.size();k++){
-                nodeNames[k]=Integer.parseInt(nodes.get(i).name);
+                nodeNames[k]=Integer.parseInt(nodes.get(k).name);
+                System.out.println(Integer.parseInt(nodes.get(k).name)+"  "+nodeNames[k]);
+            }
+            for(int k=0;k<nodes.size();k++){
+
+                System.out.println("  "+nodeNames[k]);
             }
             Arrays.sort(nodeNames);
             for(int k=0;k<nodes.size();k++){
+
+                System.out.println("  "+nodeNames[k]);
+            }
+
+            for(int k=0;k<nodes.size();k++){
                 for(int h=0;h<nodes.size();h++){
                     if(nodeNames[k]==Integer.parseInt(nodes.get(h).name)){
-                        nodesInOrder.add(nodes.get(h));
+                        System.out.println(nodes.get(h).name+"   "+Integer.parseInt(nodes.get(h).name)+"lolollololo  "+nodeNames[k]);
+                        nodesInOrder.add(k,nodes.get(h));
                     }
+
                 }
 
             }
+
 
 
         } catch (FileNotFoundException e) {

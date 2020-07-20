@@ -16,10 +16,12 @@ public class OutPutInformationPrint {
 
     public String printOut() {
         File fileOut = new File("Result");
-        String labelString = new String(lineNumber + "- ");
+        String labelString = new String("Nodes:\n"+lineNumber + "- ");
         try {
             FileWriter out = new FileWriter(fileOut);
 
+            for (int jj = 0; jj < 4; jj++)
+                System.out.print(initialTextProccesor.nodesInOrder.get(jj).name);
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.nodesInOrder.size(); i++) {
                 labelString = labelString + initialTextProccesor.nodesInOrder.get(i).name + "  >   ";
@@ -31,16 +33,21 @@ public class OutPutInformationPrint {
                     System.out.print(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ");
                 }
                 System.out.println();
-                labelString = labelString + "\n" + lineNumber + "- ";
-                lineNumber++;
+                if(i != initialTextProccesor.nodesInOrder.size() - 1) {
+                    labelString = labelString + "\n" + lineNumber + "- ";
+                    lineNumber++;
+                }
 
             }
 
-
+            labelString = labelString +"\n\n*********************************************************************************\n\nElements:\n";
+            labelString = labelString + lineNumber + "- ";
+            lineNumber++;
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
                 labelString = labelString + initialTextProccesor.elements.get(i).name + "  >   ";
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
-                System.out.print(initialTextProccesor.elements.get(i).name + "  >   ");
+                System.out.print(initialTextProccesor.elements.get(i).name + "  > " +
+                        "  ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
                     labelString = labelString + " v: " + initialTextProccesor.elements.get(i).voltageValues[j]
                             + " i: " + initialTextProccesor.elements.get(i).currentValues[j]
@@ -71,8 +78,5 @@ public class OutPutInformationPrint {
         }
         return null;
 
-
     }
-
-
 }
