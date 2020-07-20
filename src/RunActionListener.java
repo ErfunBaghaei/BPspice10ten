@@ -10,8 +10,8 @@ public class RunActionListener implements ActionListener {
     File file;
     JTextArea textConsole;
     JFrame circuitFrame,mainPage;
-    JLabel outPutInformationsLabel;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JLabel outPutInformationsLabel){
+    JTextArea outPutInformationsLabel;
+    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel){
         this.circuit=circuit;
         this.file=file;
         this.textConsole=textConsole;
@@ -49,7 +49,10 @@ public class RunActionListener implements ActionListener {
             initialTextProccesor.set_union();
 
             //initialTextProccesor.solve();
-            outPutInformationPrint.printOut();
+            outPutInformationsLabel.setText("");
+            outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+
+            System.out.println(outPutInformationPrint.printOut());
 
 
         }

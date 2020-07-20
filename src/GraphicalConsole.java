@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import static java.awt.Component.CENTER_ALIGNMENT;
+
 public class GraphicalConsole {
 
 
@@ -47,6 +49,8 @@ public class GraphicalConsole {
         JPanel loading=new JPanel();
 
         Font font = new Font(Font.SERIF, Font.PLAIN,  16);
+        Font font1 = new Font(Font.SERIF, Font.PLAIN,  16);
+
 
         loading.add(startImageLabel);
 
@@ -60,32 +64,38 @@ public class GraphicalConsole {
 
         JFrame mainPage = new JFrame("BPSPICE10");
 
-        JLabel outPutInformationsLabel=new JLabel("Results will be shown here",SwingConstants.LEFT);
+        JPanel outPutInformationsPanel=new JPanel();
 
-        outPutInformationsLabel.setBounds(850,480,670,305);
-
-        outPutInformationsLabel.setBackground(Color.BLUE);
+        JTextArea outPutInformationsLabel=new JTextArea("Results will be shown here:");
+        outPutInformationsLabel.setEditable(false);
 
         outPutInformationsLabel.setForeground(Color.WHITE);
 
+        outPutInformationsLabel.setBackground(Color.BLUE);
+
+        outPutInformationsLabel.setFont(font1);
+
+        outPutInformationsLabel.setFont(font1.deriveFont(font1.getStyle() | Font.BOLD));
+
+        JPanel outPutInformations=new JPanel();
+
+        outPutInformations.add(outPutInformationsLabel);
+
+        outPutInformations.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         textConsole.setFont(font);
 
         JFrame circuitFrame=new JFrame("Circuit Graph");
+
         JPanel circuit = new MapPoints();
 
-
-
-        JPanel outPutInformations=new JPanel();
         JMenuBar menuBar = new JMenuBar();
+
         circuit.setLayout(null);
-
-
-
 
         textConsole.setBounds(10,60,740,725);
 
-        outPutInformations.setBounds(750,60,770,725);
+        outPutInformationsLabel.setBounds(750,60,770,725);
 
         loading.setBounds(480,250,497,300);
 
@@ -187,7 +197,7 @@ public class GraphicalConsole {
         rootPane.setBorder(border);
         circuit.setBorder(border);
         textConsole.setBorder(border);
-        outPutInformations.setBorder(border);
+        outPutInformationsLabel.setBorder(border);
 
         mainPage.setLayout(null);
 
@@ -210,15 +220,10 @@ public class GraphicalConsole {
 
 
 
-
-
-        outPutInformations.add(outPutInformationsLabel);
-
         loading.setVisible(false);
         mainPage.setVisible(false);
         mainPage.add(textConsole);
-        //mainPage.add(circuit);
-        mainPage.add(outPutInformations);
+        mainPage.add(outPutInformationsLabel);
         mainPage.add(menuBar);
         mainPage.add(run);
         mainPage.add(open);
