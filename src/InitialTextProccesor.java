@@ -138,9 +138,10 @@ public class InitialTextProccesor {
             int [] nodeNames=new int[nodes.size()];
 
             for(int k=0;k<nodes.size();k++){
-                nodeNames[k]=Integer.parseInt(nodes.get(i).name);
+                nodeNames[k]=Integer.parseInt(nodes.get(k).name);
             }
             Arrays.sort(nodeNames);
+
             for(int k=0;k<nodes.size();k++){
                 for(int h=0;h<nodes.size();h++){
                     if(nodeNames[k]==Integer.parseInt(nodes.get(h).name)){

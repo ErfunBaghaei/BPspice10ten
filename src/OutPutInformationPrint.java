@@ -16,7 +16,7 @@ public class OutPutInformationPrint {
 
     public String printOut() {
         File fileOut = new File("Result");
-        String labelString = new String("Nodes:\n"+lineNumber + "- ");
+        String labelString = new String("Nodes:\n "+lineNumber + "- ");
         try {
             FileWriter out = new FileWriter(fileOut);
 
@@ -27,8 +27,8 @@ public class OutPutInformationPrint {
                 out.write(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
-                    if(j%27==0&&i!=0) {
-                        labelString += "\n "+lineNumber+" -  ";
+                    if(j%27==0&&j!=0) {
+                        labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
                     labelString = labelString + initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ";
@@ -43,15 +43,15 @@ public class OutPutInformationPrint {
 
             }
 
-            labelString = labelString +"\n\n***********************************************************************************\n\nElements:\n";
-            labelString = labelString + lineNumber + "- ";
+            labelString = labelString +"\n\n***********************************************************************************\n\nElements:\n ";
+            labelString = labelString + lineNumber + " - ";
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
                 labelString = labelString + initialTextProccesor.elements.get(i).name + "  >   ";
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
-                    if(j%6==0&&i!=0) {
+                    if(j%6==0&&j!=0) {
                         labelString += "\n "+lineNumber+" -  ";
                         lineNumber++;
                     }

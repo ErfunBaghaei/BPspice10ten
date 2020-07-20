@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Result" beforeDir="false" afterPath="$PROJECT_DIR$/Result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OutPutInformationPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OutPutInformationPrint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +89,7 @@
       <workItem from="1595059044661" duration="15195000" />
       <workItem from="1595168458210" duration="1970000" />
       <workItem from="1595235002151" duration="1197000" />
-      <workItem from="1595258952634" duration="16937000" />
+      <workItem from="1595258952634" duration="17605000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595276292804</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="phase 2 finishing">
+      <created>1595277539230</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1595277539230</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,30 +259,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 finishing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595276291083">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595277536911">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595276291083" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595277492987">
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595277536911" />
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595278288691">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595277492987" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595277492987">
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595278288691" />
+    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595278288690">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595277492987" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595277492986">
+    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595278288690" />
+    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595278288688">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595277492986" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595277492987">
+    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595278288688" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595278288691">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595277492987" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595278288691" />
     <state x="142" y="138" key="MultipleFileMergeDialog" timestamp="1595076788735">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
