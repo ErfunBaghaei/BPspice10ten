@@ -37,7 +37,8 @@ public class GraphicalConsole {
                 ".tran 10m\n" +
                 "dv 1m\n" +
                 "dI 1m\n" +
-                "dT 10");
+                "dT 10m\n"+
+                "END");
 
         ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");
 

@@ -42,7 +42,7 @@ public class InitialTextProccesor {
             currentLineInput = fileScan.nextLine();
 
 
-            while (fileScan.hasNextLine()) {
+            while (!currentLineInput.equals("END")) {
                 flag = 0;
                 System.out.println(currentLineInput);
 
@@ -83,8 +83,8 @@ public class InitialTextProccesor {
                         graph[first][next] = 12;
                     } else if ((currentLineInput.charAt(0) == 'd' || currentLineInput.charAt(0) == 'D')
                             && !(currentLineInput.charAt(1) == 'v' || currentLineInput.charAt(1) == 'V')
-                            && !(currentLineInput.charAt(1) == 'i' || currentLineInput.charAt(1) == 'I'
-                            && !(currentLineInput.charAt(1) == 't' || currentLineInput.charAt(1) == 'T')))
+                            && !(currentLineInput.charAt(1) == 'i' || currentLineInput.charAt(1) == 'I')
+                            && !(currentLineInput.charAt(1) == 't' || currentLineInput.charAt(1) == 'T'))
                         createIdealDiode(currentLineInput);
 
                     else if (currentLineInput.indexOf("DV") == 0 || currentLineInput.indexOf("dV") == 0

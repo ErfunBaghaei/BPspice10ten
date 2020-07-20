@@ -14,4 +14,5 @@ r4 3 2 4
 .tran 10m
 dv 1m
 dI 1m
-dT 10
+dT 10m
+END
