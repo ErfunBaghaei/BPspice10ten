@@ -27,7 +27,7 @@ public class OutPutInformationPrint {
                 out.write(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
-                    if(j%27==0) {
+                    if(j%27==0&&i!=0) {
                         labelString += "\n "+lineNumber+" -  ";
                         lineNumber++;
                     }
@@ -43,7 +43,7 @@ public class OutPutInformationPrint {
 
             }
 
-            labelString = labelString +"\n\n*********************************************************************************\n\nElements:\n";
+            labelString = labelString +"\n\n***********************************************************************************\n\nElements:\n";
             labelString = labelString + lineNumber + "- ";
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
@@ -51,8 +51,7 @@ public class OutPutInformationPrint {
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
-                    if(j%6==0) {
-
+                    if(j%6==0&&i!=0) {
                         labelString += "\n "+lineNumber+" -  ";
                         lineNumber++;
                     }

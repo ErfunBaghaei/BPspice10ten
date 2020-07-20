@@ -135,7 +135,7 @@ public class InitialTextProccesor {
                 }
 
             }
-            int [] nodeNames=new int[nodes.size()+2];
+            int [] nodeNames=new int[nodes.size()];
 
             for(int k=0;k<nodes.size();k++){
                 nodeNames[k]=Integer.parseInt(nodes.get(i).name);
