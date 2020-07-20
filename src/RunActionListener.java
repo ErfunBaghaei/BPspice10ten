@@ -33,6 +33,7 @@ public class RunActionListener implements ActionListener {
         }
 
         initialTextProccesor = new InitialTextProccesor(file);
+
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
         OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor);
 
@@ -48,7 +49,8 @@ public class RunActionListener implements ActionListener {
             initialTextProccesor.create_union();
             initialTextProccesor.set_union();
 
-            //initialTextProccesor.solve();
+            initialTextProccesor.solve();
+            //System.out.println("hierfan");
             outPutInformationPrint.printOut();
 
 

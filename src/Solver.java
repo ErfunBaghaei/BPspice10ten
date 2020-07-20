@@ -20,6 +20,7 @@ public class Solver {
 
         this.snodes=c;
         this.sgraph=d;
+        System.out.println(d[0][0]+" "+d[0][1]+" "+d[1][0]+" "+d[1][1]);
         System.out.println(di+"    "+dt+"   "+dv+"    "+a.size()+"    "+sunions.size()+"    "+selements.size()+"    "+snodes.size());
 
 
@@ -30,7 +31,7 @@ public class Solver {
             System.out.println("llll  "+j);
             sunions.get(j).nod.get(0).voltageDef = true;
             for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
-            while (true) {
+           // while (true) {
                 flag = 0;
                 for (i = 0; i < sunions.get(j).nod.size(); i++)
                     if (sunions.get(j).nod.get(i).voltageDef == false)
@@ -57,7 +58,7 @@ public class Solver {
                         }
                     }
                 }
-            }
+           // }
         }
     }
 
@@ -65,11 +66,14 @@ public class Solver {
     void mainsolver() {
         int i, j, k;
         double skcl = 0, skcl2 = 0;
+        System.out.println("step="+endtime/dt);
         resetVoltage();
         Kcl();
         for (j = 0; j < sunions.size(); j++) skcl += sunions.get(j).kcl * sunions.get(j).kcl;
+        System.out.println("hierfan");
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
+            System.out.println("time"+i);
             for (j = 1; j < sunions.size(); j++) {
                 sunions.get(j).nod.get(0).voltage += dv;
                 resetVoltage();

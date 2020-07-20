@@ -50,8 +50,6 @@ public class InitialTextProccesor {
                 System.out.println(currentLineInput);
 
 
-                if (graph[next][first] != 12) graph[next][first] = 1;
-                if (graph[first][next] != 12) graph[first][next] = 1;
 
                 if (currentLineInput.charAt(0) == '*') {
                 } else {
@@ -117,14 +115,26 @@ public class InitialTextProccesor {
 
             }
 
-            int i = 0;
+            int i = 0,c=0,j=0;
             boolean flag=false;
             while (!nodes.get(i).name.equals("0")) {
                 i++;
                 flag=true;
             }
-            if(flag)
-             Collections.swap(nodes,i,0);
+            if(flag) {
+                Collections.swap(nodes, i, 0);
+                for (j=0;j<nodes.size();j++){
+                    c=graph[0][j];
+                    graph[0][j]=graph[i][j];
+                    graph[i][j]=c;
+                }
+                for (j=0;j<nodes.size();j++){
+                    c=graph[j][0];
+                    graph[j][0]=graph[j][i];
+                    graph[j][i]=c;
+                }
+
+            }
             int [] nodeNames=new int[nodes.size()+2];
 
             for(int k=0;k<nodes.size();k++){
@@ -137,7 +147,6 @@ public class InitialTextProccesor {
                         nodesInOrder.add(nodes.get(h));
                     }
                 }
-
             }
 
 
@@ -163,8 +172,13 @@ public class InitialTextProccesor {
             union= new Union();
             union.name= nodes2.get(0).union;
             for (i=0;i<nodes2.size();i++){
+                System.out.println("e"+i+"e"+nodes2.size());
                 if (nodes2.get(i).union==union.name){
                     union.nod.add(nodes2.get(i));
+                }
+            }
+            for (i=nodes2.size()-1;i>=0;i--){
+                if (nodes2.get(i).union==union.name) {
                     nodes2.remove(nodes2.get(i));
                 }
             }
@@ -173,6 +187,16 @@ public class InitialTextProccesor {
     }
     public void create_union() {
         int i,n=0,j;
+        for (i=0;i<nodes.size();i++){
+            System.out.println(nodes.get(i).name+":");
+            for (j=0;j<nodes.size();j++) System.out.print(graph[i][j]+" ");
+            System.out.println("\n");
+        }
+        for (i=0;i<nodes.size();i++) {
+            System.out.println("node"+nodes.get(i).name);
+            nodes.get(i).union=Integer.parseInt(nodes.get(i).name);
+            nodes.get(i).added=false;
+        }
         nodes.get(0).added=true;
         nodes2.add(nodes.get(0));
         for (i=0;i<nodes.size();i++){
@@ -188,7 +212,8 @@ public class InitialTextProccesor {
                 }
             }
         }
-        while (nodes2.size()<nodes.size()){
+        for (i=0;i<nodes2.size();i++)System.out.println(nodes2.get(i).name+" "+nodes2.get(i).union+" "+nodes2.get(i).added+"\n");
+        while (1==1){
             for (i=nodes2.size()-1;i>=0;i--){
                 for (j=0;j<nodes.size();j++) if (nodes.get(j).name.equals(nodes2.get(i).name)) n=j;
                 for (j=0;j<nodes.size();j++){
@@ -199,13 +224,13 @@ public class InitialTextProccesor {
                         }
                     }
                     if (graph[n][j]==12){
+                        if (nodes.get(j).added==false)  nodes2.add(nodes.get(j));
                         nodes.get(j).added=true;
                         nodes.get(j).union=nodes2.get(i).union;
-                        nodes2.add(nodes.get(j));
                     }
-
                 }
             }
+            if (nodes2.size()==nodes.size()) break;
         }
     }
 
@@ -345,6 +370,8 @@ public class InitialTextProccesor {
             nodes.get(nodes.size()-1).union=next;
         }
         else flag=0;
+        if (graph[next][first] != 12) graph[next][first] = 1;
+        if (graph[first][next] != 12) graph[first][next] = 1;
 
     }
 
