@@ -152,8 +152,6 @@ public class InitialTextProccesor {
 
 
 
-
-
     public void solve(){
         Solver solver= new Solver(unions,elements,nodes,graph,deltav,deltat,deltai,time);
         solver.mainsolver();

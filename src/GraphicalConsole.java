@@ -170,7 +170,7 @@ public class GraphicalConsole {
 
 
 
-        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage);
+        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage,outPutInformationsLabel);
         run.addActionListener(runActionListener);
 
         ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener);
