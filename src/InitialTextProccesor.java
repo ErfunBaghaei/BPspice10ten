@@ -47,7 +47,7 @@ public class InitialTextProccesor {
 
             while (!currentLineInput.equals("END")) {
                 flag = 0;
-                System.out.println(currentLineInput);
+
 
 
                 if (graph[next][first] != 12) graph[next][first] = 1;
@@ -106,7 +106,7 @@ public class InitialTextProccesor {
                         time = setEndTime(currentLineInput);
                     else {
                         System.out.println("ERROR: UNKNOWN CHARCTERS IN LINE " + i);
-                        System.out.println("  >>>  "+currentLineInput);
+                        System.out.println("  >>> :  "+currentLineInput);
                         return false;
                     }
 
@@ -129,22 +129,14 @@ public class InitialTextProccesor {
 
             for(int k=0;k<nodes.size();k++){
                 nodeNames[k]=Integer.parseInt(nodes.get(k).name);
-                System.out.println(Integer.parseInt(nodes.get(k).name)+"  "+nodeNames[k]);
             }
-            for(int k=0;k<nodes.size();k++){
 
-                System.out.println("  "+nodeNames[k]);
-            }
             Arrays.sort(nodeNames);
-            for(int k=0;k<nodes.size();k++){
-
-                System.out.println("  "+nodeNames[k]);
-            }
 
             for(int k=0;k<nodes.size();k++){
                 for(int h=0;h<nodes.size();h++){
                     if(nodeNames[k]==Integer.parseInt(nodes.get(h).name)){
-                        System.out.println(nodes.get(h).name+"   "+Integer.parseInt(nodes.get(h).name)+"lolollololo  "+nodeNames[k]);
+
                         nodesInOrder.add(k,nodes.get(h));
                     }
 

@@ -196,7 +196,6 @@ public class DrawKit {
             circuit.add(capacitorHorizontal);
         } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
             capacitorVertical = new JLabel(capacitorVerticalimage);
-            System.out.println(nodeCoordinates.get(max).x);
             capacitorVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(capacitorVertical);
@@ -222,7 +221,7 @@ public class DrawKit {
             circuit.add(inductorHorizontal);
         } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
             inductorVertical = new JLabel(inductorVerticalimage);
-            System.out.println(nodeCoordinates.get(max).x);
+
             inductorVertical.setBounds(nodeCoordinates.get(max).x - 41, nodeCoordinates.get(max).y + 1, 80, 80);
 
             circuit.add(inductorVertical);
@@ -316,7 +315,6 @@ public class DrawKit {
 
         if (node.size() == 4) {
 
-            System.out.println("started");
             fourNode(node);
 
         }
@@ -370,7 +368,6 @@ public class DrawKit {
         type = elements.get(0).type;
 
         for (int i = 0; i < elements.size(); i++) {
-            System.out.println("hihihii" + "  " + i);
             type = elements.get(i).type;
             switch (type) {
                 case "c":

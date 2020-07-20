@@ -20,8 +20,6 @@ public class OutPutInformationPrint {
         try {
             FileWriter out = new FileWriter(fileOut);
 
-            for (int jj = 0; jj < 4; jj++)
-                System.out.print(initialTextProccesor.nodesInOrder.get(jj).name);
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.nodesInOrder.size(); i++) {
                 labelString = labelString + initialTextProccesor.nodesInOrder.get(i).name + "  >   ";
