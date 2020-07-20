@@ -145,7 +145,7 @@ public class InitialTextProccesor {
             }
 
 
-
+System.out.println(time+" "+deltat);
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }

@@ -22,10 +22,15 @@ public class OutPutInformationPrint {
 
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.nodesInOrder.size(); i++) {
+
                 labelString = labelString + initialTextProccesor.nodesInOrder.get(i).name + "  >   ";
                 out.write(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
+                    if(j%27==0) {
+                        labelString += "\n "+lineNumber+" -  ";
+                        lineNumber++;
+                    }
                     labelString = labelString + initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ";
                     out.write(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ");
                     System.out.print(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ");
@@ -44,9 +49,13 @@ public class OutPutInformationPrint {
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
                 labelString = labelString + initialTextProccesor.elements.get(i).name + "  >   ";
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
-                System.out.print(initialTextProccesor.elements.get(i).name + "  > " +
-                        "  ");
+                System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
+                    if(j%6==0) {
+
+                        labelString += "\n "+lineNumber+" -  ";
+                        lineNumber++;
+                    }
                     labelString = labelString + " v: " + initialTextProccesor.elements.get(i).voltageValues[j]
                             + " i: " + initialTextProccesor.elements.get(i).currentValues[j]
                             + " p: " + initialTextProccesor.elements.get(i).voltageValues[j]
