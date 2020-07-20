@@ -31,22 +31,26 @@ public class RunActionListener implements ActionListener {
         }
 
         initialTextProccesor = new InitialTextProccesor(file);
-        ErrorFinder errorFinder=new ErrorFinder(mainPage,initialTextProccesor);
+        ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
+        OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(mainPage, initialTextProccesor);
 
-        initialTextProccesor.start();
+        boolean cont=true;
+        cont = initialTextProccesor.start();
+        if (cont) {
+            errorFinder.find();
 
-        errorFinder.find();
+            circuitDrawer(initialTextProccesor);
+            circuitFrame.add(circuit);
+            circuitFrame.setVisible(true);
 
-        circuitDrawer(initialTextProccesor);
-        circuitFrame.add(circuit);
-        circuitFrame.setVisible(true);
+            initialTextProccesor.create_union();
+            initialTextProccesor.set_union();
 
-        initialTextProccesor.create_union();
-        initialTextProccesor.set_union();
-
-        //initialTextProccesor.solve();
+            //initialTextProccesor.solve();
+            //outPutInformationPrint.printOut();
 
 
+        }
     }
 
     public void circuitDrawer(InitialTextProccesor initialTextProccesor){

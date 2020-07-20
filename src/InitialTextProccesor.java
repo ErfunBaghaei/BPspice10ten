@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -12,9 +14,9 @@ public class InitialTextProccesor {
     ArrayList<Element> elements=new ArrayList<Element>();
     ArrayList<Node> nodes= new ArrayList();
     ArrayList<Node> nodes2 = new ArrayList();
+    ArrayList<Node> nodesInOrder= new ArrayList();
 
 
-    ArrayList<Node> nodeNormal=new ArrayList();
 
 
 
@@ -24,13 +26,14 @@ public class InitialTextProccesor {
     InitialTextProccesor(File file){
         this.file=file;
     }
+    boolean end=false;
 
 
     int lineNumber=1,flag=0,i,j,k,first=0,next=0;
 
 
     String currentLineInput;
-    public void start() {
+    public boolean start() {
 
         for (int hh = 0; hh < 1000; hh++)
             for (int kk = 0; kk < 1000; kk++)
@@ -101,7 +104,11 @@ public class InitialTextProccesor {
 
                     else if (currentLineInput.indexOf(".tran") == 0)
                         time = setEndTime(currentLineInput);
-
+                    else {
+                        System.out.println("ERROR: UNKNOWN CHARCTERS IN LINE " + i);
+                        System.out.println("  >>>  "+currentLineInput);
+                        return false;
+                    }
 
                 }
                 currentLineInput = fileScan.nextLine();
@@ -109,6 +116,7 @@ public class InitialTextProccesor {
 
 
             }
+
             int i = 0;
             boolean flag=false;
             while (!nodes.get(i).name.equals("0")) {
@@ -117,10 +125,25 @@ public class InitialTextProccesor {
             }
             if(flag)
              Collections.swap(nodes,i,0);
+            int [] nodeNames=new int[nodes.size()+2];
+
+            for(int k=0;k<nodes.size();k++){
+                nodeNames[k]=Integer.parseInt(nodes.get(i).name);
+            }
+            Arrays.sort(nodeNames);
+            for(int k=0;k<nodes.size();k++){
+                for(int h=0;h<nodes.size();h++){
+                    //if(nodeNames[k]==nodes.get(h).name)
+
+                }
+
+            }
+
 
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }
+        return true;
 
     }
 
