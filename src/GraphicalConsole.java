@@ -15,7 +15,7 @@ public class GraphicalConsole {
 
         MapPoints mapPoints=new MapPoints();
 
-        JTextField drawElement=new JTextField("r1");
+        JTextField drawElement=new JTextField("");
 
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
                /* "l1 1 2 1\n" +
