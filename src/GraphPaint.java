@@ -62,9 +62,10 @@ public class GraphPaint extends JPanel {
         else if (check == 2)
             maxIndex = max(element.voltageValues, numberOfPoints);
 
-        if (maxIndex == -1)
-            g2d.drawLine(10, 0, 1000, 0);
-
+        if (maxIndex == -1) {
+            g2d.drawLine(10, 285, 1000, 285);
+            System.out.println("we ar highed :)");
+        }
 
         else {
             if (check == 0) {

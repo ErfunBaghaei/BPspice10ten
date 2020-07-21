@@ -100,15 +100,15 @@ public class GraphicalConsole {
 
         open.setBounds(271,35,90,20);
 
-        mainPage.setBounds(0,0,1800,1000);
+        mainPage.setBounds(0,0,1800,990);
 
         circuit.setBounds(850,60,670,500);
 
         circuitFrame.setBounds(0,1,700,560);
 
-        which.setBounds(370,35,280,20);
+        which.setBounds(370,34,270,20);
 
-        drawElement.setBounds(645,37,70,20);
+        drawElement.setBounds(643,35,70,22);
 
         which.setBackground(Color.gray);
 
@@ -191,16 +191,21 @@ public class GraphicalConsole {
 
         Container container = mainPage.getContentPane();
         container.setBackground(Color.WHITE);
-        Border border = BorderFactory.createLineBorder(new Color(19, 193, 30), 3, true);
+        Border border = BorderFactory.createLineBorder(new Color(19, 193, 30), 2, true);
         JRootPane rootPane = mainPage.getRootPane();
 
-
+        drawElement.setBorder(border);
+        open.setBorder(border);
+        run.setBorder(border);
+        draw.setBorder(border);
+        output.setBorder(border);
+        menuBar.setBorder(border);
 
         rootPane.setBorder(border);
         circuit.setBorder(border);
         textConsole.setBorder(border);
         outPutInformationsLabel.setBorder(border);
-
+        border = BorderFactory.createLineBorder(new Color(19, 193, 30), 3, true);
         mainPage.setLayout(null);
 
 
