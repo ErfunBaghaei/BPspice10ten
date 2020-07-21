@@ -8,9 +8,12 @@ import java.security.PublicKey;
 public class DrawActionListener implements ActionListener {
     RunActionListener runActionListener;
     InitialTextProccesor initialTextProccesor;
-    public DrawActionListener(RunActionListener runActionListener,InitialTextProccesor initialTextProccesor){
+
+    JTextField whichElement;
+    public DrawActionListener(RunActionListener runActionListener,InitialTextProccesor initialTextProccesor,JTextField whichElement){
         this.runActionListener=runActionListener;
         this.initialTextProccesor=initialTextProccesor;
+        this.whichElement=whichElement;
     }
 
 
@@ -20,24 +23,39 @@ public class DrawActionListener implements ActionListener {
 
     int check=1;
 
-    JTextField whichElement=new JTextField();
-
-
-
     JFrame voltageGraph=new JFrame("Voltage");
     JFrame currentGraph=new JFrame("Current");
     JFrame powerGraph=new JFrame("Power");
 
 
+    Element element=null;
+    String name;
+
     @Override
     public void actionPerformed(ActionEvent a){
-        Element element=new Element();
-        String name;
+
+
+
         name=whichElement.getText();
+        if(name.equals(""))
+        {
+            JOptionPane.showMessageDialog(voltageGraph,
+                    "please give an element!", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        boolean flag=false;
+
         for(int i=0;i<initialTextProccesor.elements.size();i++){
             if(name.equals(initialTextProccesor.elements.get(i).name)){
+                flag=true;
                 element=initialTextProccesor.elements.get(i);
             }
+        }
+        if(flag==false)
+        {
+            JOptionPane.showMessageDialog(voltageGraph,
+                    "Invalid element!", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
 

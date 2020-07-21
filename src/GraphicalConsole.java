@@ -15,6 +15,8 @@ public class GraphicalConsole {
 
         MapPoints mapPoints=new MapPoints();
 
+        JTextField drawElement=new JTextField();
+
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
                 "l1 1 2 1\n" +
                 "c1 1 2 2\n"+
@@ -83,9 +85,10 @@ public class GraphicalConsole {
 
         circuit.setLayout(null);
 
+        JLabel which=new JLabel("Type the name of the element to draw its graphs:");
+
+
         textConsole.setBounds(10,60,570,725);
-
-
 
         loading.setBounds(480,250,497,300);
 
@@ -102,6 +105,12 @@ public class GraphicalConsole {
         circuit.setBounds(850,60,670,500);
 
         circuitFrame.setBounds(0,1,700,560);
+
+        which.setBounds(370,35,270,20);
+
+        drawElement.setBounds(635,37,70,20);
+
+        which.setBackground(Color.gray);
 
         JScrollPane scroll = new JScrollPane (outPutInformationsLabel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -176,7 +185,7 @@ public class GraphicalConsole {
         ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage,outPutInformationsLabel,initialTextProccesor);
         run.addActionListener(runActionListener);
 
-        ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener,((RunActionListener) runActionListener).initialTextProccesor);
+        ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener,((RunActionListener) runActionListener).initialTextProccesor,drawElement);
         draw.addActionListener(drawActionListener);
 
 
@@ -222,6 +231,8 @@ public class GraphicalConsole {
         mainPage.add(open);
         mainPage.add(draw);
         mainPage.add(output);
+        mainPage.add(which);
+        mainPage.add(drawElement);
         mainPage.setVisible(true);
 
 

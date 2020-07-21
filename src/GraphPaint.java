@@ -48,57 +48,55 @@ public class GraphPaint extends JPanel {
         int numberOfPoints = (int) (endTime / timeTick) + 1;
 
 
-        numberOfPoints=1000;
-
 
         int distance = (int)(Math.ceil(1000.0 / (numberOfPoints-1)))-1;
         double[] powerValues = new double[numberOfPoints];
         for (int h = 0; h < numberOfPoints; h++) {
             powerValues[h] = element.voltageValues[h] * element.currentValues[h];
         }
-        double[] wrong = new double[numberOfPoints];
+
         for (int j = 0; j < numberOfPoints; j++) {
 
-            wrong[j] = (Math.sin((double) (j)/50.0)*Math.sin((double) (j))) ;
-            System.out.printf("amiamin+%f",(280.0*(wrong[j])));
+            element.voltageValues[j] = (Math.sin((double) (j)/50.0)*Math.sin((double) (j))) ;
+            System.out.printf("amiamin+%f",(280.0*(element.voltageValues[j])));
         }
 
-        //////change wrong with elements.values
+        //////change element.voltageValues with elements.values
 
 
         if (check == 0) {
-            maxIndex = max(wrong, numberOfPoints);
+            maxIndex = max(element.voltageValues, numberOfPoints);
 
         } else if (check == 1) {
-            maxIndex = max(wrong, numberOfPoints);
+            maxIndex = max(element.voltageValues, numberOfPoints);
             for (int j = 0; j < numberOfPoints; j++) {
-                wrong[j] = Math.sin(j / 10);
+                element.voltageValues[j] = Math.sin(j / 10);
             }
         } else if (check == 2)
-            maxIndex = max(wrong, numberOfPoints);
+            maxIndex = max(element.voltageValues, numberOfPoints);
 
         if (check == 0) {
 
 
             for (int ii = 0; ii < numberOfPoints-1; ii++) {
 
-                g2d.drawLine(distance * (ii)+10,285-(int)(Math.ceil(280*(wrong[ii] ))) , distance * (ii+1)+10,
-                        285-(int)(Math.ceil(280*(wrong[ii+1] ))));
+                g2d.drawLine(distance * (ii)+10,285-(int)(Math.ceil(280*(element.voltageValues[ii] ))) , distance * (ii+1)+10,
+                        285-(int)(Math.ceil(280*(element.voltageValues[ii+1] ))));
             }
         }
-   //    else if (check == 1) {
-   //        for (int ii = 1; ii <= numberOfPoints; ii++) {
-   //            g2d.drawLine(distance * (ii - 1), 270 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]), distance * ii,
-   //                    540 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]));
+       else if (check == 1) {
+           for (int ii = 1; ii <= numberOfPoints; ii++) {
+               g2d.drawLine(distance * (ii - 1), 270 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]), distance * ii,
+                       540 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]));
 
-   //        }
-   //    } else if (check == 2) {
-   //        for (int ii = 1; ii <= numberOfPoints; ii++) {
-   //            g2d.drawLine(distance * (ii - 1), 270 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]), distance * ii,
-   //                    540 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]));
+           }
+       } else if (check == 2) {
+           for (int ii = 1; ii <= numberOfPoints; ii++) {
+               g2d.drawLine(distance * (ii - 1), 270 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]), distance * ii,
+                       540 * (int) (element.voltageValues[ii - 1] / element.voltageValues[maxIndex]));
 
-   //        }
-   //    }
+           }
+       }
     }
 
 
