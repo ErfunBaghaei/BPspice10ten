@@ -1,8 +1,14 @@
 * hi this is a test
-v1 0 1 5 0 0 0
-r1 1 2 2
-r2 2 0 3
-.tran 50m
+l3 0 1 1
+v1 2 1 5 0 0 0
+l2 0 1 4
+l1 2 3 5
+r1 1 2 4
+r3 0 3 1
+c1 2 3 2
+r2 3 0 3
+i1 1 3 4 0 0 0
+.tran 500m
 dv 0.1
 dI 1m
 dT 10m

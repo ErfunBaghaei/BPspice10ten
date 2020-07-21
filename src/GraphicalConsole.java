@@ -16,42 +16,21 @@ public class GraphicalConsole {
         MapPoints mapPoints=new MapPoints();
 
         JTextField drawElement=new JTextField("");
-
+        //First, you must choose a file...
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
-               /* "l1 1 2 1\n" +
-                "c1 1 2 2\n"+
-                "c2 0 2 1\n" +
-                "l3 0 2 2\n"+
-                "l2 0 1 1\n" +
-                "i1 0 1 5 0 0 0\n"+
-                "r1 0 3 1\n"+
-                "v2 1 3 4 0 0 0\n"+
-                "r2 1 3 1\n"+
-                "r3 0 3 1\n"+
-                "v1 2 3 5 0 0 0\n"+
-                "r4 3 2 4\n"+
-                ".tran 50m\n" +
-                "dv 1m\n" +
-                "dI 1m\n" +
-                "dT 50m\n"+*/
-                /*"i1 0 1 5 0 0 0\n"+
-                "r1 0 3 1\n"+
-                "v2 1 3 4 0 0 0\n"+
-                "r2 1 3 1\n"+
-                "r3 0 3 1\n"+
-                "v1 2 3 5 0 0 0\n"+
-                "r4 3 2 4\n"+
-                ".tran 50m\n" +
+                "l3 0 1 1\n" +
+                "v1 2 1 5 0 0 0\n" +
+                "l2 0 1 4\n" +
+                "l1 2 3 5\n" +
+                "r1 1 2 4\n" +
+                "r3 0 3 1\n" +
+                "c1 2 3 2\n" +
+                "r2 3 0 3\n" +
+                "i1 1 3 4 0 0 0\n" +
+                ".tran 500m\n" +
                 "dv 0.1\n" +
                 "dI 1m\n" +
-                "dT 10m\n"+*/
-                "v1 0 1 5 0 0 0\n"+
-                "r1 1 2 2\n"+
-                "r2 2 0 3\n"+
-                ".tran 50m\n" +
-                "dv 0.1\n" +
-                "dI 1m\n" +
-                "dT 10m\n"+
+                "dT 10m\n" +
                 "END");
 
         ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");

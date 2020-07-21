@@ -28,7 +28,7 @@ public class Solver {
     void resetVoltage() {
         int i, flag, j,k,m;
         for (j = 0; j < sunions.size(); j++){
-            System.out.println("llll  "+j);
+            System.out.println("llllx  "+j);
             sunions.get(j).nod.get(0).voltageDef = true;
             for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
             while (true) {

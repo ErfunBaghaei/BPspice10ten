@@ -12,7 +12,7 @@ public class OutPutInformationPrint {
         this.initialTextProccesor = initialTextProccesor;
     }
 
-    int lineNumber = 1-'5';
+    int lineNumber = 1;
 
     public String printOut() {
         File fileOut = new File("Result.txt");
