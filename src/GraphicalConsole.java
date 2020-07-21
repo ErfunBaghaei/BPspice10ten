@@ -34,13 +34,20 @@ public class GraphicalConsole {
                 "dv 1m\n" +
                 "dI 1m\n" +
                 "dT 50m\n"+*/
-                "i1 0 1 5 0 0 0\n"+
+                /*"i1 0 1 5 0 0 0\n"+
                 "r1 0 3 1\n"+
                 "v2 1 3 4 0 0 0\n"+
                 "r2 1 3 1\n"+
                 "r3 0 3 1\n"+
                 "v1 2 3 5 0 0 0\n"+
                 "r4 3 2 4\n"+
+                ".tran 50m\n" +
+                "dv 0.1\n" +
+                "dI 1m\n" +
+                "dT 10m\n"+*/
+                "v1 0 1 5 0 0 0\n"+
+                "r1 1 2 2\n"+
+                "r2 2 0 3\n"+
                 ".tran 50m\n" +
                 "dv 0.1\n" +
                 "dI 1m\n" +

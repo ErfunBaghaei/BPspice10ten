@@ -89,6 +89,9 @@
       <workItem from="1595235002151" duration="1197000" />
       <workItem from="1595258952634" duration="17852000" />
       <workItem from="1595318135525" duration="18804000" />
+      <workItem from="1595350458619" duration="31000" />
+      <workItem from="1595350579488" duration="1146000" />
+      <workItem from="1595351747837" duration="81000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -325,25 +328,25 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595339787194" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595339820471">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1595351726331">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595351726331" />
     <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595339820471" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595339820470">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1595351726330">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595351726330" />
     <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595339820470" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595339820470">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1595351726330">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595351726330" />
     <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595339820470" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595339820470">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1595351726331">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595351726331" />
     <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595339820470" />
     <state x="186" y="174" key="MultipleFileMergeDialog" timestamp="1595278375019">
       <screen x="0" y="0" width="1536" height="834" />
@@ -353,10 +356,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595339798353" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1595351750140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595351750140" />
     <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595321207525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
