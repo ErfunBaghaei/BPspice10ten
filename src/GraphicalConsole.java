@@ -18,7 +18,7 @@ public class GraphicalConsole {
         JTextField drawElement=new JTextField("r1");
 
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
-                "l1 1 2 1\n" +
+               /* "l1 1 2 1\n" +
                 "c1 1 2 2\n"+
                 "c2 0 2 1\n" +
                 "l3 0 2 2\n"+
@@ -30,10 +30,21 @@ public class GraphicalConsole {
                 "r3 0 3 1\n"+
                 "v1 2 3 5 0 0 0\n"+
                 "r4 3 2 4\n"+
-                ".tran 4\n" +
+                ".tran 50m\n" +
                 "dv 1m\n" +
                 "dI 1m\n" +
-                "dT 50m\n"+
+                "dT 50m\n"+*/
+                "i1 0 1 5 0 0 0\n"+
+                "r1 0 3 1\n"+
+                "v2 1 3 4 0 0 0\n"+
+                "r2 1 3 1\n"+
+                "r3 0 3 1\n"+
+                "v1 2 3 5 0 0 0\n"+
+                "r4 3 2 4\n"+
+                ".tran 50m\n" +
+                "dv 0.1\n" +
+                "dI 1m\n" +
+                "dT 10m\n"+
                 "END");
 
         ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");
