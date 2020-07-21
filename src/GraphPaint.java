@@ -5,9 +5,11 @@ import java.awt.*;
 public class GraphPaint extends JPanel {
     RunActionListener runActionListener;
     int check=0;
-    public GraphPaint(RunActionListener runActionListener,int check){
+    InitialTextProccesor initialTextProccesor;
+    public GraphPaint(RunActionListener runActionListener,int check,InitialTextProccesor initialTextProccesor){
         this.runActionListener=runActionListener;
         this.check=check;
+        this.initialTextProccesor=initialTextProccesor;
     }
 
 
@@ -43,26 +45,34 @@ public class GraphPaint extends JPanel {
 
 
 
-        ///////make the wrong correct!!!!
-
-
-
-        double wrongendtime =15;
-        double wrongtimeTick=0.1;
-        int number=150;
-        int pixelWidthScale=1000/number;
-        int pixelHeightScale=280/number;
-        double[] wrongQuantities=new double[10000];
-        for(int j=0;j<150;j++)
-            wrongQuantities[j]=j*j*0.01;
+        double timeTick=initialTextProccesor.deltat;
+        double endTime =initialTextProccesor.time;
+        int numberOfPoints=(int)(endTime/timeTick)+1;
+        int pixelWidthScale=1000/numberOfPoints;
 
 
 
 
 
 
-        for (int ii = 0; ii <= number; ii++) {
+
+
+        for (int ii = 0; ii <= numberOfPoints; ii++) {
             g2d.drawLine(10+ii*pixelWidthScale, 245-ii, 10+(ii+1)*pixelWidthScale, 245-ii-1);
         }
     }
+
+
+    public int max(double[] a,int size){
+        int indexOfMax=0;
+        for(int i=0;i<size;i++){
+            if(a[i]>a[indexOfMax])
+                indexOfMax=i;
+        }
+        return indexOfMax;
+    }
+
+
+
+
 }

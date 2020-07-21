@@ -7,8 +7,10 @@ import java.io.File;
 import static java.awt.Component.CENTER_ALIGNMENT;
 
 public class GraphicalConsole {
-
-
+    InitialTextProccesor initialTextProccesor;
+    GraphicalConsole(File file) {
+         this.initialTextProccesor= new InitialTextProccesor(file);
+    }
     public void run() {
 
         MapPoints mapPoints=new MapPoints();
@@ -37,8 +39,6 @@ public class GraphicalConsole {
         JLabel startImageLabel=new JLabel(startImage);
 
         JPanel loading=new JPanel();
-
-
 
         loading.add(startImageLabel);
 
@@ -173,10 +173,10 @@ public class GraphicalConsole {
 
 
 
-        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage,outPutInformationsLabel);
+        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage,outPutInformationsLabel,initialTextProccesor);
         run.addActionListener(runActionListener);
 
-        ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener);
+        ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener,((RunActionListener) runActionListener).initialTextProccesor);
         draw.addActionListener(drawActionListener);
 
 

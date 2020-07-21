@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         File f = new File("input.txt");
-        GraphicalConsole graphicalConsole=new GraphicalConsole();
+        GraphicalConsole graphicalConsole=new GraphicalConsole(f);
         graphicalConsole.run();
 
 

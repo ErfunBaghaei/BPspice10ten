@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphPaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RunActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RunActionListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +91,7 @@
       <workItem from="1595168458210" duration="1970000" />
       <workItem from="1595235002151" duration="1197000" />
       <workItem from="1595258952634" duration="17852000" />
+      <workItem from="1595318135525" duration="2216000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -269,46 +275,46 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 finishing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595278413636">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595278458002">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595278413636" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595278387924">
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595278458002" />
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595321626315">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595278387924" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595278387924">
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595321626315" />
+    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595321626315">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595278387924" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595278387924">
+    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595321626315" />
+    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595321626311">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595278387924" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595278387924">
+    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595321626311" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595321626315">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595278387924" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595321626315" />
     <state x="186" y="174" key="MultipleFileMergeDialog" timestamp="1595278375019">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="186" y="174" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1595278375019" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595278421747">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595278464744">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595278421747" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595278464744" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595277039334">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595321207525">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595277039334" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595321207525" />
     <state x="85" y="193" key="run.anything.popup" timestamp="1595168512874">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -11,16 +11,17 @@ public class RunActionListener implements ActionListener {
     JTextArea textConsole;
     JFrame circuitFrame,mainPage;
     JTextArea outPutInformationsLabel;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel){
+    InitialTextProccesor initialTextProccesor;
+    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel,InitialTextProccesor initialTextProccesor){
         this.circuit=circuit;
         this.file=file;
         this.textConsole=textConsole;
         this.circuitFrame=circuitFrame;
         this.mainPage=mainPage;
         this.outPutInformationsLabel=outPutInformationsLabel;
+        this.initialTextProccesor=initialTextProccesor;
     }
 
-    InitialTextProccesor initialTextProccesor;
     @Override
     public void actionPerformed(ActionEvent a) {
         String updatedText = textConsole.getText();
@@ -32,7 +33,7 @@ public class RunActionListener implements ActionListener {
             e.printStackTrace();
         }
 
-        initialTextProccesor = new InitialTextProccesor(file);
+
 
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
         OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor);
@@ -49,15 +50,15 @@ public class RunActionListener implements ActionListener {
             initialTextProccesor.create_union();
             initialTextProccesor.set_union();
 
-<<<<<<< HEAD
+
             initialTextProccesor.solve();
             //System.out.println("hierfan");
             outPutInformationPrint.printOut();
-=======
+
             //initialTextProccesor.solve();
             outPutInformationsLabel.setText("");
             outPutInformationsLabel.setText(outPutInformationPrint.printOut());
->>>>>>> d7ea5218576ab791668a9706066b24d83efc915f
+
 
 
         }
