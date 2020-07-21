@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result" beforeDir="false" afterPath="$PROJECT_DIR$/Result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphPaint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OutPutInformationPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OutPutInformationPrint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <workItem from="1595168458210" duration="1970000" />
       <workItem from="1595235002151" duration="1197000" />
       <workItem from="1595258952634" duration="17852000" />
-      <workItem from="1595318135525" duration="12865000" />
+      <workItem from="1595318135525" duration="14778000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -266,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595333423912</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="phase 2 finishing">
+      <created>1595334611239</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1595334611239</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,38 +295,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 finishing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595333422133">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595334609460">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595333422133" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595334538436">
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595334609460" />
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom" timestamp="1595336630590">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595334538436" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595334538436">
+    <state width="1493" height="172" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595336630590" />
+    <state width="1493" height="172" key="GridCell.Tab.0.center" timestamp="1595336630589">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595334538436" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595334538436">
+    <state width="1493" height="172" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595336630589" />
+    <state width="1493" height="172" key="GridCell.Tab.0.left" timestamp="1595336630589">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595334538436" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595334538436">
+    <state width="1493" height="172" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595336630589" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right" timestamp="1595336630590">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595334538436" />
+    <state width="1493" height="172" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595336630590" />
     <state x="186" y="174" key="MultipleFileMergeDialog" timestamp="1595278375019">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="186" y="174" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1595278375019" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595333427131">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595334615627">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595333427131" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595334615627" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

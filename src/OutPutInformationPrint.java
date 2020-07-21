@@ -31,9 +31,9 @@ public class OutPutInformationPrint {
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
-                    labelString = labelString + initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ";
-                    out.write(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ");
-                    System.out.print(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + " | ");
+                    labelString = labelString + initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + "|   ";
+                    out.write(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + "|   ");
+                    System.out.print(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + "|   ");
                 }
                 System.out.println();
                 if(i != initialTextProccesor.nodesInOrder.size() - 1) {
@@ -47,6 +47,7 @@ public class OutPutInformationPrint {
             labelString = labelString + lineNumber + " - ";
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
+
                 labelString = labelString + initialTextProccesor.elements.get(i).name + "  >   ";
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
@@ -58,21 +59,23 @@ public class OutPutInformationPrint {
                     labelString = labelString + " v: " + initialTextProccesor.elements.get(i).voltageValues[j]
                             + " i: " + initialTextProccesor.elements.get(i).currentValues[j]
                             + " p: " + initialTextProccesor.elements.get(i).voltageValues[j]
-                            * initialTextProccesor.elements.get(i).currentValues[j] + " | ";
+                            * initialTextProccesor.elements.get(i).currentValues[j] + "|   ";
                     out.write(" v: " + initialTextProccesor.elements.get(i).voltageValues[j]
                             + " i: " + initialTextProccesor.elements.get(i).currentValues[j]
                             + " p: " + initialTextProccesor.elements.get(i).voltageValues[j]
-                            * initialTextProccesor.elements.get(i).currentValues[j] + " | ");
+                            * initialTextProccesor.elements.get(i).currentValues[j] + "|   ");
 
                     System.out.print(" v: " + initialTextProccesor.elements.get(i).voltageValues[j]);
                     System.out.print(" i: " + initialTextProccesor.elements.get(i).currentValues[j]);
                     System.out.print(" p: " + initialTextProccesor.elements.get(i).voltageValues[j]
-                            * initialTextProccesor.elements.get(i).currentValues[j] + " | ");
+                            * initialTextProccesor.elements.get(i).currentValues[j] + "|   ");
 
 
                 }
+                labelString+="\n";
                 if (i != initialTextProccesor.elements.size() - 1)
                     labelString = labelString + "\n" + lineNumber + "- ";
+
                 System.out.println();
 
                 lineNumber++;

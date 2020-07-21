@@ -106,9 +106,9 @@ public class GraphicalConsole {
 
         circuitFrame.setBounds(0,1,700,560);
 
-        which.setBounds(370,35,270,20);
+        which.setBounds(370,35,280,20);
 
-        drawElement.setBounds(635,37,70,20);
+        drawElement.setBounds(645,37,70,20);
 
         which.setBackground(Color.gray);
 
