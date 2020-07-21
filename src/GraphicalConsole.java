@@ -191,7 +191,7 @@ public class GraphicalConsole {
 
         Container container = mainPage.getContentPane();
         container.setBackground(Color.WHITE);
-        Border border = BorderFactory.createLineBorder(new Color(187, 146, 204), 3, true);
+        Border border = BorderFactory.createLineBorder(new Color(19, 193, 30), 3, true);
         JRootPane rootPane = mainPage.getRootPane();
 
 
