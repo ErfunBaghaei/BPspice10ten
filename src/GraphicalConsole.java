@@ -15,7 +15,7 @@ public class GraphicalConsole {
 
         MapPoints mapPoints=new MapPoints();
 
-        JTextField drawElement=new JTextField();
+        JTextField drawElement=new JTextField("r1");
 
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
                 "l1 1 2 1\n" +
@@ -30,7 +30,7 @@ public class GraphicalConsole {
                 "r3 0 3 1\n"+
                 "v1 2 3 5 0 0 0\n"+
                 "r4 3 2 4\n"+
-                ".tran 1\n" +
+                ".tran 4\n" +
                 "dv 1m\n" +
                 "dI 1m\n" +
                 "dT 50m\n"+
@@ -104,7 +104,7 @@ public class GraphicalConsole {
 
         circuit.setBounds(850,60,670,500);
 
-        circuitFrame.setBounds(0,1,700,560);
+        circuitFrame.setBounds(13,90,700,560);
 
         which.setBounds(370,34,270,20);
 

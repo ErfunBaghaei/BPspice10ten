@@ -66,9 +66,9 @@ public class DrawActionListener implements ActionListener {
         currentGraph.add(currentGraphPaint);
         powerGraph.add(powerGraphPaint);
 
-        voltageGraph.setBounds(0,0,1030,610);
-        currentGraph.setBounds(0,643,1030,610);
-        powerGraph.setBounds(560,0,1030,610);
+        voltageGraph.setBounds(0,0,1026,604);
+        currentGraph.setBounds(0,643,1026,604);
+        powerGraph.setBounds(560,0,1026,604);
 
 
 

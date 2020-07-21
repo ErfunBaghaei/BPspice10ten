@@ -12,14 +12,15 @@ public class OutPutInformationPrint {
         this.initialTextProccesor = initialTextProccesor;
     }
 
-    int lineNumber = 1;
+    int lineNumber = 1-'5';
 
     public String printOut() {
-        File fileOut = new File("Result");
-        String labelString = new String("Nodes:\n "+lineNumber + "- ");
+        File fileOut = new File("Result.txt");
+
+        String labelString = new String("Nodes:\n"+lineNumber + "- ");
         try {
             FileWriter out = new FileWriter(fileOut);
-
+            out.write("Nodes:\n"+lineNumber + "- ");
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.nodesInOrder.size(); i++) {
 
@@ -28,6 +29,7 @@ public class OutPutInformationPrint {
                 System.out.print(initialTextProccesor.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
                     if(j%27==0&&j!=0) {
+                        out.write("\n"+lineNumber+"-  ");
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
@@ -36,6 +38,7 @@ public class OutPutInformationPrint {
                     System.out.print(initialTextProccesor.nodesInOrder.get(i).voltageValues[j] + "|   ");
                 }
                 System.out.println();
+                out.write("\n"+lineNumber+"- ");
                 if(i != initialTextProccesor.nodesInOrder.size() - 1) {
                     labelString = labelString + "\n" + lineNumber + "- ";
                     lineNumber++;
@@ -43,7 +46,9 @@ public class OutPutInformationPrint {
 
             }
 
-            labelString = labelString +"\n\n***********************************************************************************\n\nElements:\n ";
+            out.write("\n\n***************************************************************************************************\n\nElements:\n");
+            out.write(lineNumber + " - ");
+            labelString = labelString +"\n\n***************************************************************************************************\n\nElements:\n";
             labelString = labelString + lineNumber + " - ";
             lineNumber++;
             for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
@@ -53,7 +58,8 @@ public class OutPutInformationPrint {
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) initialTextProccesor.time / initialTextProccesor.deltat; j++) {
                     if(j%6==0&&j!=0) {
-                        labelString += "\n "+lineNumber+" -  ";
+                        out.write("\n"+lineNumber+" -  ");
+                        labelString += "\n"+lineNumber+" -  ";
                         lineNumber++;
                     }
                     labelString = labelString + " v: " + initialTextProccesor.elements.get(i).voltageValues[j]
@@ -72,6 +78,8 @@ public class OutPutInformationPrint {
 
 
                 }
+
+                out.write("\n\n"+lineNumber+"- ");
                 labelString+="\n";
                 if (i != initialTextProccesor.elements.size() - 1)
                     labelString = labelString + "\n" + lineNumber + "- ";
