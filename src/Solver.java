@@ -7,6 +7,7 @@ public class Solver {
     ArrayList<Union> sunions = new ArrayList();
     ArrayList<Element> selements=new ArrayList<Element>();
     ArrayList<Node> snodes= new ArrayList();
+    ArrayList<Node> nodesFP= new ArrayList();
     Solver(ArrayList<Union> a, ArrayList<Element> b,ArrayList<Node> c, int [] [] d,double deltav
             ,double deltat,double deltai,double time){
         int i,j;
@@ -150,10 +151,13 @@ public class Solver {
     }
 
     public void printResults(){
-        for(int i=0;i<sunions.size();i++)
-            for(int j=0;j<sunions.get(i).nod.size();j++)
-                System.out.println("result"+sunions.get(i).nod.get(j).voltage);
 
+        for(int i=0;i<sunions.size();i++){
+            for(int j=0;j<sunions.get(i).nod.size();j++) {
+                System.out.println("result" + sunions.get(i).nod.get(j).voltage);
+                nodesFP.add(sunions.get(i).nod.get(j));
+            }
+        }
 
     }
 

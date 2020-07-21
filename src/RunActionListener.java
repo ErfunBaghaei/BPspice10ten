@@ -52,7 +52,7 @@ public class RunActionListener implements ActionListener {
 
             initialTextProccesor.set_union();
 
-            //initialTextProccesor.solve();
+            initialTextProccesor.solve();
 
             outPutInformationPrint.printOut();
 

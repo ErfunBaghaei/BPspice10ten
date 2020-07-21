@@ -16,8 +16,11 @@ public class InitialTextProccesor {
     ArrayList<Union> unions = new ArrayList();
     ArrayList<Element> elements=new ArrayList<Element>();
     ArrayList<Node> nodes= new ArrayList();
+
     ArrayList<Node> nodes2 = new ArrayList();
     ArrayList<Node> nodesInOrder= new ArrayList();
+
+    Solver solver;
 
 
 
@@ -166,7 +169,7 @@ public class InitialTextProccesor {
 
 
     public void solve(){
-        Solver solver= new Solver(unions,elements,nodes,graph,deltav,deltat,deltai,time);
+         solver= new Solver(unions,elements,nodes,graph,deltav,deltat,deltai,time);
         solver.mainsolver();
     }
     public void set_union(){
