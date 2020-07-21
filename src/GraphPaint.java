@@ -56,8 +56,8 @@ public class GraphPaint extends JPanel {
 
 
         if (check == 0) {
-            for(int i=0;i<numberOfPoints;i++)
-                element.voltageValues[i]=(double)( Math.sin((double)(i)/5.0)-0.3);
+        //    for(int i=0;i<numberOfPoints;i++)
+        //        element.voltageValues[i]=(double)( Math.sin((double)(i)/5.0)-0.3);
 
             maxIndex = max(element.voltageValues, numberOfPoints);
         }
