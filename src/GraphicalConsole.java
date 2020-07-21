@@ -104,7 +104,7 @@ public class GraphicalConsole {
         circuitFrame.setBounds(0,1,700,560);
 
         JScrollPane scroll = new JScrollPane (outPutInformationsLabel,
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.setBounds(580,60,940,725);
         outPutInformationsLabel.setBounds(580,60,940,725);
 

@@ -19,38 +19,55 @@ public class DrawActionListener implements ActionListener {
 
 
     int check=1;
-    JFrame graph=new JFrame("Graphs");
-    JPanel graphPanel=new JPanel();
+
+    JTextField whichElement=new JTextField();
+
+
+
+    JFrame voltageGraph=new JFrame("Voltage");
+    JFrame currentGraph=new JFrame("Current");
+    JFrame powerGraph=new JFrame("Power");
 
 
     @Override
     public void actionPerformed(ActionEvent a){
-System.out.println(initialTextProccesor.time+"kiikikikik");
+        Element element=new Element();
+        String name;
+        name=whichElement.getText();
+        for(int i=0;i<initialTextProccesor.elements.size();i++){
+            if(name.equals(initialTextProccesor.elements.get(i).name)){
+                element=initialTextProccesor.elements.get(i);
+            }
+        }
 
-        GraphPaint voltageGraphPaint=new GraphPaint(runActionListener,0,initialTextProccesor);
-        GraphPaint currentGraphPaint=new GraphPaint(runActionListener,1,initialTextProccesor);
-        GraphPaint powerGraphPaint=new GraphPaint(runActionListener,2,initialTextProccesor);
+
+        GraphPaint voltageGraphPaint=new GraphPaint(runActionListener,0,initialTextProccesor,element);
+        GraphPaint currentGraphPaint=new GraphPaint(runActionListener,1,initialTextProccesor,element);
+        GraphPaint powerGraphPaint=new GraphPaint(runActionListener,2,initialTextProccesor,element);
+        voltageGraph.add(voltageGraphPaint);
+        currentGraph.add(currentGraphPaint);
+        powerGraph.add(powerGraphPaint);
+
+        voltageGraph.setBounds(0,0,1030,610);
+        currentGraph.setBounds(0,643,1030,610);
+        powerGraph.setBounds(560,0,1030,610);
 
 
-        JScrollPane scroll = new JScrollPane (graphPanel,
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scroll.setBounds(0,0,1030,1620);
 
-        graph.setBounds(0,0,1030,1620);
+        voltageGraphPaint.setBounds(0,0,1030,610);
+        currentGraphPaint.setBounds(0,0,1030,610);
+        powerGraphPaint.setBounds(0,0,1030,610);
 
-        graphPanel.setBounds(0,0,1030,1620);
 
         Border border = BorderFactory.createLineBorder(Color.GREEN, 2, true);
+        voltageGraphPaint.setBorder(border);
+        currentGraphPaint.setBorder(border);
+        powerGraphPaint.setBorder(border);
 
 
-        graphPanel.setBackground(Color.BLACK);
+        voltageGraph.setVisible(true);
+        currentGraph.setVisible(true);
+        powerGraph.setVisible(true);
 
-        graphPanel.add(voltageGraphPaint);
-        graphPanel.add(currentGraphPaint);
-        graphPanel.add(powerGraphPaint);
-
-
-        graph.add(scroll);
-        graph.setVisible(true);
     }
 }
