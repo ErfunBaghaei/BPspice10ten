@@ -402,8 +402,6 @@ public class DrawKit {
         }
 
     }
-
-
     public void threeNode(ArrayList<Node> node3) {
         boolean flag = false;
         for (int i = 0; i < elements.size(); i++) {
@@ -412,13 +410,10 @@ public class DrawKit {
                     || (elements.get(i).node1.equals(node3.get(1).name) && elements.get(i).node2.equals("0"))) {
                 wireDrawer(currentNode, currentNode + down);
                 wireDrawer(currentNode + up, currentNode + 2 * up);
-
-
                 switch (type) {
                     case "c":
                         capacitorDrawer(currentNode, currentNode + up);
                         break;
-
                     case "r":
                         resistorDrawer(currentNode, currentNode + up);
                         break;
@@ -431,9 +426,7 @@ public class DrawKit {
                     case "cs":
                         currentSourceDrawer(currentNode, currentNode + up);
                         break;
-
                 }
-
                 if (flag) {
                     wireDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                     wireDrawer(currentNode + down, currentNode + down + left);
@@ -446,6 +439,7 @@ public class DrawKit {
         if (flag)
             currentNode -= right;
         int x = 0;
+        boolean flag3=false;
         boolean flag2 = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
@@ -480,15 +474,18 @@ public class DrawKit {
                 flag2 = true;
                 currentNode += up;
                 x++;
+                flag3=true;
             }
         }
         currentNode += x * down;
+        if(flag3)
+         currentNode += right;
         boolean flag6 = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             if ((elements.get(i).node2.equals(node3.get(2).name) && elements.get(i).node1.equals("0"))
                     || (elements.get(i).node1.equals(node3.get(2).name) && elements.get(i).node2.equals("0"))) {
-                currentNode += right;
+
                 wireDrawer(currentNode, currentNode + down);
                 wireDrawer(currentNode + up, currentNode + 2 * up);
                 wireDrawer(currentNode + down, currentNode + down + left);
@@ -581,6 +578,8 @@ public class DrawKit {
                 }
             }
         }
+        if(flag2)
+            currentNode+=left;
 
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
