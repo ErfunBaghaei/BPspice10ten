@@ -4,9 +4,10 @@ import java.awt.*;
 
 public class GraphPaint extends JPanel {
     RunActionListener runActionListener;
-    int check = 0;
+    int check = 0,maxIndex = 0;
     InitialTextProccesor initialTextProccesor;
     Element element;
+    double[] powerValues=new double[10000];
 
     public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element) {
         this.runActionListener = runActionListener;
@@ -21,38 +22,38 @@ public class GraphPaint extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        int cc=-58;
         Graphics2D g2d = (Graphics2D) g;
         g2d.setStroke(new BasicStroke(0));
         g2d.setColor(Color.BLACK);
         for (int i = 0; i < 11; i++)
-            g2d.drawLine(60 + i * 100, 5, 60 + i * 100, 565);
+            g2d.drawLine(60+cc + i * 100, 5, 60+cc + i * 100, 565);
         for (int i = 0; i < 9; i++)
-            g2d.drawLine(60, 5 + i * 70, 1070, 5 + i * 70);
+            g2d.drawLine(60+cc, 5 + i * 70, 1060+cc, 5 + i * 70);
 
 
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(Color.RED);
-        g2d.drawLine(60, 5, 60, 564);
-        g2d.drawLine(60, 286, 1070, 286);
+        g2d.drawLine(60+cc, 6, 60+cc, 564);
+        g2d.drawLine(60+cc, 286, 1060+cc, 286);
         setBackground(Color.WHITE);
 
         JLabel xAxis = new JLabel();
-        xAxis.setBounds(10, 280, 1010, 280);
+        xAxis.setBounds(10+cc, 281, 1010, 281);
 
 
         g2d.setColor(Color.GREEN);
         g2d.setStroke(new BasicStroke(3));
 
 
-        int maxIndex = 0;
+
         double timeTick = initialTextProccesor.deltat;
         double endTime = initialTextProccesor.time;
         int numberOfPoints = (int) (endTime / timeTick) + 1;
 
 
         int distance = (int) (Math.ceil(980.0 / (numberOfPoints)));
-        double[] powerValues = new double[numberOfPoints];
+        powerValues = new double[numberOfPoints];
         for (int h = 0; h < numberOfPoints; h++) {
             powerValues[h] = element.voltageValues[h] * element.currentValues[h];
         }
@@ -65,10 +66,10 @@ public class GraphPaint extends JPanel {
         else if (check == 2)
             maxIndex = max(element.voltageValues, numberOfPoints);
 
-
+        g2d.setStroke(new BasicStroke(2));
 
         if (maxIndex == -1) {
-            g2d.drawLine(60, 287, 1050, 287);
+            g2d.drawLine(60+cc, 287, 1050+cc, 287);
 
 
         }
@@ -82,29 +83,24 @@ public class GraphPaint extends JPanel {
 
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
 
-                    g2d.drawLine(distance * (ii) + 10, 287 - (int) (Math.ceil(280 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii + 1) + 10,
-                            287 - (int) (Math.ceil(280 * (element.voltageValues[ii + 1]/ Math.abs(element.voltageValues[maxIndex])))));
+                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii + 1) + 5,
+                            284 - (int) (Math.ceil(281 * (element.voltageValues[ii + 1]/ Math.abs(element.voltageValues[maxIndex])))));
                 }
             } else if (check == 1) {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii) + 10, 287 - (int) (Math.ceil(280 * (element.currentValues[ii]/ Math.abs(element.currentValues[maxIndex])))), distance * (ii + 1) + 10,
-                            287 - (int) (Math.ceil(280 * (element.currentValues[ii + 1]/ Math.abs(element.currentValues[maxIndex])))));
+                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (element.currentValues[ii]/ Math.abs(element.currentValues[maxIndex])))), distance * (ii + 1) + 5,
+                            284 - (int) (Math.ceil(281 * (element.currentValues[ii + 1]/ Math.abs(element.currentValues[maxIndex])))));
 
                 }
             } else if (check == 2) {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii) + 10, 287 - (int) (Math.ceil(280 * (powerValues[ii]/powerValues[maxIndex]))), distance * (ii + 1) + 10,
-                            287 - (int) (Math.ceil(280 * (powerValues[ii + 1]/powerValues[maxIndex]))));
+                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (powerValues[ii]/powerValues[maxIndex]))), distance * (ii + 1) + 5,
+                            284 - (int) (Math.ceil(281 * (powerValues[ii + 1]/powerValues[maxIndex]))));
 
                 }
             }
         }
-
-
-
     }
-
-
 
 
     public int max(double[] a, int size) {

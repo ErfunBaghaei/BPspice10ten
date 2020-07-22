@@ -48,17 +48,17 @@ public class RunActionListener implements ActionListener {
 
             circuitFrame.setVisible(true);
 
-            //initialTextProccesor.create_union();
+            initialTextProccesor.create_union();
 
-            //initialTextProccesor.set_union();
+            initialTextProccesor.set_union();
 
-            //initialTextProccesor.solve();
+            initialTextProccesor.solve();
 
-            //outPutInformationPrint.printOut();
+            outPutInformationPrint.printOut();
 
-            //outPutInformationsLabel.setText("");
+            outPutInformationsLabel.setText("");
 
-            //outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+            outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
 

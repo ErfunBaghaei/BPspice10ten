@@ -585,6 +585,7 @@ public class DrawKit {
                 }
             }
         }
+        //if(flag2)
             currentNode+=left;
         savedNode=currentNode;
         for (int i = 0; i < elements.size(); i++) {
@@ -601,16 +602,16 @@ public class DrawKit {
                             break;
 
                         case "r":
-                            resistorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                            resistorDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                             break;
                         case "l":
                             inductorDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                             break;
                         case "vs":
-                            voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                            voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                             break;
                         case "cs":
-                            currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                            currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                             break;
                     }
                     if (flag3) {
