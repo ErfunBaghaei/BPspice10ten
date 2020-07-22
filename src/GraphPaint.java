@@ -8,13 +8,13 @@ public class GraphPaint extends JPanel {
     InitialTextProccesor initialTextProccesor;
     Element element;
     double[] powerValues=new double[10000];
-
-    public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element) {
+    JLabel[] time;
+    public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element,JLabel[] time) {
         this.runActionListener = runActionListener;
         this.check = check;
         this.initialTextProccesor = initialTextProccesor;
         this.element = element;
-
+        this.time = time;
 
     }
 
@@ -35,8 +35,8 @@ public class GraphPaint extends JPanel {
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(Color.RED);
         g2d.drawLine(60+cc, 6, 60+cc, 564);
-        g2d.drawLine(60+cc, 286, 1060+cc, 286);
-        setBackground(Color.WHITE);
+        g2d.drawLine(60+cc, 286, 1065+cc, 286);
+        setBackground(new Color(255, 255, 255, 255));
 
         JLabel xAxis = new JLabel();
         xAxis.setBounds(10+cc, 281, 1010, 281);
@@ -100,6 +100,20 @@ public class GraphPaint extends JPanel {
                 }
             }
         }
+
+        double timeStepInGraph=(double) (initialTextProccesor.time/10.0);
+
+        for(int i=0;i<11;i++){
+            time[i].setText((double)Math.round( timeStepInGraph*i * 100) / 100 +"");
+            time[i].setBounds(102*i+4,290,40,10);
+        }
+
+
+for(int i=0;i<11;i++)
+        this.add(time[i]);
+
+
+
     }
 
 
