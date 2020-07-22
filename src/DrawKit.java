@@ -399,13 +399,9 @@ public class DrawKit {
 
             currentNode += right;
 
-
         }
 
     }
-
-
-
 
 
     public void threeNode(ArrayList<Node> node3) {
@@ -447,8 +443,8 @@ public class DrawKit {
 
             }
         }
-
-        currentNode -= right;
+        if (flag)
+            currentNode -= right;
         int x = 0;
         boolean flag2 = false;
         for (int i = 0; i < elements.size(); i++) {
@@ -475,24 +471,24 @@ public class DrawKit {
                         break;
 
                 }
-                if(!flag2)
-                    wireDrawer(currentNode+down,currentNode+down+right);
+                if (!flag2)
+                    wireDrawer(currentNode + down, currentNode + down + right);
                 if (flag2) {
                     wireDrawer(currentNode + up, currentNode + 2 * up);
-                    wireDrawer(currentNode + up+right , currentNode + 2*up + right);
+                    wireDrawer(currentNode + up + right, currentNode + 2 * up + right);
                 }
-                /////////////////////////////////////////////////////pp
                 flag2 = true;
                 currentNode += up;
                 x++;
             }
         }
-        currentNode -= x * up;
-        currentNode += right;
+        currentNode += x * down;
+        boolean flag6 = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             if ((elements.get(i).node2.equals(node3.get(2).name) && elements.get(i).node1.equals("0"))
                     || (elements.get(i).node1.equals(node3.get(2).name) && elements.get(i).node2.equals("0"))) {
+                currentNode += right;
                 wireDrawer(currentNode, currentNode + down);
                 wireDrawer(currentNode + up, currentNode + 2 * up);
                 wireDrawer(currentNode + down, currentNode + down + left);
@@ -522,14 +518,14 @@ public class DrawKit {
 
                 }
                 currentNode += right;
+                flag6 = true;
             }
 
 
         }
-
+        if (flag6)
+            currentNode += left;
     }
-
-
 
 
     public void fourNode(ArrayList<Node> node4) {
@@ -540,7 +536,7 @@ public class DrawKit {
         threeNode(tempNodes);
 
         int savedNode = currentNode;
-        currentNode++;////////////////////////////////////////////////////////////////pp
+        currentNode += right;////////////////////////////////////////////////////////////////pp
         boolean flag3 = false;
         boolean flag2 = false;
         Node lastNode = node4.get(node4.size() - 1);
@@ -585,45 +581,44 @@ public class DrawKit {
                 }
             }
         }
-        //if(flag2)
-            currentNode+=left;
-        savedNode=currentNode;
+
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             if (elements.get(i).node1.equals(lastNode.name) || elements.get(i).node2.equals(lastNode.name)) {
                 int temp = Integer.parseInt(elements.get(i).node1) + Integer.parseInt(elements.get(i).node2) - Integer.parseInt(lastNode.name);
                 String elseNode = Integer.toString(temp);
                 if (elseNode.equals(node4.get(2).name)) {
-                    //currentNode+=left;
-                    System.out.println("done with 222  "+node4.get(2).name+"   "+type);
+
+                    System.out.println("done with 222  " + node4.get(2).name + "   " + type);
                     switch (type) {
                         case "c":
-                            capacitorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);//////////////////////////////////////////////////////////pp
+                            capacitorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
 
                         case "r":
-                            resistorDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
+                            resistorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                         case "l":
-                            inductorDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
+                            inductorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                         case "vs":
-                            voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
+                            voltageSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                         case "cs":
-                            currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
+                            currentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                     }
                     if (flag3) {
-                        wireDrawer(currentNode + up, currentNode + 2 * up);
-                        wireDrawer(currentNode + up + right, currentNode + 2 * up + right);
+                        wireDrawer(savedNode + up, savedNode + 2 * up);
+                        wireDrawer(savedNode + up + right, savedNode + 2 * up + right);
                     }
                     flag3 = true;
-                    currentNode += up;
+                    savedNode += up;
                 }
             }
         }
-        currentNode=savedNode+right;
+
+        currentNode = currentNode + right;
 
         boolean threeTOone = false;
         currentNode += left;
@@ -635,7 +630,7 @@ public class DrawKit {
                 int temp = Integer.parseInt(elements.get(i).node1) + Integer.parseInt(elements.get(i).node2) - Integer.parseInt(lastNode.name);
                 String elseNode = Integer.toString(temp);
                 if (elseNode.equals(node4.get(1).name)) {
-                    System.out.println("done with 111  "+node4.get(1).name);
+                    System.out.println("done with 111  " + node4.get(1).name);
                     if (flag5)
                         currentNode = currentNode + 2 * up + right;
                     flag5 = false;
@@ -664,25 +659,28 @@ public class DrawKit {
                     flag4 = true;
                     threeTOone = true;
                 }
-                if (threeTOone) {
-                    currentNode += down;
-                    wireDrawer(26, 34);
-                    wireDrawer(34, 42);
-                    wireDrawer(42, 43);
-                    int tempp=currentNode,yy=0;
-                    while(tempp<44) {
-                        tempp += 8;
-                        yy++;
-                    }
-                    for(int ii=43;ii<tempp;ii++)
-                        wireDrawer(ii,ii+1);
-                    for(int ii=0;ii<yy;ii++)
-                        wireDrawer(tempp-ii*8,tempp-ii*8-8);
-
-                }
 
 
             }
         }
+
+        if (threeTOone) {
+            currentNode += down;
+            wireDrawer(26, 34);
+            wireDrawer(34, 42);
+            wireDrawer(42, 43);
+            int tempp = currentNode, yy = 0;
+            while (tempp < 42) {
+                tempp += 8;
+                yy++;
+            }
+            for (int ii = 43; ii < tempp; ii++)
+                wireDrawer(ii, ii + 1);
+            for (int ii = 0; ii < yy; ii++)
+                wireDrawer(tempp - ii * 8, tempp - ii * 8 - 8);
+
+        }
+
+
     }
 }
