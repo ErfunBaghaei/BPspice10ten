@@ -404,6 +404,10 @@ public class DrawKit {
 
     }
 
+
+
+
+
     public void threeNode(ArrayList<Node> node3) {
         boolean flag = false;
         for (int i = 0; i < elements.size(); i++) {
@@ -525,10 +529,10 @@ public class DrawKit {
 
     }
 
+
+
+
     public void fourNode(ArrayList<Node> node4) {
-
-        System.out.println("huhuhhuhuhu");
-
         ArrayList<Node> tempNodes = new ArrayList();
         for (int i = 0; i < 3; i++) {
             tempNodes.add(node4.get(i));
@@ -575,46 +579,50 @@ public class DrawKit {
                     if (flag2)
                         wireDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                     flag2 = true;
+
                     currentNode += right;
 
                 }
             }
         }
+            currentNode+=left;
+        savedNode=currentNode;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             if (elements.get(i).node1.equals(lastNode.name) || elements.get(i).node2.equals(lastNode.name)) {
                 int temp = Integer.parseInt(elements.get(i).node1) + Integer.parseInt(elements.get(i).node2) - Integer.parseInt(lastNode.name);
                 String elseNode = Integer.toString(temp);
                 if (elseNode.equals(node4.get(2).name)) {
-
-                    System.out.println("done with 222  "+node4.get(2).name);
+                    //currentNode+=left;
+                    System.out.println("done with 222  "+node4.get(2).name+"   "+type);
                     switch (type) {
                         case "c":
-                            capacitorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);//////////////////////////////////////////////////////////pp
+                            capacitorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);//////////////////////////////////////////////////////////pp
                             break;
 
                         case "r":
-                            resistorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
+                            resistorDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
                         case "l":
-                            inductorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
+                            inductorDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
                             break;
                         case "vs":
-                            voltageSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
+                            voltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
                         case "cs":
-                            currentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + left);
+                            currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                             break;
                     }
                     if (flag3) {
-                        wireDrawer(savedNode + up, savedNode + 2 * up);
-                        wireDrawer(savedNode + up + right, savedNode + 2 * up + right);
+                        wireDrawer(currentNode + up, currentNode + 2 * up);
+                        wireDrawer(currentNode + up + right, currentNode + 2 * up + right);
                     }
                     flag3 = true;
-                    savedNode += up;
+                    currentNode += up;
                 }
             }
         }
+        currentNode=savedNode+right;
 
         boolean threeTOone = false;
         currentNode += left;

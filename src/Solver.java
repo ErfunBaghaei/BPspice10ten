@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Solver {
@@ -8,6 +9,7 @@ public class Solver {
     ArrayList<Element> selements=new ArrayList<Element>();
     ArrayList<Node> snodes= new ArrayList();
     ArrayList<Node> nodesFP= new ArrayList();
+    ArrayList<Node> nodesInOrder= new ArrayList();
     Solver(ArrayList<Union> a, ArrayList<Element> b,ArrayList<Node> c, int [] [] d,double deltav
             ,double deltat,double deltai,double time){
         int i,j;
@@ -156,8 +158,36 @@ public class Solver {
             for(int j=0;j<sunions.get(i).nod.size();j++) {
                 System.out.println("result" + sunions.get(i).nod.get(j).voltage);
                 nodesFP.add(sunions.get(i).nod.get(j));
+
+
+
+
+
+
             }
         }
+
+
+
+
+
+        int [] nodeNames=new int[nodesFP.size()];
+
+        for(int k=0;k<nodesFP.size();k++){
+            nodeNames[k]=Integer.parseInt(nodesFP.get(k).name);
+        }
+        Arrays.sort(nodeNames);
+
+        for(int k=0;k<nodesFP.size();k++){
+            for(int h=0;h<nodesFP.size();h++){
+                if(nodeNames[k]==Integer.parseInt(nodesFP.get(h).name)){
+                    nodesInOrder.add(nodesFP.get(h));
+                }
+            }
+        }
+
+
+
 
     }
 

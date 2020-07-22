@@ -16,10 +16,7 @@ public class InitialTextProccesor {
     ArrayList<Union> unions = new ArrayList();
     ArrayList<Element> elements=new ArrayList<Element>();
     ArrayList<Node> nodes= new ArrayList();
-
     ArrayList<Node> nodes2 = new ArrayList();
-    ArrayList<Node> nodesInOrder= new ArrayList();
-
     Solver solver;
 
 
@@ -141,22 +138,6 @@ public class InitialTextProccesor {
                 }
 
             }
-            int [] nodeNames=new int[nodes.size()];
-
-            for(int k=0;k<nodes.size();k++){
-                nodeNames[k]=Integer.parseInt(nodes.get(k).name);
-            }
-            Arrays.sort(nodeNames);
-
-            for(int k=0;k<nodes.size();k++){
-                for(int h=0;h<nodes.size();h++){
-                    if(nodeNames[k]==Integer.parseInt(nodes.get(h).name)){
-                        nodesInOrder.add(nodes.get(h));
-                    }
-                }
-            }
-
-
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }

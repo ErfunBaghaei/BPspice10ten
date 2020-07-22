@@ -25,24 +25,24 @@ public class OutPutInformationPrint {
             FileWriter out = new FileWriter(fileOut);
             out.write("Nodes:\n"+lineNumber + "- ");
             lineNumber++;
-            for (int i = 1; i < initialTextProccesor.nodesInOrder.size(); i++) {
+            for (int i = 1; i < initialTextProccesor.solver.nodesInOrder.size(); i++) {
 
-                labelString = labelString + initialTextProccesor.solver.nodesFP.get(i).name + "  >   ";
-                out.write(initialTextProccesor.solver.nodesFP.get(i).name + "  >   ");
-                System.out.print(initialTextProccesor.solver.nodesFP.get(i).name + "  >   ");
+                labelString = labelString + initialTextProccesor.solver.nodesInOrder.get(i).name + "  >   ";
+                out.write(initialTextProccesor.solver.nodesInOrder.get(i).name + "  >   ");
+                System.out.print(initialTextProccesor.solver.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
                     if(j%27==0&&j!=0) {
                         out.write("\n"+lineNumber+"-  ");
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
-                    labelString = labelString + initialTextProccesor.solver.nodesFP.get(i).voltageValues[j] + "|   ";
-                    out.write(initialTextProccesor.solver.nodesFP.get(i).voltageValues[j] + "|   ");
-                    System.out.print(initialTextProccesor.solver.nodesFP.get(i).voltageValues[j] + "|   ");
+                    labelString = labelString + initialTextProccesor.solver.nodesInOrder.get(i).voltageValues[j] + "|   ";
+                    out.write(initialTextProccesor.solver.nodesInOrder.get(i).voltageValues[j] + "|   ");
+                    System.out.print(initialTextProccesor.solver.nodesInOrder.get(i).voltageValues[j] + "|   ");
                 }
                 System.out.println();
                 out.write("\n"+lineNumber+"- ");
-                if(i != initialTextProccesor.nodesInOrder.size() - 1) {
+                if(i != initialTextProccesor.solver.nodesInOrder.size() - 1) {
                     labelString = labelString + "\n" + lineNumber + "- ";
                     lineNumber++;
                 }

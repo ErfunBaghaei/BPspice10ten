@@ -18,11 +18,10 @@ public class GraphicalConsole {
         JTextField drawElement=new JTextField("");
         //First, you must choose a file...
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
-                "v1 2 1 3 0 0 0\n" +
-                "r3 0 1 1\n" +
-                "r1 2 3 1\n"+
-                "r2 3 0 1\n" +
-
+                "v1 1 0 4 0 0 0\n" +
+                "c3 0 2 2\n" +
+                "l1 3 2 1\n" +
+                "r2 1 3 1\n" +
                 ".tran 500m\n" +
                 "dv 0.01\n" +
                 "dI 1m\n" +

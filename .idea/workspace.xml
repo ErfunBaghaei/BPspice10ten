@@ -5,10 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/OutPutInformationPrint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/OutPutInformationPrint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawKit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OutPutInformationPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OutPutInformationPrint.java" afterDir="false" />
@@ -98,6 +96,7 @@
       <workItem from="1595235002151" duration="1197000" />
       <workItem from="1595258952634" duration="17852000" />
       <workItem from="1595318135525" duration="18804000" />
+      <workItem from="1595404951748" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="2nd commit">
       <created>1595059106200</created>
@@ -330,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595359328449</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="phase 2 finishing">
+      <created>1595361183345</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1595361183345</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,34 +357,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 finishing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595359326357">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595361181381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595359326357" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595361181381" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1595353313762">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353313762" />
-    <state width="1493" height="171" key="GridCell.Tab.0.bottom" timestamp="1595361019975">
+    <state width="723" height="171" key="GridCell.Tab.0.bottom" timestamp="1595408110245">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="171" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595361019975" />
-    <state width="1493" height="171" key="GridCell.Tab.0.center" timestamp="1595361019973">
+    <state width="723" height="171" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595408110245" />
+    <state width="723" height="171" key="GridCell.Tab.0.center" timestamp="1595408110245">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="171" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595361019973" />
-    <state width="1493" height="171" key="GridCell.Tab.0.left" timestamp="1595361019973">
+    <state width="723" height="171" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595408110245" />
+    <state width="723" height="171" key="GridCell.Tab.0.left" timestamp="1595408110245">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="171" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595361019973" />
-    <state width="1493" height="171" key="GridCell.Tab.0.right" timestamp="1595361019974">
+    <state width="723" height="171" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595408110245" />
+    <state width="723" height="171" key="GridCell.Tab.0.right" timestamp="1595408110245">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="171" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595361019974" />
+    <state width="723" height="171" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595408110245" />
     <state x="164" y="123" key="MergeDialog" timestamp="1595353704399">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -391,18 +397,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="136" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353312919" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595359331935">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595361206839">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595359331935" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595361206839" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595353751446">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595404955376">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595353751446" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595404955376" />
     <state x="474" y="173" width="588" height="488" key="find.popup" timestamp="1595354925214">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
