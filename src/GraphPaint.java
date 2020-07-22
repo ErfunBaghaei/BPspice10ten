@@ -13,7 +13,10 @@ public class GraphPaint extends JPanel {
         this.check = check;
         this.initialTextProccesor = initialTextProccesor;
         this.element = element;
+
+
     }
+
 
     @Override
     public void paintComponent(Graphics g) {
@@ -23,15 +26,15 @@ public class GraphPaint extends JPanel {
         g2d.setStroke(new BasicStroke(0));
         g2d.setColor(Color.BLACK);
         for (int i = 0; i < 11; i++)
-            g2d.drawLine(10 + i * 100, 5, 10 + i * 100, 565);
+            g2d.drawLine(60 + i * 100, 5, 60 + i * 100, 565);
         for (int i = 0; i < 9; i++)
-            g2d.drawLine(10, 5 + i * 70, 1010, 5 + i * 70);
+            g2d.drawLine(60, 5 + i * 70, 1070, 5 + i * 70);
 
 
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(Color.RED);
-        g2d.drawLine(10, 5, 10, 564);
-        g2d.drawLine(10, 286, 1010, 286);
+        g2d.drawLine(60, 5, 60, 564);
+        g2d.drawLine(60, 286, 1070, 286);
         setBackground(Color.WHITE);
 
         JLabel xAxis = new JLabel();
@@ -55,22 +58,26 @@ public class GraphPaint extends JPanel {
         }
 
 
-        if (check == 0) {
-        //    for(int i=0;i<numberOfPoints;i++)
-        //        element.voltageValues[i]=(double)( Math.sin((double)(i)/5.0)-0.3);
-
+        if (check == 0)
             maxIndex = max(element.voltageValues, numberOfPoints);
-        }
         else if (check == 1)
             maxIndex = max(element.voltageValues, numberOfPoints);
         else if (check == 2)
             maxIndex = max(element.voltageValues, numberOfPoints);
 
+
+
         if (maxIndex == -1) {
-            g2d.drawLine(10, 287, 1000, 287);
+            g2d.drawLine(60, 287, 1050, 287);
+
+
         }
 
+
         else {
+
+
+
             if (check == 0) {
 
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
@@ -92,7 +99,12 @@ public class GraphPaint extends JPanel {
                 }
             }
         }
+
+
+
     }
+
+
 
 
     public int max(double[] a, int size) {
