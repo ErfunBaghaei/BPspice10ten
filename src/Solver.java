@@ -67,7 +67,7 @@ public class Solver {
 
 
     void mainsolver() {
-        int i, j, k,p,e;
+        int i, j, k,p,e,solveflag=0;
         double skcl = 0, skcl2 = 0;
         System.out.println("step="+endtime/dt);
         resetVoltage();
@@ -83,6 +83,7 @@ public class Solver {
 
 
        while (skcl>di) {
+           solveflag=0;
             for (j = 1; j < sunions.size(); j++) {
                 sunions.get(j).nod.get(0).voltage += dv;
                 resetVoltage();
@@ -92,7 +93,10 @@ public class Solver {
                     skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
                 }
                 skcl2 = Math.sqrt(skcl2);
-                if (skcl2 < skcl) skcl = skcl2;
+                if (skcl2 < skcl) {
+                    skcl = skcl2;
+                    solveflag=1;
+                }
                 else {
                     sunions.get(j).nod.get(0).voltage -= 2 * dv;
                     resetVoltage();
@@ -100,13 +104,16 @@ public class Solver {
                     skcl2=0;
                     for (k = 0; k < sunions.size(); k++) skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
                     skcl2 = Math.sqrt(skcl2);
-                    if (skcl2 < skcl) skcl = skcl2;
+                    if (skcl2 < skcl){
+                        skcl = skcl2;
+                        solveflag=1;
+                    }
                     else sunions.get(j).nod.get(0).voltage += dv;
                     resetVoltage();
                 }
-                //System.out.println("erfunkcl "+ skcl);
+                System.out.println("erfunkcl "+ skcl);
             }
-
+            if (solveflag==0) break;
         }
             for (e=0;e<sunions.size();e++) for (p=0;p<sunions.get(e).nod.size();p++) {
                 System.out.println(sunions.get(e).nod.get(p).name+"voltage:"+sunions.get(e).nod.get(p).voltage);

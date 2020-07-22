@@ -17,7 +17,7 @@ public class GraphicalConsole {
 
         JTextField drawElement=new JTextField("r2");
         //First, you must choose a file...
-        JTextArea textConsole=new JTextArea("* hi this is a test\n" +
+        JTextArea textConsole=new JTextArea(/*"* hi this is a test\n" +
                 "v1 0 1 4 0 0 0\n" +
                 "r1 0 2 2\n" +
                 "l1 1 3 1\n" +
@@ -26,7 +26,23 @@ public class GraphicalConsole {
                 "dv 0.01\n" +
                 "dI 1m\n" +
                 "dT 10m\n" +
-                "END");
+                "END"*/
+               "* hi this is a test\n"+
+        "r3 0 1 1\n"+
+        "v1 2 1 5 0 0 0\n"+
+        "r2 0 1 4\n"+
+        "r1 2 3 5\n"+
+        "r4 1 2 4\n"+
+        "r5 0 3 1\n"+
+        "r6 2 3 2\n"+
+        "r7 3 0 3\n"+
+        "v2 1 3 4 0 0 0\n"+
+                ".tran 500m\n"+
+        "dv 0.1\n"+
+        "dI 1m\n"+
+        "dT 10m\n"+
+                "END"
+        );
 
         ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");
 
