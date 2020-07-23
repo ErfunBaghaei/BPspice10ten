@@ -59,8 +59,6 @@ public class RunActionListener implements ActionListener {
 
             OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor,solver);
 
-            outPutInformationPrint.printOut();
-
             outPutInformationsLabel.setText("");
 
             outPutInformationsLabel.setText(outPutInformationPrint.printOut());

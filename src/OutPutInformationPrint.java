@@ -17,7 +17,7 @@ public class OutPutInformationPrint {
 
     public String printOut() {
         File fileOut = new File("Result.txt");
-
+System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+lineNumber);
         String labelString = new String("Nodes:\n"+lineNumber + "- ");
         try {
 
@@ -32,7 +32,7 @@ public class OutPutInformationPrint {
                 out.write(solver.nodesInOrder.get(i).name + "  >   ");
                 System.out.print(solver.nodesInOrder.get(i).name + "  >   ");
                 for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
-                    if(j%27==0&&j!=0) {
+                    if(j%16==0&&j!=0) {
                         out.write("\n"+lineNumber+"-  ");
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
@@ -63,7 +63,7 @@ public class OutPutInformationPrint {
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
-                    if(j%6==0&&j!=0) {
+                    if(j%4==0&&j!=0) {
                         out.write("\n"+lineNumber+" -  ");
                         labelString += "\n"+lineNumber+" -  ";
                         lineNumber++;

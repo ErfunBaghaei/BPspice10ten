@@ -23,20 +23,7 @@ public class Solver {
 
         this.snodes = initialTextProccesor.nodes;
         this.sgraph = initialTextProccesor.graph;
-        int[] nodeNames = new int[nodesFP.size()];
 
-        for (int k = 0; k < nodesFP.size(); k++) {
-            nodeNames[k] = Integer.parseInt(nodesFP.get(k).name);
-        }
-        Arrays.sort(nodeNames);
-
-        for (int k = 0; k < nodesFP.size(); k++) {
-            for (int h = 0; h < nodesFP.size(); h++) {
-                if (nodeNames[k] == Integer.parseInt(nodesFP.get(h).name)) {
-                    nodesInOrder.add(nodesFP.get(h));
-                }
-            }
-        }
 
 
     }
@@ -224,7 +211,20 @@ public class Solver {
             }
         }
 
+        int[] nodeNames = new int[nodesFP.size()];
 
+        for (int k = 0; k < nodesFP.size(); k++) {
+            nodeNames[k] = Integer.parseInt(nodesFP.get(k).name);
+        }
+        Arrays.sort(nodeNames);
+
+        for (int k = 0; k < nodesFP.size(); k++) {
+            for (int h = 0; h < nodesFP.size(); h++) {
+                if (nodeNames[k] == Integer.parseInt(nodesFP.get(h).name)) {
+                    nodesInOrder.add(nodesFP.get(h));
+                }
+            }
+        }
 
 
     }
