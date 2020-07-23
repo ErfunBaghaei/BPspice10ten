@@ -3,7 +3,7 @@ public class Capacitor extends Element {
     public Capacitor(String input){
         super.type="c";
         this.input=input;
-        voltageValues[0]=0.1;
+       // voltageValues[0]=0.1;
         String [] info =input.split("\\s+");
         name = info[0];
         node1 = info[1];
