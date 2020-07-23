@@ -150,7 +150,7 @@ public class Solver {
                     selements.get(e).currentValues[i] = selements.get(e).voltageValues[i] / selements.get(e).resistance;
                 }
                 if (selements.get(e).name.charAt(0) == 'c' || selements.get(e).name.charAt(0) == 'C') {
-                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    selements.get(e).voltageValues[i-1] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
             }
             time += dt;
