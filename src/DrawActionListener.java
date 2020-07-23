@@ -11,7 +11,6 @@ public class DrawActionListener implements ActionListener {
     JLabel[] rowV = new JLabel[9];
     JLabel[] rowI = new JLabel[9];
     JLabel[] rowP = new JLabel[9];
-    JLabel[] time=new JLabel[11];
     JTextField whichElement;
     double[] powerValues;
 
@@ -21,13 +20,11 @@ public class DrawActionListener implements ActionListener {
         this.whichElement = whichElement;
 
         for (int i = 0; i < 9; i++)
-            rowV[i] = new JLabel("0");
+            rowV[i] = new JLabel("1");
         for (int i = 0; i < 9; i++)
-            rowI[i] = new JLabel("0");
+            rowI[i] = new JLabel("1");
         for (int i = 0; i < 9; i++)
-            rowP[i] = new JLabel("0");
-        for(int i=0;i<11;i++)
-            time[i]=new JLabel("T");
+            rowP[i] = new JLabel("1");
 
 
     }
@@ -68,29 +65,28 @@ public class DrawActionListener implements ActionListener {
         }
 
 
-        GraphPaint voltageGraphPaint = new GraphPaint(runActionListener, 0, initialTextProccesor, element,time);
-        GraphPaint currentGraphPaint = new GraphPaint(runActionListener, 1, initialTextProccesor, element,time);
-        GraphPaint powerGraphPaint = new GraphPaint(runActionListener, 2, initialTextProccesor, element,time);
+        GraphPaint voltageGraphPaint = new GraphPaint(runActionListener, 0, initialTextProccesor, element);
+        GraphPaint currentGraphPaint = new GraphPaint(runActionListener, 1, initialTextProccesor, element);
+        GraphPaint powerGraphPaint = new GraphPaint(runActionListener, 2, initialTextProccesor, element);
+        voltageGraph.add(voltageGraphPaint);
+        currentGraph.add(currentGraphPaint);
+        powerGraph.add(powerGraphPaint);
+
+        voltageGraph.setBounds(0, 0, 1085, 610);
+        currentGraph.setBounds(0, 643, 1085, 610);
+        powerGraph.setBounds(560, 0, 1085, 610);
+
+        voltageGraph.setLayout(null);
+        currentGraph.setLayout(null);
+        powerGraph.setLayout(null);
 
         voltageGraph.getContentPane().setBackground(Color.WHITE);
         currentGraph.getContentPane().setBackground(Color.WHITE);
         powerGraph.getContentPane().setBackground(Color.WHITE);
 
-
-
-        voltageGraph.setBounds(0, 80, 1105, 610);
-        currentGraph.setBounds(0, 700, 1105, 610);
-        powerGraph.setBounds(1200, 0, 1105, 610);
-
-        voltageGraphPaint.setBounds(60, 0, 1035, 610);
-        currentGraphPaint.setBounds(60, 0, 1035, 610);
-        powerGraphPaint.setBounds(60, 0, 1035, 610);
-
-
-
-        voltageGraph.setLayout(null);
-        currentGraph.setLayout(null);
-        powerGraph.setLayout(null);
+        voltageGraphPaint.setBounds(60, 0, 1030, 610);
+        currentGraphPaint.setBounds(60, 0, 1030, 610);
+        powerGraphPaint.setBounds(60, 0, 1030, 610);
 
 
         Border border = BorderFactory.createLineBorder(new Color(19, 193, 30), 2, true);
@@ -99,19 +95,10 @@ public class DrawActionListener implements ActionListener {
         powerGraph.getRootPane().setBorder(border);
         int VmaxIndex, ImaxIndex, PmaxIndex;
         int size = (int) (initialTextProccesor.time / initialTextProccesor.deltat) + 1;
-        double timeStepInGraph=(double) (initialTextProccesor.time/10.0);
-
         VmaxIndex = voltageGraphPaint.max(element.voltageValues, size);
         ImaxIndex = voltageGraphPaint.max(element.currentValues, size);
         PmaxIndex = voltageGraphPaint.max(element.voltageValues, size);
 
-        time[0].setText("0");
-        time[0].setBounds(65,290,40,10);
-        for(int i=1;i<11;i++){
-            time[i].setText(timeStepInGraph*i+"");
-            time[i].setBounds(100*i+65,290,40,10);
-        }
-//            g2d.drawLine(60+cc + i * 100, 5, 60+cc + i * 100, 565);
 
         powerValues = new double[size];
         for (int h = 0; h < size; h++) {
@@ -178,17 +165,9 @@ public class DrawActionListener implements ActionListener {
         for (int i = 0; i < 9; i++)
             powerGraph.add(rowP[i]);
 
-        currentGraph.add(currentGraphPaint);
-        powerGraph.add(powerGraphPaint);
-        voltageGraph.add(voltageGraphPaint);
+        voltageGraph.setVisible(true);
         currentGraph.setVisible(true);
         powerGraph.setVisible(true);
-        voltageGraph.setVisible(true);
-
-
-
-
-
 
     }
 }

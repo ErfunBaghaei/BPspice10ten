@@ -72,7 +72,7 @@ public class Solver {
         System.out.println("step="+endtime/dt);
         resetVoltage();
         //for (i=0;i<sunions.size();i++) for (j=0;j<sunions.get(i).nod.size();j++) System.out.println(sunions.get(i).nod.get(j).name+"e+ "+sunions.get(i).nod.get(j).union+"v+ "+sunions.get(i).nod.get(j).voltage);
-        Kcl();
+       // Kcl();
         for (j = 0; j < sunions.size(); j++) {
            skcl += sunions.get(j).kcl * sunions.get(j).kcl;
             System.out.println("kcl"+sunions.get(j).kcl);
@@ -81,8 +81,8 @@ public class Solver {
         for (i = 1; i <= endtime / dt; i++) {
             System.out.println("time"+i);
 
-
-       while (skcl>di) {
+        solveflag=1;
+       while (solveflag==1) {
            /*solveflag=0;
             for (j = 1; j < sunions.size(); j++) {
                 sunions.get(j).nod.get(0).voltage += dv;
@@ -120,13 +120,14 @@ public class Solver {
               }
             }
             if (solveflag==0) break;*/
+           solveflag=0;
            for (j=1;j<sunions.size();j++){
                resetVoltage();
-               Kcl();
+               Kcl(j);
                kclfirst=sunions.get(j).kcl;
                sunions.get(j).nod.get(0).voltage += dv;
                resetVoltage();
-               Kcl();
+               Kcl(j);
                kclnext=sunions.get(j).kcl;
                sunions.get(j).nod.get(0).voltage+=(dv*(Math.abs(kclfirst)-Math.abs(kclnext))/di)-dv;
                resetVoltage();
@@ -137,7 +138,7 @@ public class Solver {
                skcl = Math.sqrt(skcl);
            }
            System.out.println("erfunkcl "+ skcl);
-
+           for (k=0;k<sunions.size();k++) if (sunions.get(k).kcl>di) solveflag=1;
         }
             for (e=0;e<sunions.size();e++) for (p=0;p<sunions.get(e).nod.size();p++) {
                 System.out.println(sunions.get(e).nod.get(p).name+"voltage:"+sunions.get(e).nod.get(p).voltage);
@@ -167,9 +168,9 @@ public class Solver {
         }
         return volt;
     }
-    void Kcl(){
-        int i,j,k;
-        for (i=0;i<sunions.size();i++){
+    void Kcl(int i){
+        int j,k;
+       // for (i=0;i<sunions.size();i++){
             sunions.get(i).kcl=0;
             for (j=0;j<sunions.get(i).nod.size();j++){
                 for (k=0;k<selements.size();k++){
@@ -187,7 +188,7 @@ public class Solver {
                     }
                 }
             }
-        }
+       // }
     }
 
     public void printResults(){

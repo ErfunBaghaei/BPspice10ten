@@ -4,18 +4,17 @@ import java.awt.*;
 
 public class GraphPaint extends JPanel {
     RunActionListener runActionListener;
-    int check = 0, maxIndex = 0;
+    int check = 0,maxIndex = 0;
     InitialTextProccesor initialTextProccesor;
     Element element;
-    double[] powerValues = new double[10000];
-    JLabel[] time;
+    double[] powerValues=new double[10000];
 
-    public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element, JLabel[] time) {
+    public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element) {
         this.runActionListener = runActionListener;
         this.check = check;
         this.initialTextProccesor = initialTextProccesor;
         this.element = element;
-        this.time = time;
+
 
     }
 
@@ -23,28 +22,29 @@ public class GraphPaint extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int cc = -58;
+        int cc=-58;
         Graphics2D g2d = (Graphics2D) g;
         g2d.setStroke(new BasicStroke(0));
         g2d.setColor(Color.BLACK);
         for (int i = 0; i < 11; i++)
-            g2d.drawLine(60 + cc + i * 100, 5, 60 + cc + i * 100, 565);
+            g2d.drawLine(60+cc + i * 100, 5, 60+cc + i * 100, 565);
         for (int i = 0; i < 9; i++)
-            g2d.drawLine(60 + cc, 5 + i * 70, 1060 + cc, 5 + i * 70);
+            g2d.drawLine(60+cc, 5 + i * 70, 1060+cc, 5 + i * 70);
 
 
         g2d.setStroke(new BasicStroke(3));
         g2d.setColor(Color.RED);
-        g2d.drawLine(60 + cc, 6, 60 + cc, 564);
-        g2d.drawLine(60 + cc, 286, 1065 + cc, 286);
-        setBackground(new Color(255, 255, 255, 255));
+        g2d.drawLine(60+cc, 6, 60+cc, 564);
+        g2d.drawLine(60+cc, 286, 1060+cc, 286);
+        setBackground(Color.WHITE);
 
         JLabel xAxis = new JLabel();
-        xAxis.setBounds(10 + cc, 281, 1010, 281);
+        xAxis.setBounds(10+cc, 281, 1010, 281);
 
 
         g2d.setColor(Color.GREEN);
         g2d.setStroke(new BasicStroke(3));
+
 
 
         double timeTick = initialTextProccesor.deltat;
@@ -69,10 +69,14 @@ public class GraphPaint extends JPanel {
         g2d.setStroke(new BasicStroke(2));
 
         if (maxIndex == -1) {
-            g2d.drawLine(60 + cc, 287, 1050 + cc, 287);
+            g2d.drawLine(60+cc, 287, 1050+cc, 287);
 
 
-        } else {
+        }
+
+
+        else {
+
 
 
             if (check == 0) {
@@ -80,35 +84,22 @@ public class GraphPaint extends JPanel {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
 
                     g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii + 1) + 5,
-                            284 - (int) (Math.ceil(281 * (element.voltageValues[ii + 1] / Math.abs(element.voltageValues[maxIndex])))));
+                            284 - (int) (Math.ceil(281 * (element.voltageValues[ii + 1]/ Math.abs(element.voltageValues[maxIndex])))));
                 }
             } else if (check == 1) {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii + 1) + 5,
-                            284 - (int) (Math.ceil(281 * (element.currentValues[ii + 1] / Math.abs(element.currentValues[maxIndex])))));
+                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (element.currentValues[ii]/ Math.abs(element.currentValues[maxIndex])))), distance * (ii + 1) + 5,
+                            284 - (int) (Math.ceil(281 * (element.currentValues[ii + 1]/ Math.abs(element.currentValues[maxIndex])))));
 
                 }
             } else if (check == 2) {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (powerValues[ii] / powerValues[maxIndex]))), distance * (ii + 1) + 5,
-                            284 - (int) (Math.ceil(281 * (powerValues[ii + 1] / powerValues[maxIndex]))));
+                    g2d.drawLine(distance * (ii) + 5, 284 - (int) (Math.ceil(281 * (powerValues[ii]/powerValues[maxIndex]))), distance * (ii + 1) + 5,
+                            284 - (int) (Math.ceil(281 * (powerValues[ii + 1]/powerValues[maxIndex]))));
 
                 }
             }
         }
-
-        double timeStepInGraph = (double) (initialTextProccesor.time / 10.0);
-
-        for (int i = 0; i < 11; i++) {
-            time[i].setText((double) Math.round(timeStepInGraph * i * 100) / 100 + "");
-            time[i].setBounds(100 * i + 4, 290, 40, 10);
-        }
-
-
-        for (int i = 0; i < 11; i++)
-            this.add(time[i]);
-
-
     }
 
 
@@ -118,7 +109,7 @@ public class GraphPaint extends JPanel {
             if (Math.abs(a[i]) > Math.abs(a[indexOfMax]))
                 indexOfMax = i;
         }
-        if (a[indexOfMax] == 0.0)
+        if(a[indexOfMax]==0.0)
             return -1;
         return indexOfMax;
     }
