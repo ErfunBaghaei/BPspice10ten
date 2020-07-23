@@ -30,30 +30,27 @@ public class Solver {
 
     void resetVoltage(int j) {
         int i, flag, k, m;
-       // for (j = 0; j < sunions.size(); j++) {
-            System.out.println("llllx  " + j);
-            sunions.get(j).nod.get(0).voltageDef = true;
-            for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
-            while (true) {
-                flag = 0;
-                for (i = 0; i < sunions.get(j).nod.size(); i++)
-                    if (sunions.get(j).nod.get(i).voltageDef == false)
-                        flag = 1;
-                if (flag == 0) break;
-                for (i = 0; i < sunions.get(j).nod.size(); i++) {
-                    if (sunions.get(j).nod.get(i).voltageDef == true) {
-                        for (k = 0; k < sunions.get(j).nod.size(); k++) {
-                            if (sunions.get(j).nod.get(k).voltageDef == false) {
-                                for (m = 0; m < selements.size(); m++) {
-                                    if (selements.get(m).name.charAt(0) == 'v' || selements.get(m).name.charAt(0) == 'V' || selements.get(m).name.charAt(0) == 'e' || selements.get(m).name.charAt(0) == 'E' || selements.get(m).name.charAt(0) == 'h' || selements.get(m).name.charAt(0) == 'H') {
-                                        if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
-                                            sunions.get(j).nod.get(k).voltageDef = true;
-                                            sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - selements.get(m).dc;
-                                        }
-                                        if (selements.get(m).node2.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node1.equals(sunions.get(j).nod.get(k).name)) {
-                                            sunions.get(j).nod.get(k).voltageDef = true;
-                                            sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage + selements.get(m).dc;
-                                        }
+        sunions.get(j).nod.get(0).voltageDef = true;
+        for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
+        while (true) {
+            flag = 0;
+            for (i = 0; i < sunions.get(j).nod.size(); i++)
+                if (sunions.get(j).nod.get(i).voltageDef == false)
+                    flag = 1;
+            if (flag == 0) break;
+            for (i = 0; i < sunions.get(j).nod.size(); i++) {
+                if (sunions.get(j).nod.get(i).voltageDef == true) {
+                    for (k = 0; k < sunions.get(j).nod.size(); k++) {
+                        if (sunions.get(j).nod.get(k).voltageDef == false) {
+                            for (m = 0; m < selements.size(); m++) {
+                                if (selements.get(m).type.equals("vs") || selements.get(m).type.equals("vcv") || selements.get(m).type.equals("vcc")) {
+                                    if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
+                                        sunions.get(j).nod.get(k).voltageDef = true;
+                                        sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - selements.get(m).dc;
+                                    }
+                                    if (selements.get(m).node2.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node1.equals(sunions.get(j).nod.get(k).name)) {
+                                        sunions.get(j).nod.get(k).voltageDef = true;
+                                        sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage + selements.get(m).dc;
                                     }
                                 }
                             }
@@ -61,17 +58,15 @@ public class Solver {
                     }
                 }
             }
-      //  }
+        }
     }
 
 
     void mainsolver() {
         int i, j, k, p, e, solveflag = 0;
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
-        System.out.println("step=" + endtime / dt);
-       for (j=0;j<sunions.size();j++) resetVoltage(j);
-        //for (i=0;i<sunions.size();i++) for (j=0;j<sunions.get(i).nod.size();j++) System.out.println(sunions.get(i).nod.get(j).name+"e+ "+sunions.get(i).nod.get(j).union+"v+ "+sunions.get(i).nod.get(j).voltage);
-        // Kcl();
+     //   for (j=0;j<sunions.size();j++) resetVoltage(j);
+
         for (j = 0; j < sunions.size(); j++) {
             skcl += sunions.get(j).kcl * sunions.get(j).kcl;
             System.out.println("kcl" + sunions.get(j).kcl);
@@ -82,43 +77,7 @@ public class Solver {
 
             solveflag = 1;
             while (solveflag == 1) {
-           /*solveflag=0;
-            for (j = 1; j < sunions.size(); j++) {
-                sunions.get(j).nod.get(0).voltage += dv;
-                resetVoltage();
-                Kcl();
-                skcl2=0;
-                for (k = 0; k < sunions.size(); k++) {
-                   skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
-                }
-               skcl2 = Math.sqrt(skcl2);
-                if (skcl2 < skcl) {
-                    skcl = skcl2;
-                    solveflag=1;
-                }
-                else {
-                    sunions.get(j).nod.get(0).voltage -= 2 * dv;
-                    resetVoltage();
-                    Kcl();
-                    skcl2=0;
-                    for (k = 0; k < sunions.size(); k++)  skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
-                    skcl2 = Math.sqrt(skcl2);
-                    if (skcl2 < skcl){
-                        skcl = skcl2;
-                        solveflag=1;
-                    }
-                    else sunions.get(j).nod.get(0).voltage += dv;
-                    resetVoltage();
-                }
-                System.out.println("erfunkcl "+ skcl);
-                for (e=0;e<sunions.size();e++) for (p=0;p<sunions.get(e).nod.size();p++) {
-                    System.out.println(sunions.get(e).nod.get(p).name+"voltage:"+sunions.get(e).nod.get(p).voltage);
-                }
-              for (e=0;e<sunions.size();e++){
-                  System.out.println(sunions.get(e).name+"kcl :"+sunions.get(e).kcl);
-              }
-            }
-            if (solveflag==0) break;*/
+    //down text?//
                 solveflag = 0;
                 for (j = 1; j < sunions.size(); j++) {
                     resetVoltage(j);
@@ -172,7 +131,6 @@ public class Solver {
 
     void Kcl(int i) {
         int j, k;
-        // for (i=0;i<sunions.size();i++){
         sunions.get(i).kcl = 0;
         for (j = 0; j < sunions.get(i).nod.size(); j++) {
             for (k = 0; k < selements.size(); k++) {
@@ -196,7 +154,6 @@ public class Solver {
                 }
             }
         }
-        // }
     }
 
     public void printResults() {
@@ -231,3 +188,40 @@ public class Solver {
 
 }
 /// resualts >>sunoions  >> node  >> voltage
+       /*solveflag=0;
+            for (j = 1; j < sunions.size(); j++) {
+                sunions.get(j).nod.get(0).voltage += dv;
+                resetVoltage();
+                Kcl();
+                skcl2=0;
+                for (k = 0; k < sunions.size(); k++) {
+                   skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
+                }
+               skcl2 = Math.sqrt(skcl2);
+                if (skcl2 < skcl) {
+                    skcl = skcl2;
+                    solveflag=1;
+                }
+                else {
+                    sunions.get(j).nod.get(0).voltage -= 2 * dv;
+                    resetVoltage();
+                    Kcl();
+                    skcl2=0;
+                    for (k = 0; k < sunions.size(); k++)  skcl2 += sunions.get(k).kcl * sunions.get(k).kcl;
+                    skcl2 = Math.sqrt(skcl2);
+                    if (skcl2 < skcl){
+                        skcl = skcl2;
+                        solveflag=1;
+                    }
+                    else sunions.get(j).nod.get(0).voltage += dv;
+                    resetVoltage();
+                }
+                System.out.println("erfunkcl "+ skcl);
+                for (e=0;e<sunions.size();e++) for (p=0;p<sunions.get(e).nod.size();p++) {
+                    System.out.println(sunions.get(e).nod.get(p).name+"voltage:"+sunions.get(e).nod.get(p).voltage);
+                }
+              for (e=0;e<sunions.size();e++){
+                  System.out.println(sunions.get(e).name+"kcl :"+sunions.get(e).kcl);
+              }
+            }
+            if (solveflag==0) break;*/
