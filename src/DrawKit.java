@@ -594,7 +594,6 @@ public class DrawKit {
                         case "c":
                             capacitorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
-
                         case "r":
                             resistorDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
@@ -617,9 +616,7 @@ public class DrawKit {
                 }
             }
         }
-
         currentNode = currentNode + right;
-
         boolean threeTOone = false;
         currentNode += left;
         boolean flag4 = false;
@@ -659,8 +656,6 @@ public class DrawKit {
                     flag4 = true;
                     threeTOone = true;
                 }
-
-
             }
         }
 
@@ -680,7 +675,5 @@ public class DrawKit {
                 wireDrawer(tempp - ii * 8, tempp - ii * 8 - 8);
 
         }
-
-
     }
 }
