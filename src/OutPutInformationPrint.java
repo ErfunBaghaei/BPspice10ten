@@ -63,7 +63,7 @@ System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
                 System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
                 for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
-                    if(j%4==0&&j!=0) {
+                    if(j%5==0&&j!=0) {
                         out.write("\n"+lineNumber+" -  ");
                         labelString += "\n"+lineNumber+" -  ";
                         lineNumber++;

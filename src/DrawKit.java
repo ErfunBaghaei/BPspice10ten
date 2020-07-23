@@ -479,7 +479,7 @@ public class DrawKit {
         }
         currentNode += x * down;
         if(flag3)
-         currentNode += right;
+            currentNode += right;
         boolean flag6 = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
