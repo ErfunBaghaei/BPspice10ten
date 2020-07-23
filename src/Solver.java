@@ -28,9 +28,9 @@ public class Solver {
 
     }
 
-    void resetVoltage() {
-        int i, flag, j, k, m;
-        for (j = 0; j < sunions.size(); j++) {
+    void resetVoltage(int j) {
+        int i, flag, k, m;
+       // for (j = 0; j < sunions.size(); j++) {
             System.out.println("llllx  " + j);
             sunions.get(j).nod.get(0).voltageDef = true;
             for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
@@ -39,7 +39,6 @@ public class Solver {
                 for (i = 0; i < sunions.get(j).nod.size(); i++)
                     if (sunions.get(j).nod.get(i).voltageDef == false)
                         flag = 1;
-
                 if (flag == 0) break;
                 for (i = 0; i < sunions.get(j).nod.size(); i++) {
                     if (sunions.get(j).nod.get(i).voltageDef == true) {
@@ -62,7 +61,7 @@ public class Solver {
                     }
                 }
             }
-        }
+      //  }
     }
 
 
@@ -70,7 +69,7 @@ public class Solver {
         int i, j, k, p, e, solveflag = 0;
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         System.out.println("step=" + endtime / dt);
-        resetVoltage();
+       for (j=0;j<sunions.size();j++) resetVoltage(j);
         //for (i=0;i<sunions.size();i++) for (j=0;j<sunions.get(i).nod.size();j++) System.out.println(sunions.get(i).nod.get(j).name+"e+ "+sunions.get(i).nod.get(j).union+"v+ "+sunions.get(i).nod.get(j).voltage);
         // Kcl();
         for (j = 0; j < sunions.size(); j++) {
@@ -122,15 +121,15 @@ public class Solver {
             if (solveflag==0) break;*/
                 solveflag = 0;
                 for (j = 1; j < sunions.size(); j++) {
-                    resetVoltage();
+                    resetVoltage(j);
                     Kcl(j);
                     kclfirst = sunions.get(j).kcl;
                     sunions.get(j).nod.get(0).voltage += dv;
-                    resetVoltage();
+                    resetVoltage(j);
                     Kcl(j);
                     kclnext = sunions.get(j).kcl;
                     sunions.get(j).nod.get(0).voltage += (dv * (Math.abs(kclfirst) - Math.abs(kclnext)) / di) - dv;
-                    resetVoltage();
+                    resetVoltage(j);
                     skcl = 0;
                     for (k = 0; k < sunions.size(); k++) {
                         skcl += sunions.get(k).kcl * sunions.get(k).kcl;
