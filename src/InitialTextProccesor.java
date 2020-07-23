@@ -17,10 +17,6 @@ public class InitialTextProccesor {
     ArrayList<Element> elements=new ArrayList<Element>();
     ArrayList<Node> nodes= new ArrayList();
     ArrayList<Node> nodes2 = new ArrayList();
-    Solver solver;
-
-
-
 
 
     double deltai,deltav,deltat,time;
@@ -148,11 +144,6 @@ public class InitialTextProccesor {
 
 
 
-
-    public void solve(){
-         solver= new Solver(unions,elements,nodes,graph,deltav,deltat,deltai,time);
-        solver.mainsolver();
-    }
     public void set_union(){
 
         int i;

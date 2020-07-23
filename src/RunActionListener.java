@@ -12,6 +12,7 @@ public class RunActionListener implements ActionListener {
     JFrame circuitFrame,mainPage;
     JTextArea outPutInformationsLabel;
     InitialTextProccesor initialTextProccesor;
+    Solver solver;
     public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel,InitialTextProccesor initialTextProccesor){
         this.circuit=circuit;
         this.file=file;
@@ -36,7 +37,7 @@ public class RunActionListener implements ActionListener {
 
 
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
-        OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor);
+
 
         boolean cont=true;
         cont = initialTextProccesor.start();
@@ -48,11 +49,15 @@ public class RunActionListener implements ActionListener {
 
             circuitFrame.setVisible(true);
 
+            solver= new Solver(initialTextProccesor);
+
             initialTextProccesor.create_union();
 
             initialTextProccesor.set_union();
 
-            initialTextProccesor.solve();
+            solver.mainsolver();
+
+            OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor,solver);
 
             outPutInformationPrint.printOut();
 

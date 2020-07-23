@@ -11,24 +11,33 @@ public class Solver {
     ArrayList<Node> nodesFP = new ArrayList();
     ArrayList<Node> nodesInOrder = new ArrayList();
 
-    Solver(ArrayList<Union> a, ArrayList<Element> b, ArrayList<Node> c, int[][] d, double deltav
-            , double deltat, double deltai, double time) {
+    Solver(InitialTextProccesor initialTextProccesor) {
         int i, j;
-        endtime = time;
-        di = deltai;
-        dv = deltav;
-        dt = deltat;
+        endtime = initialTextProccesor.time;
+        di = initialTextProccesor.deltai;
+        dv = initialTextProccesor.deltav;
+        dt = initialTextProccesor.deltat;
 
-        this.sunions = a;
-        this.selements = b;
+        this.sunions = initialTextProccesor.unions;
+        this.selements = initialTextProccesor.elements;
 
-        this.snodes = c;
-        this.sgraph = d;
-        System.out.println(d[0][0] + " " + d[0][1] + " " + d[1][0] + " " + d[1][1]);
-        System.out.println(di + "    " + dt + "   " + dv + "    " + a.size() + "    " + sunions.size() + "    " + selements.size() + "    " + snodes.size());
-        for (i = 0; i < sunions.size(); i++)
-            for (j = 0; j < sunions.get(i).nod.size(); j++)
-                System.out.println(sunions.get(i).nod.get(j).name + "e+ " + sunions.get(i).nod.get(j).union);
+        this.snodes = initialTextProccesor.nodes;
+        this.sgraph = initialTextProccesor.graph;
+        int[] nodeNames = new int[nodesFP.size()];
+
+        for (int k = 0; k < nodesFP.size(); k++) {
+            nodeNames[k] = Integer.parseInt(nodesFP.get(k).name);
+        }
+        Arrays.sort(nodeNames);
+
+        for (int k = 0; k < nodesFP.size(); k++) {
+            for (int h = 0; h < nodesFP.size(); h++) {
+                if (nodeNames[k] == Integer.parseInt(nodesFP.get(h).name)) {
+                    nodesInOrder.add(nodesFP.get(h));
+                }
+            }
+        }
+
 
     }
 
@@ -215,20 +224,7 @@ public class Solver {
             }
         }
 
-        int[] nodeNames = new int[nodesFP.size()];
 
-        for (int k = 0; k < nodesFP.size(); k++) {
-            nodeNames[k] = Integer.parseInt(nodesFP.get(k).name);
-        }
-        Arrays.sort(nodeNames);
-
-        for (int k = 0; k < nodesFP.size(); k++) {
-            for (int h = 0; h < nodesFP.size(); h++) {
-                if (nodeNames[k] == Integer.parseInt(nodesFP.get(h).name)) {
-                    nodesInOrder.add(nodesFP.get(h));
-                }
-            }
-        }
 
 
     }
