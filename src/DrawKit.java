@@ -353,6 +353,13 @@ public class DrawKit {
                     else
                         currentSourceDrawer(currentNode+up, currentNode);
                     break;
+                case "d":
+                    if(elements.get(i).node1.equals("0"))
+                        diodeDrawer(currentNode, currentNode + up);
+                    else
+                        diodeDrawer(currentNode+up, currentNode);
+                    break;
+
 
             }
 
@@ -673,6 +680,11 @@ public class DrawKit {
                         case "cs":
                             currentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
+                        case "d":
+                            if(elements.get(i).node1.equals(node4.get(2)))
+                            diodeDrawer(savedNode + 2 * up+ right, savedNode + 2 * up );
+                            else
+                                diodeDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                     }
                     if (flag3) {
                         wireDrawer(savedNode + up, savedNode + 2 * up);
@@ -711,11 +723,24 @@ public class DrawKit {
                             inductorDrawer(currentNode, currentNode + left);
                             break;
                         case "vs":
-                            voltageSourceDrawer(currentNode, currentNode + left);
+                            if(elements.get(i).node1.equals(node4.get(1)))
+                                voltageSourceDrawer(currentNode, currentNode + left);
+                            else
+                                voltageSourceDrawer(currentNode + left, currentNode);
                             break;
                         case "cs":
-                            currentSourceDrawer(currentNode, currentNode + left);
+                            if(elements.get(i).node1.equals(node4.get(1)))
+                                currentSourceDrawer(currentNode, currentNode + left);
+                            else
+                                currentSourceDrawer(currentNode + left, currentNode);
                             break;
+                        case "d":
+                            if(elements.get(i).node1.equals(node4.get(1)))
+                                diodeDrawer(currentNode, currentNode + left);
+                            else
+                                diodeDrawer(currentNode + left, currentNode);
+                            break;
+
                     }
                     if (flag4) {
                         wireDrawer(currentNode, currentNode + down);
