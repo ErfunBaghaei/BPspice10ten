@@ -10,7 +10,7 @@ public class DrawKit {
 
     InitialTextProccesor initialTextProccesor;
     JPanel circuit;
-    PixelCoordinate[] nodeCoordiantes = new PixelCoordinate[60];
+    PixelCoordinate[] nodeCoordiantes = new PixelCoordinate[100];
     HashMap<Integer, PixelCoordinate> nodeCoordinates = new HashMap<Integer, PixelCoordinate>();
     HashMap<Integer, String> nodeCodes = new HashMap<Integer, String>();
     HashMap<Integer, Node> nodeIndex = new HashMap<Integer, Node>();
@@ -19,19 +19,51 @@ public class DrawKit {
     public DrawKit(InitialTextProccesor initialTextProccesor, JPanel circuit) {
         this.initialTextProccesor = initialTextProccesor;
         this.circuit = circuit;
-        for (int i = 1; i < 9; i++) {
-            for (int j = 0; j < 6; j++) {
-                nodeCoordiantes[i + j * 8] = new PixelCoordinate(82 * i - 30, 451 - j * 82);
-                nodeCoordinates.put(i + j * 8, nodeCoordiantes[i + j * 8]);
+        for (int i = 1; i < 12; i++) {
+            for (int j = 0; j < 9 ; j++) {
+                nodeCoordiantes[i + j * 11] = new PixelCoordinate(82 * i - 30, 613 - j * 82);
+                nodeCoordinates.put(i + j * 11, nodeCoordiantes[i + j * 11]);
+                System.out.println((i + j * 11)+"jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
             }
         }
     }
+
+    public void circuitDrawer() {
+
+
+        node = initialTextProccesor.nodes;
+        elements = initialTextProccesor.elements;
+
+
+        circuit.revalidate();
+        circuit.repaint();
+
+        groundDrawer();
+
+        if (node.size() == 1)
+            oneNode(node,16);
+        else if (node.size() == 2)
+            twoNode(node,15);
+
+
+        else if (node.size() == 3)
+            threeNode(node,14);
+
+        if (node.size() == 4) {
+
+            fourNode(node,2);
+
+        }
+
+
+    }
+
 
     public void groundDrawer() {
         ImageIcon gndImage = new ImageIcon("gnd.png");
         JLabel gnd = new JLabel(gndImage);
         nodeDrawer(3);
-        gnd.setBounds(nodeCoordinates.get(10).x + 53, nodeCoordinates.get(10).y + 83, 54, 34);
+        gnd.setBounds(nodeCoordinates.get(14).x + 53, nodeCoordinates.get(14).y + 83, 54, 34);
         circuit.add(gnd);
 
     }
@@ -51,7 +83,7 @@ public class DrawKit {
             resistorHorizontal.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 40, 80, 80);
 
             circuit.add(resistorHorizontal);
-        } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
+        } else if (nodeP - nodeM == 11 || nodeM - nodeP == 11) {
             resistorVertical = new JLabel(resistorVerticalimage);
             resistorVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -78,12 +110,12 @@ public class DrawKit {
             diodeRight.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 40, 80, 80);
 
             circuit.add(diodeRight);
-        } else if (nodeP - nodeM == 8) {
+        } else if (nodeP - nodeM == 11) {
             diodeDown = new JLabel(diodeDownimage);
             diodeDown.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(diodeDown);
-        } else if (nodeM - nodeP == 8) {
+        } else if (nodeM - nodeP == 11) {
             diodeUp = new JLabel(diodeUpimage);
             diodeUp.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -117,12 +149,12 @@ public class DrawKit {
             voltageSourceRight.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 40, 80, 80);
 
             circuit.add(voltageSourceRight);
-        } else if (nodeP - nodeM == 8) {
+        } else if (nodeP - nodeM == 11) {
             voltageSourceDown = new JLabel(voltageSourceDownimage);
             voltageSourceDown.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(voltageSourceDown);
-        } else if (nodeM - nodeP == 8) {
+        } else if (nodeM - nodeP == 11) {
             voltageSourceUp = new JLabel(voltageSourceUpimage);
             voltageSourceUp.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -156,12 +188,12 @@ public class DrawKit {
             currentSourceRight.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 40, 80, 80);
 
             circuit.add(currentSourceRight);
-        } else if (nodeP - nodeM == 8) {
+        } else if (nodeP - nodeM == 11) {
             currentSourceDown = new JLabel(currentSourceDownimage);
             currentSourceDown.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(currentSourceDown);
-        } else if (nodeM - nodeP == 8) {
+        } else if (nodeM - nodeP == 11) {
             currentSourceUp = new JLabel(currentSourceUpimage);
             currentSourceUp.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -192,7 +224,7 @@ public class DrawKit {
             capacitorHorizontal.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 40, 80, 80);
 
             circuit.add(capacitorHorizontal);
-        } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
+        } else if (nodeP - nodeM == 11 || nodeM - nodeP == 11) {
             capacitorVertical = new JLabel(capacitorVerticalimage);
             capacitorVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -217,7 +249,7 @@ public class DrawKit {
             inductorHorizontal.setBounds(nodeCoordinates.get(min).x - 1, nodeCoordinates.get(min).y - 41, 80, 80);
 
             circuit.add(inductorHorizontal);
-        } else if (nodeP - nodeM == 8 || nodeM - nodeP == 8) {
+        } else if (nodeP - nodeM == 11 || nodeM - nodeP == 11) {
             inductorVertical = new JLabel(inductorVerticalimage);
 
             inductorVertical.setBounds(nodeCoordinates.get(max).x - 41, nodeCoordinates.get(max).y + 1, 80, 80);
@@ -241,10 +273,11 @@ public class DrawKit {
 
         if (max - min == 1) {
             wireHorizontal = new JLabel(wireHorizontalimage);
+            System.out.println(min-1);
             wireHorizontal.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 41, 80, 80);
 
             circuit.add(wireHorizontal);
-        } else if (max - min == 8) {
+        } else if (max - min == 11) {
             wireVertical = new JLabel(wireVerticalimage);
             wireVertical.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
@@ -263,6 +296,7 @@ public class DrawKit {
     public void nodeDrawer(int nodeP) {
         ImageIcon nodeimage = new ImageIcon("node.png");
         JLabel node = new JLabel(nodeimage);
+        System.out.println(nodeP);
         node.setBounds(nodeCoordinates.get(nodeP).x - 5, nodeCoordinates.get(nodeP).y - 4, 7, 7);
         circuit.add(node);
     }
@@ -283,46 +317,18 @@ public class DrawKit {
 
     }
 
-    int currentNode = 10, up = 8, down = -8, right = 1, left = -1, lastNode = 2, remainder = 1;
+    int up = 11, down = -11, right = 1, left = -1, lastNode = 2, remainder = 1;
 
     int arrow = 1;  //1>>up  2>>right   3>>down   0>>left
     String type;
     ArrayList<Element> elements;
     ArrayList<Node> node;
 
-    public void circuitDrawer() {
 
-
-        node = initialTextProccesor.nodes;
-        elements = initialTextProccesor.elements;
-
-
-        circuit.revalidate();
-        circuit.repaint();
-
-        groundDrawer();
-
-        if (node.size() == 1)
-            oneNode(node);
-        else if (node.size() == 2)
-            twoNode(node);
-
-
-        else if (node.size() == 3)
-            threeNode(node);
-
-        if (node.size() == 4) {
-
-            fourNode(node);
-
-        }
-
-
-    }
 
     boolean flag1 = false;
 
-    public void oneNode(ArrayList<Node> node1) {
+    public void oneNode(ArrayList<Node> node1,int currentNode) {
 
 
         for (int i = 0; i < elements.size(); i++) {
@@ -376,7 +382,7 @@ public class DrawKit {
 
     }
 
-    public void twoNode(ArrayList<Node> node2) {
+    public void twoNode(ArrayList<Node> node2,int currentNode) {
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             switch (type) {
@@ -424,7 +430,7 @@ public class DrawKit {
     }
 
 
-    public void threeNode(ArrayList<Node> node3) {
+    public int threeNode(ArrayList<Node> node3,int currentNode) {
         boolean flag = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
@@ -584,15 +590,16 @@ public class DrawKit {
         }
         if (flag6)
             currentNode += left;
+        return currentNode;
     }
 
 
-    public void fourNode(ArrayList<Node> node4) {
+    public void fourNode(ArrayList<Node> node4,int currentNode) {
         ArrayList<Node> tempNodes = new ArrayList();
         for (int i = 0; i < 3; i++) {
             tempNodes.add(node4.get(i));
         }
-        threeNode(tempNodes);
+        currentNode=threeNode(tempNodes,13);
 
         int savedNode = currentNode;
         currentNode += right;////////////////////////////////////////////////////////////////pp
@@ -757,18 +764,19 @@ public class DrawKit {
 
         if (threeTOone) {
             currentNode += down;
-            wireDrawer(26, 34);
-            wireDrawer(34, 42);
-            wireDrawer(42, 43);
+            wireDrawer(35, 46);
+            wireDrawer(46, 57);
+            wireDrawer(57, 68);
+            wireDrawer(68, 79);
             int tempp = currentNode, yy = 0;
-            while (tempp < 42) {
-                tempp += 8;
+            while (tempp < 78) {
+                tempp += 11;
                 yy++;
             }
-            for (int ii = 43; ii < tempp; ii++)
+            for (int ii = 79; ii < tempp; ii++)
                 wireDrawer(ii, ii + 1);
             for (int ii = 0; ii < yy; ii++)
-                wireDrawer(tempp - ii * 8, tempp - ii * 8 - 8);
+                wireDrawer(tempp - ii * 11, tempp - ii * 11 - 11);
 
         }
 

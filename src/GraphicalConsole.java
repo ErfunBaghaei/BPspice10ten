@@ -15,20 +15,16 @@ public class GraphicalConsole {
 
         MapPoints mapPoints=new MapPoints();
 
-        JTextField drawElement=new JTextField("r2");
+        JTextField drawElement=new JTextField("l1");
         //First, you must choose a file...
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
 
         "v1 0 1 1 0 0 0\n"+
-                "i1 1 0 2 0 0 0\n"+
-                "d1 1 3\n"+
-                "d2 2 1\n"+
-        "i2 1 2 5 0 0 0\n"+
-                "v2 2 3 5 0 0 0\n"+
-                "r2 0 2 4k\n"+
-        ".tran 500m\n"+
-        "dv 1n\n"+
-        "dI 1m\n"+
+                "r2 1 2 4\n"+
+                "c1 2 0 1n\n"+
+        ".tran 400m\n"+
+        "dv 1m\n"+
+        "dI 20m\n"+
         "dT 20m\n"+
                 "END"
         );
