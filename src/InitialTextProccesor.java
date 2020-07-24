@@ -62,10 +62,8 @@ public class InitialTextProccesor {
                         createResistor(currentLineInput);
                     else if (currentLineInput.charAt(0) == 'l' || currentLineInput.charAt(0) == 'L')
                         createInductor(currentLineInput);
-
                     else if (currentLineInput.charAt(0) == 'g' || currentLineInput.charAt(0) == 'G')
                         createCurrentControledCurrentSource(currentLineInput);
-
                     else if (currentLineInput.charAt(0) == 'f' || currentLineInput.charAt(0) == 'F')
                         createVoltageControledCurrentSource(currentLineInput);
 

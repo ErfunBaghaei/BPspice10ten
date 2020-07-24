@@ -13,16 +13,12 @@ public class OutPutInformationPrint {
         this.solver=solver;
     }
 
-    int lineNumber = 1;
-
+    int lineNumber = 1,powerOfTen=1000;
     public String printOut() {
         File fileOut = new File("Result.txt");
 System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+lineNumber);
         String labelString = new String("Nodes:\n"+lineNumber + "- ");
         try {
-
-
-
             FileWriter out = new FileWriter(fileOut);
             out.write("Nodes:\n"+lineNumber + "- ");
             lineNumber++;
@@ -37,8 +33,8 @@ System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
-                    labelString = labelString + (double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* 100) / 100 + "|   ";
-                    out.write((double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* 100) / 100 + "|   ");
+                    labelString = labelString + (double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ";
+                    out.write((double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ");
                     System.out.print(solver.nodesInOrder.get(i).voltageValues[j] + "|   ");
                 }
 
@@ -68,12 +64,12 @@ System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                         labelString += "\n"+lineNumber+" -  ";
                         lineNumber++;
                     }
-                    labelString = labelString + " v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* 100) / 100
-                            + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* 100) / 100
-                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* 100) / 100+"|   ";
-                    out.write(" v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* 100) / 100
-                            + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* 100) / 100
-                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* 100) / 100+"|   ");
+                    labelString = labelString + " v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* powerOfTen) / powerOfTen
+                            + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen
+                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+"|   ";
+                    out.write(" v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* powerOfTen) / powerOfTen
+                            + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen
+                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+"|   ");
 
                     System.out.print(" v: " + initialTextProccesor.elements.get(i).voltageValues[j]);
                     System.out.print(" i: " + initialTextProccesor.elements.get(i).currentValues[j]);
