@@ -150,9 +150,13 @@ public class Solver {
 
                 if (selements.get(k).type.equals("c")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
-                        sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) - selements.get(k).voltageValues[(int) (time / dt)]) / dt;
+                        sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2))
+                                - selements.get(k).voltageValues[(int) (time / dt)]) / dt;
+
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
-                        sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) + selements.get(k).voltageValues[(int) (time / dt)]) / dt;
+                        sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1))
+                                + selements.get(k).voltageValues[(int) (time / dt)]) / dt;
+
                 } else if (selements.get(k).type.equals("r")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += (sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) / selements.get(k).resistance;
