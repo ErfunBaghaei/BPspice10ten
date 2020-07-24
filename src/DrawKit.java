@@ -21,9 +21,8 @@ public class DrawKit {
         this.circuit = circuit;
         for (int i = 1; i < 12; i++) {
             for (int j = 0; j < 9 ; j++) {
-                nodeCoordiantes[i + j * 11] = new PixelCoordinate(82 * i - 30, 613 - j * 82);
+                nodeCoordiantes[i + j * 11] = new PixelCoordinate(82 * i - 30, 615 - j * 82);
                 nodeCoordinates.put(i + j * 11, nodeCoordiantes[i + j * 11]);
-                System.out.println((i + j * 11)+"jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
             }
         }
     }
@@ -273,7 +272,6 @@ public class DrawKit {
 
         if (max - min == 1) {
             wireHorizontal = new JLabel(wireHorizontalimage);
-            System.out.println(min-1);
             wireHorizontal.setBounds(nodeCoordinates.get(min).x, nodeCoordinates.get(min).y - 41, 80, 80);
 
             circuit.add(wireHorizontal);
@@ -296,7 +294,6 @@ public class DrawKit {
     public void nodeDrawer(int nodeP) {
         ImageIcon nodeimage = new ImageIcon("node.png");
         JLabel node = new JLabel(nodeimage);
-        System.out.println(nodeP);
         node.setBounds(nodeCoordinates.get(nodeP).x - 5, nodeCoordinates.get(nodeP).y - 4, 7, 7);
         circuit.add(node);
     }
