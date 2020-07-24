@@ -100,9 +100,9 @@ public class GraphicalConsole {
 
         mainPage.setBounds(0,0,1800,990);
 
-        circuit.setBounds(850,60,670,500);
+  //      circuit.setBounds(850,60,943,710);
 
-        circuitFrame.setBounds(13,90,700,560);
+        circuitFrame.setBounds(13,90,940,702);
 
         which.setBounds(370,34,270,20);
 
