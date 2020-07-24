@@ -92,7 +92,7 @@ public class Solver {
                     }
                     skcl = Math.sqrt(skcl);
                 }
-                System.out.println("erfunkcl " + skcl);
+                //System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -106,6 +106,10 @@ public class Solver {
                     selements.get(e).currentValues[i] = selements.get(e).voltageValues[i] / selements.get(e).resistance;
                 }
                 if (selements.get(e).type.equals("c")) {
+                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                }
+                if (selements.get(e).type.equals("l")){
+                    selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
                     selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
             }
@@ -131,7 +135,20 @@ public class Solver {
         sunions.get(i).kcl = 0;
         for (j = 0; j < sunions.get(i).nod.size(); j++) {
             for (k = 0; k < selements.size(); k++) {
-                if (selements.get(k).name.equals("c")) {
+
+
+
+                if (selements.get(k).type.equals("l")) {
+                    if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl += selements.get(k).currentValues[(int) (time / dt)]+dt*(sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) / selements.get(k).inductance;
+                    if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl += -selements.get(k).currentValues[(int) (time / dt)]+dt*(sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) / selements.get(k).inductance;
+                }
+
+
+
+
+                if (selements.get(k).type.equals("c")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) - selements.get(k).voltageValues[(int) (time / dt)]) / dt;
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
