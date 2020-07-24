@@ -65,8 +65,7 @@ public class Solver {
     void mainsolver() {
         int i, j, k, p, e, solveflag = 0;
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
-     //   for (j=0;j<sunions.size();j++) resetVoltage(j);
-
+        for (j=0;j<sunions.size();j++) resetVoltage(j);
         for (j = 0; j < sunions.size(); j++) {
             skcl += sunions.get(j).kcl * sunions.get(j).kcl;
             System.out.println("kcl" + sunions.get(j).kcl);
@@ -109,7 +108,7 @@ public class Solver {
                     selements.get(e).currentValues[i] = selements.get(e).voltageValues[i] / selements.get(e).resistance;
                 }
                 if (selements.get(e).name.charAt(0) == 'c' || selements.get(e).name.charAt(0) == 'C') {
-                    selements.get(e).voltageValues[i-1] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
             }
             time += dt;

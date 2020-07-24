@@ -27,7 +27,7 @@ public class GraphicalConsole {
                 "dI 1m\n" +
                 "dT 20m\n" +
                 "END"*/
-        "r3 0 1 1\n"+
+        /*"r3 0 1 1\n"+
         "v1 2 1 5 0 0 0\n"+
         "r2 0 1 4\n"+
         "r1 2 3 5\n"+
@@ -37,11 +37,14 @@ public class GraphicalConsole {
         "v2 1 3 4 0 0 0\n"+
               "i1 0 1 1 0 0 0\n"+
                "r78 0 2 5\n"+
-               "r10 1 2 2\n"+
+               "r10 1 2 2\n"+*/
+                "r3 0 1 1\n"+
+                "v1 2 1 5 0 0 0\n"+
+                "r2 0 2 4\n"+
                 ".tran 500m\n"+
-        "dv 1m\n"+
-        "dI 10m\n"+
-        "dT 100m\n"+
+                "dv 1m\n"+
+                "dI 10m\n"+
+                "dT 20m\n"+
                 "END"
         );
 
