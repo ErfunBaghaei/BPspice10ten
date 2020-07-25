@@ -12,9 +12,10 @@ public class OpenActionListener implements ActionListener {
     File file = new File("input.txt");
     JFileChooser fileChooser = new JFileChooser(file, fsv);
     JTextArea consoleText;
-    public OpenActionListener(JFrame mainPage,JTextArea consoleText){
-        this.mainPage=mainPage;
-        this.consoleText=consoleText;
+
+    public OpenActionListener(JFrame mainPage, JTextArea consoleText) {
+        this.mainPage = mainPage;
+        this.consoleText = consoleText;
 
     }
 
@@ -23,22 +24,20 @@ public class OpenActionListener implements ActionListener {
 
         fsv = FileSystemView.getFileSystemView();
         int response = fileChooser.showOpenDialog(mainPage);
-        file=fileChooser.getSelectedFile();
-        String wholeText="";
-        String[] fileLines=new String[100];
-        int lineNumber=0;
-        try
-        {
+        file = fileChooser.getSelectedFile();
+        String wholeText = "";
+        String[] fileLines = new String[100];
+        int lineNumber = 0;
+        try {
             Scanner fileScanner = new Scanner(file);
-            while (fileScanner.hasNextLine()){
-                fileLines[lineNumber]=fileScanner.nextLine();
+            while (fileScanner.hasNextLine()) {
+                fileLines[lineNumber] = fileScanner.nextLine();
 
-                wholeText=wholeText+fileLines[lineNumber]+"\n";
+                wholeText = wholeText + fileLines[lineNumber] + "\n";
                 lineNumber++;
             }
 
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.print("File not found !");
         }
         consoleText.setText(wholeText);

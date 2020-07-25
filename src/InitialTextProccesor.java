@@ -255,7 +255,7 @@ public class InitialTextProccesor {
 
     public void createVoltageControledVoltageSource(String currentLineInput) {
         nodesNameSetter(currentLineInput);
-        elements.add(new VoltageControledCurrentSource(currentLineInput));
+        elements.add(new VoltageControledVoltageSource(currentLineInput));
     }
 
     public void createIdealDiode(String currentLineInput) {
