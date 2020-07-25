@@ -11,7 +11,7 @@ public class DrawActionListener implements ActionListener {
     JLabel[] rowV = new JLabel[9];
     JLabel[] rowI = new JLabel[9];
     JLabel[] rowP = new JLabel[9];
-    JLabel[] time=new JLabel[11];
+    JLabel[] time = new JLabel[11];
     JTextField whichElement;
     double[] powerValues;
 
@@ -26,8 +26,8 @@ public class DrawActionListener implements ActionListener {
             rowI[i] = new JLabel("0");
         for (int i = 0; i < 9; i++)
             rowP[i] = new JLabel("0");
-        for(int i=0;i<11;i++)
-            time[i]=new JLabel("T");
+        for (int i = 0; i < 11; i++)
+            time[i] = new JLabel("T");
 
 
     }
@@ -68,24 +68,22 @@ public class DrawActionListener implements ActionListener {
         }
 
 
-        GraphPaint voltageGraphPaint = new GraphPaint(runActionListener, 0, initialTextProccesor, element,time);
-        GraphPaint currentGraphPaint = new GraphPaint(runActionListener, 1, initialTextProccesor, element,time);
-        GraphPaint powerGraphPaint = new GraphPaint(runActionListener, 2, initialTextProccesor, element,time);
+        GraphPaint voltageGraphPaint = new GraphPaint(runActionListener, 0, initialTextProccesor, element, time);
+        GraphPaint currentGraphPaint = new GraphPaint(runActionListener, 1, initialTextProccesor, element, time);
+        GraphPaint powerGraphPaint = new GraphPaint(runActionListener, 2, initialTextProccesor, element, time);
 
         voltageGraph.getContentPane().setBackground(Color.WHITE);
         currentGraph.getContentPane().setBackground(Color.WHITE);
         powerGraph.getContentPane().setBackground(Color.WHITE);
 
 
+        voltageGraph.setBounds(0, 80, 1090, 610);
+        currentGraph.setBounds(0, 600, 1090, 610);
+        powerGraph.setBounds(1050, 0, 1090, 610);
 
-        voltageGraph.setBounds(0, 80, 1105, 610);
-        currentGraph.setBounds(0, 700, 1105, 610);
-        powerGraph.setBounds(1200, 0, 1105, 610);
-
-        voltageGraphPaint.setBounds(60, 0, 1035, 610);
-        currentGraphPaint.setBounds(60, 0, 1035, 610);
-        powerGraphPaint.setBounds(60, 0, 1035, 610);
-
+        voltageGraphPaint.setBounds(60, 0, 1020, 610);
+        currentGraphPaint.setBounds(60, 0, 1020, 610);
+        powerGraphPaint.setBounds(60, 0, 1020, 610);
 
 
         voltageGraph.setLayout(null);
@@ -99,17 +97,17 @@ public class DrawActionListener implements ActionListener {
         powerGraph.getRootPane().setBorder(border);
         int VmaxIndex, ImaxIndex, PmaxIndex;
         int size = (int) (initialTextProccesor.time / initialTextProccesor.deltat) + 1;
-        double timeStepInGraph=(double) (initialTextProccesor.time/10.0);
+        double timeStepInGraph = (double) (initialTextProccesor.time / 10.0);
 
         VmaxIndex = voltageGraphPaint.max(element.voltageValues, size);
         ImaxIndex = voltageGraphPaint.max(element.currentValues, size);
         PmaxIndex = voltageGraphPaint.max(element.voltageValues, size);
 
         time[0].setText("0");
-        time[0].setBounds(65,290,40,10);
-        for(int i=1;i<11;i++){
-            time[i].setText(timeStepInGraph*i+"");
-            time[i].setBounds(100*i+65,290,40,10);
+        time[0].setBounds(65, 290, 40, 10);
+        for (int i = 1; i < 11; i++) {
+            time[i].setText(timeStepInGraph * i + "");
+            time[i].setBounds(100 * i + 65, 290, 40, 10);
         }
 //            g2d.drawLine(60+cc + i * 100, 5, 60+cc + i * 100, 565);
 
@@ -123,34 +121,34 @@ public class DrawActionListener implements ActionListener {
 
             unit = Math.abs(element.voltageValues[VmaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowV[i].setText(((int)((Math.abs(element.voltageValues[VmaxIndex]) - unit * i)*1000.0)/1000.0) + "");
+                rowV[i].setText(((int) ((Math.abs(element.voltageValues[VmaxIndex]) - unit * i) * 1000.0) / 1000.0) + "");
 
             }
         } else {
             for (int i = 0; i < 9; i++)
-                rowV[i].setText(4-i + "*10^-17");
+                rowV[i].setText(4 - i + "*10^-17");
             rowV[4].setText("       0");
         }
         if (ImaxIndex != -1) {
             unit = Math.abs(element.currentValues[ImaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowI[i].setText(((int)((Math.abs(element.currentValues[ImaxIndex]) - unit * i)*1000.0)/1000.0) + "");
+                rowI[i].setText(((int) ((Math.abs(element.currentValues[ImaxIndex]) - unit * i) * 1000.0) / 1000.0) + "");
 
             }
         } else {
             for (int i = 0; i < 9; i++)
-                rowI[i].setText(4-i + "*10^-17");
+                rowI[i].setText(4 - i + "*10^-17");
             rowI[4].setText("       0");
         }
         if (PmaxIndex != -1) {
             unit = Math.abs(powerValues[PmaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowP[i].setText(((int)((Math.abs(powerValues[PmaxIndex]) - unit * i)*1000.0)/1000.0) + "");
+                rowP[i].setText(((int) ((Math.abs(powerValues[PmaxIndex]) - unit * i) * 1000.0) / 1000.0) + "");
 
             }
         } else {
             for (int i = 0; i < 9; i++)
-                rowP[i].setText(4-i + "*10^-17");
+                rowP[i].setText(4 - i + "*10^-17");
             rowP[4].setText("       0");
         }
 

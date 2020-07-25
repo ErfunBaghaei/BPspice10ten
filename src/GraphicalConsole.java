@@ -8,57 +8,59 @@ import static java.awt.Component.CENTER_ALIGNMENT;
 
 public class GraphicalConsole {
     InitialTextProccesor initialTextProccesor;
+
     GraphicalConsole(File file) {
-         this.initialTextProccesor= new InitialTextProccesor(file);
+        this.initialTextProccesor = new InitialTextProccesor(file);
     }
+
     public void run() {
 
-        MapPoints mapPoints=new MapPoints();
+        MapPoints mapPoints = new MapPoints();
 
-        JTextField drawElement=new JTextField("r2");
+        JTextField drawElement = new JTextField("l1");
         //First, you must choose a file...
-        JTextArea textConsole=new JTextArea("* hi this is a test\n" +
+        JTextArea textConsole = new JTextArea("* hi this is a test\n" +
 
-        "l1 2 1 1m\n"+
-        "v1 1 0 5 0 0 0\n"+
-        "c2 2 0 1m\n"+
-        ".tran 6m\n"+
-        "dv 0.1m\n"+
-        "dI 5m\n"+
-        "dT 0.1m\n"+
+                "e1 0 1 1 2 3\n" +
+                "r2 1 2 4\n" +
+                "c1 2 0 1n\n" +
+                ".tran 400m\n" +
+                "dv 1m\n" +
+                "dI 20m\n" +
+                "dT 20m\n" +
                 "END"
         );
 
-        ImageIcon startImage=new ImageIcon("BPSPICEIMAGE.jpg");
+        ImageIcon startImage = new ImageIcon("BPSPICEIMAGE.jpg");
 
-        JLabel startImageLabel=new JLabel(startImage);
+        JLabel startImageLabel = new JLabel(startImage);
 
-        JPanel loading=new JPanel();
+        JPanel loading = new JPanel();
 
         loading.add(startImageLabel);
 
-        JButton run=new JButton("RUN");
+        JButton run = new JButton("RUN");
 
-        JButton draw=new JButton("DRAW");
+        JButton draw = new JButton("DRAW");
 
-        JButton output=new JButton("OUTPUT");
+        JButton output = new JButton("OUTPUT");
 
-        JButton open=new JButton("OPEN");
+        JButton open = new JButton("OPEN");
 
         JFrame mainPage = new JFrame("BPSPICE10");
 
-        JPanel outPutInformationsPanel=new JPanel();
+        JPanel outPutInformationsPanel = new JPanel();
 
-        JTextArea outPutInformationsLabel=new JTextArea("Results will be shown here:");
+        JTextArea outPutInformationsLabel = new JTextArea("Results will be shown here:");
         outPutInformationsLabel.setEditable(false);
 
         outPutInformationsLabel.setForeground(Color.WHITE);
 
         outPutInformationsLabel.setBackground(Color.BLUE);
 
-        Font font = new Font(Font.SERIF, Font.PLAIN,  16);
+        Font font = new Font(Font.SERIF, Font.PLAIN, 16);
 
-        Font font1 = new Font(Font.SERIF, Font.PLAIN,  14);
+        Font font1 = new Font(Font.SERIF, Font.PLAIN, 14);
 
         outPutInformationsLabel.setFont(font1.deriveFont(font1.getStyle() | Font.BOLD));
 
@@ -66,11 +68,9 @@ public class GraphicalConsole {
         outPutInformationsLabel.setFont(font1);
 
 
-
-
         textConsole.setFont(font);
 
-        JFrame circuitFrame=new JFrame("Circuit Graph");
+        JFrame circuitFrame = new JFrame("Circuit Graph");
 
         JPanel circuit = new MapPoints();
 
@@ -78,48 +78,46 @@ public class GraphicalConsole {
 
         circuit.setLayout(null);
 
-        JLabel which=new JLabel("Type the name of the element to draw its graphs:");
+        JLabel which = new JLabel("Type the name of the element to draw its graphs:");
 
 
-        textConsole.setBounds(10,60,570,725);
+        textConsole.setBounds(10, 60, 570, 725);
 
-        loading.setBounds(480,250,497,300);
+        loading.setBounds(480, 250, 497, 300);
         loading.setBackground(Color.white);
 
-        run.setBounds(12,35,80,20);
+        run.setBounds(12, 35, 80, 20);
 
-        draw.setBounds(95,35,80,20);
+        draw.setBounds(95, 35, 80, 20);
 
-        output.setBounds(178,35,90,20);
+        output.setBounds(178, 35, 90, 20);
 
-        open.setBounds(271,35,90,20);
+        open.setBounds(271, 35, 90, 20);
 
-        mainPage.setBounds(0,0,1800,990);
+        mainPage.setBounds(0, 0, 1800, 990);
 
-        circuit.setBounds(850,60,670,500);
+        //      circuit.setBounds(850,60,943,710);
 
-        circuitFrame.setBounds(13,90,700,560);
+        circuitFrame.setBounds(13, 90, 940, 702);
 
-        which.setBounds(370,34,270,20);
+        which.setBounds(370, 34, 270, 20);
 
-        drawElement.setBounds(643,35,70,22);
+        drawElement.setBounds(643, 35, 70, 22);
 
         which.setBackground(Color.gray);
 
-        JScrollPane scroll = new JScrollPane (outPutInformationsLabel,
+        JScrollPane scroll = new JScrollPane(outPutInformationsLabel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scroll.setBounds(580,60,940,725);
-        outPutInformationsLabel.setBounds(580,60,940,725);
-
+        scroll.setBounds(580, 60, 940, 725);
+        outPutInformationsLabel.setBounds(580, 60, 940, 725);
 
 
         circuit.setBackground(Color.WHITE);
 
 
-
         mainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ActionListener openActionListener=new OpenActionListener(mainPage,textConsole);
+        ActionListener openActionListener = new OpenActionListener(mainPage, textConsole);
 
 
         JMenu menu1 = new JMenu("File");
@@ -135,7 +133,7 @@ public class GraphicalConsole {
         i6 = new JMenuItem("Copy");
         i7 = new JMenuItem("Cut");
         i8 = new JMenuItem("Paste");
-        i9 =new JMenuItem("Redo");
+        i9 = new JMenuItem("Redo");
         i10 = new JMenuItem("Undo");
         i11 = new JMenuItem("Delete");
         i12 = new JMenuItem("Find");
@@ -144,7 +142,6 @@ public class GraphicalConsole {
         i15 = new JMenuItem("README");
         i16 = new JMenuItem("LICENSE");
         i17 = new JMenuItem("ABOUT US");
-
 
 
         menu1.add(i1);
@@ -171,15 +168,14 @@ public class GraphicalConsole {
         i1.addActionListener(openActionListener);
         open.addActionListener(openActionListener);
 
-        File file=new File("input.txt");
-        file= ((OpenActionListener) openActionListener).file;
+        File file = new File("input.txt");
+        file = ((OpenActionListener) openActionListener).file;
 
 
-
-        ActionListener runActionListener=new RunActionListener(circuit,textConsole,file,circuitFrame,mainPage,outPutInformationsLabel,initialTextProccesor);
+        ActionListener runActionListener = new RunActionListener(circuit, textConsole, file, circuitFrame, mainPage, outPutInformationsLabel, initialTextProccesor);
         run.addActionListener(runActionListener);
 
-        ActionListener drawActionListener=new DrawActionListener((RunActionListener) runActionListener,((RunActionListener) runActionListener).initialTextProccesor,drawElement);
+        ActionListener drawActionListener = new DrawActionListener((RunActionListener) runActionListener, ((RunActionListener) runActionListener).initialTextProccesor, drawElement);
         draw.addActionListener(drawActionListener);
 
 
@@ -203,22 +199,15 @@ public class GraphicalConsole {
         mainPage.setLayout(null);
 
 
-
-
-
         menuBar.setBounds(0, 0, 1800, 30);
         mainPage.setVisible(true);
         mainPage.add(loading);
 
-        try
-        {
+        try {
             Thread.sleep(1000);
-        }
-        catch(InterruptedException ex)
-        {
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-
 
 
         loading.setVisible(false);
@@ -236,7 +225,6 @@ public class GraphicalConsole {
 
 
     }
-
 
 
 }

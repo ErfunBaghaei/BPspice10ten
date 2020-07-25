@@ -4,10 +4,7 @@
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/MapPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/MapPoints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,50 +105,9 @@
       <workItem from="1595318135525" duration="18804000" />
       <workItem from="1595404951748" duration="24332000" />
       <workItem from="1595499985590" duration="19145000" />
-      <workItem from="1595573118044" duration="14009000" />
-      <workItem from="1595601589681" duration="16000" />
-    </task>
-    <task id="LOCAL-00001" summary="2nd commit">
-      <created>1595059106200</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1595059106200</updated>
-    </task>
-    <task id="LOCAL-00002" summary="3rd commit">
-      <created>1595059816443</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1595059816444</updated>
-    </task>
-    <task id="LOCAL-00003" summary="4th commit">
-      <created>1595060047294</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1595060047294</updated>
-    </task>
-    <task id="LOCAL-00004" summary="final commit">
-      <created>1595060384859</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1595060384859</updated>
-    </task>
-    <task id="LOCAL-00005" summary="graphic commit">
-      <created>1595062245163</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1595062245163</updated>
-    </task>
-    <task id="LOCAL-00006" summary="bugs fixed">
-      <created>1595065874815</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1595065874815</updated>
+      <workItem from="1595573118044" duration="14101000" />
+      <workItem from="1595607919105" duration="10252000" />
+      <workItem from="1595659926288" duration="10072000" />
     </task>
     <task id="LOCAL-00007" summary="check">
       <created>1595069991057</created>
@@ -454,7 +410,49 @@
       <option name="project" value="LOCAL" />
       <updated>1595592358766</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="99percent of phase 2 has done">
+      <created>1595592713606</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1595592713607</updated>
+    </task>
+    <task id="LOCAL-00051" summary="99percent of phase 2 has done">
+      <created>1595608013064</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1595608013079</updated>
+    </task>
+    <task id="LOCAL-00052" summary="99percent of phase 2 has done">
+      <created>1595619563926</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1595619563926</updated>
+    </task>
+    <task id="LOCAL-00053" summary="phase 2 is finished">
+      <created>1595621210380</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1595621210380</updated>
+    </task>
+    <task id="LOCAL-00054" summary="phase 2 is finished">
+      <created>1595661075043</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1595661075043</updated>
+    </task>
+    <task id="LOCAL-00055" summary="phase 2 is finished">
+      <created>1595679516329</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1595679516329</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,53 +471,54 @@
     <MESSAGE value="phase 2 is about to finish1" />
     <MESSAGE value="phase 2 finishing" />
     <MESSAGE value="99percent of phase 2 has done" />
-    <option name="LAST_COMMIT_MESSAGE" value="99percent of phase 2 has done" />
+    <MESSAGE value="phase 2 is finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="phase 2 is finished" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595592357238">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595679515157">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595592357238" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595679515157" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1595353313762">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353313762" />
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom" timestamp="1595592693107">
+    <state width="1493" height="169" key="GridCell.Tab.0.bottom" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595592693107" />
-    <state width="1493" height="169" key="GridCell.Tab.0.center" timestamp="1595592693107">
+    <state width="1493" height="169" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.center" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="169" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595592693107" />
-    <state width="1493" height="169" key="GridCell.Tab.0.left" timestamp="1595592693106">
+    <state width="1493" height="169" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.left" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="169" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595592693106" />
-    <state width="1493" height="169" key="GridCell.Tab.0.right" timestamp="1595592693107">
+    <state width="1493" height="169" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.right" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="169" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595592693107" />
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1595577634150">
+    <state width="1493" height="169" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595577634150" />
-    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1595577634150">
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595592800776" />
+    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1595577634150" />
-    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1595577634146">
+    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1595592800776" />
+    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1595577634146" />
-    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1595577634150">
+    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1595592800776" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1595577634150" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1595592800776" />
     <state x="164" y="123" key="MergeDialog" timestamp="1595580807768">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -532,18 +531,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="136" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353312919" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595592362644">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595661079081">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595592362644" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1595601590523">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595661079081" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1595601590523" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595586143561">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595659966900">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595586143561" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1595659966900" />
     <state x="474" y="173" width="588" height="488" key="find.popup" timestamp="1595354925214">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
