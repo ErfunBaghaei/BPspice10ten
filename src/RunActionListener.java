@@ -49,19 +49,19 @@ public class RunActionListener implements ActionListener {
 
             circuitFrame.setVisible(true);
 
-          //  solver = new Solver(initialTextProccesor);
+            solver = new Solver(initialTextProccesor);
 //
-          //  initialTextProccesor.create_union();
+            initialTextProccesor.create_union();
 //
-          //  initialTextProccesor.set_union();
+            initialTextProccesor.set_union();
 //
-          //  solver.mainsolver();
+            solver.mainsolver();
 //
-          //  OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
+            OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
 //
-          //  outPutInformationsLabel.setText("");
+            outPutInformationsLabel.setText("");
 //
-          //  outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+            outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
         }

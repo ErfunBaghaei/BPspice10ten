@@ -27,7 +27,8 @@ public class Solver {
     }
 
     void resetVoltage(int j) {
-        int i, flag, k, m;
+        int i, flag, k, m,w=0;
+        double volt=0,control=0;
         sunions.get(j).nod.get(0).voltageDef = true;
         for (i = 1; i < sunions.get(j).nod.size(); i++) sunions.get(j).nod.get(i).voltageDef = false;
         while (true) {
@@ -41,15 +42,21 @@ public class Solver {
                     for (k = 0; k < sunions.get(j).nod.size(); k++) {
                         if (sunions.get(j).nod.get(k).voltageDef == false) {
                             for (m = 0; m < selements.size(); m++) {
-                                if (selements.get(m).type.equals("vs") || selements.get(m).type.equals("vcv") || selements.get(m).type.equals("vcc")) {
-                                    if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
-                                        sunions.get(j).nod.get(k).voltageDef = true;
-                                        sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - selements.get(m).dc;
-                                    }
-                                    if (selements.get(m).node2.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node1.equals(sunions.get(j).nod.get(k).name)) {
-                                        sunions.get(j).nod.get(k).voltageDef = true;
-                                        sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage + selements.get(m).dc;
-                                    }
+                                if (selements.get(m).type.equals("vs") || selements.get(m).type.equals("vcv") || selements.get(m).type.equals("ccv")) {
+                                   if (selements.get(m).type.equals("vs")) volt = selements.get(m).dc+selements.get(m).ac*Math.sin(2*Math.PI*selements.get(m).frequncey*time+selements.get(m).phase);
+                                   if (selements.get(m).type.equals("vcv")) volt = selements.get(m).gain*(findNode(selements.get(m).node3)-findNode(selements.get(m).node4));
+                                   if (selements.get(m).type.equals("ccv")){
+                                      for (w=0;w<selements.size();w++) if (selements.get(w).name.equals(selements.get(m).controlelement)) control = selements.get(w).currentValues[(int) (time/dt)];
+                                      volt = selements.get(m).gain*control;
+                                   }
+                                        if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
+                                            sunions.get(j).nod.get(k).voltageDef = true;
+                                            sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - volt;
+                                        }
+                                        if (selements.get(m).node2.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node1.equals(sunions.get(j).nod.get(k).name)) {
+                                            sunions.get(j).nod.get(k).voltageDef = true;
+                                            sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage + volt;
+                                        }
                                 }
                             }
                         }
@@ -71,7 +78,7 @@ public class Solver {
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
             System.out.println("time" + i);
-
+            for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
             while (solveflag == 1) {
                 //down text?//
@@ -92,7 +99,7 @@ public class Solver {
                     }
                     skcl = Math.sqrt(skcl);
                 }
-                //System.out.println("erfunkcl " + skcl);
+                System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -131,7 +138,8 @@ public class Solver {
     }
 
     void Kcl(int i) {
-        int j, k;
+        int j, k,e;
+        double control=0;
         sunions.get(i).kcl = 0;
         for (j = 0; j < sunions.get(i).nod.size(); j++) {
             for (k = 0; k < selements.size(); k++) {
@@ -166,7 +174,17 @@ public class Solver {
                         sunions.get(i).kcl += selements.get(k).dc+selements.get(k).ac*Math.sin(2*Math.PI*time*selements.get(k).frequncey+selements.get(k).phase);
                 }
                 if (selements.get(k).type.equals("vcc")){
-                  //  if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                    if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl -= selements.get(k).gain*(findNode(selements.get(k).node3)-findNode(selements.get(k).node4));
+                    if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl += selements.get(k).gain*(findNode(selements.get(k).node3)-findNode(selements.get(k).node4));
+                }
+                if (selements.get(k).type.equals("ccc")){
+                    for (e=0;e<selements.size();e++) if (selements.get(e).name.equals(selements.get(k).controlelement))  control=selements.get(e).currentValues[(int)(time/dt)];
+                    if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl -= control*selements.get(k).gain;
+                    if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
+                        sunions.get(i).kcl += control*selements.get(k).gain;
                 }
 
             }

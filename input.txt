@@ -1,9 +1,8 @@
 * hi this is a test
-e1 0 1 1 2 3
-h2 1 2 4 2 1
-c1 2 0 1n
-.tran 400m
+v1 1 0 2 2 4 0
+r1 1 0 4
+.tran 1
 dv 1m
-dI 20m
-dT 20m
+dI 10m
+dT 10m
 END

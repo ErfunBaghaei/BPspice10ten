@@ -9,12 +9,11 @@ public class CurrentControledCurrentSource extends Element{
         name = info[0];
         node1 = info[1];
         node2 = info[2];
-        node3=info[3];
-        node4=info[4];
-        if (info[5].charAt(info[5].length() - 1) >= '0' && info[5].charAt(info[5].length() - 1) <= '9')
-            gain = Double.parseDouble(info[5]);
-        else gain = Double.parseDouble(info[5].substring(0, info[5].length() - 1));
-        switch (info[5].charAt(info[5].length() - 1)) {
+       controlelement = info[3];
+        if (info[4].charAt(info[4].length() - 1) >= '0' && info[4].charAt(info[4].length() - 1) <= '9')
+            gain = Double.parseDouble(info[4]);
+        else gain = Double.parseDouble(info[4].substring(0, info[4].length() - 1));
+        switch (info[4].charAt(info[4].length() - 1)) {
             case 'p':
                 gain *= 1e-12;
                 break;
