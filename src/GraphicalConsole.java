@@ -22,8 +22,9 @@ public class GraphicalConsole {
         JTextArea textConsole = new JTextArea("* hi this is a test\n" +
 
                 "e1 0 1 1 2 3\n" +
-                "r2 1 2 4\n" +
-                "c1 2 0 1n\n" +
+                "e2 1 2 4 1 1\n" +
+                "h1 2 0 1 1 1\n" +
+                "h2 2 1 1 1 1\n" +
                 ".tran 400m\n" +
                 "dv 1m\n" +
                 "dI 20m\n" +
