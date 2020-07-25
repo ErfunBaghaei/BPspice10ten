@@ -2,52 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/currentControledVoltageSourceDown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/currentControledVoltageSourceLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/currentControledVoltageSourceRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/currentControledVoltageSourceUp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledVoltageSourceDown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledVoltageSourceLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledVoltageSourceRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledVoltageSourceUp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capacitorHorizontal.png" beforeDir="false" afterPath="$PROJECT_DIR$/capacitorHorizontal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capacitorVertical.png" beforeDir="false" afterPath="$PROJECT_DIR$/capacitorVertical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capcitorVertical.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Capacitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Capacitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/CurrentControledCurrentSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/CurrentControledCurrentSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/CurrentControledVoltageSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/CurrentControledVoltageSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/CurrentSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/CurrentSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/DrawActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/DrawActionListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Element.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Element.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/GraphPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/GraphPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Inductor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Inductor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/MapPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/MapPoints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/OpenActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/OpenActionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Resistor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Resistor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Solver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/VoltageControledCurrentSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/VoltageControledCurrentSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/VoltageControledVoltageSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/VoltageControledVoltageSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/VoltageSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/VoltageSource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Capacitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CurrentControledCurrentSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrentControledCurrentSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CurrentControledVoltageSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrentControledVoltageSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CurrentSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrentSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OpenActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OpenActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RunActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RunActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VoltageControledCurrentSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoltageControledCurrentSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VoltageControledVoltageSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoltageControledVoltageSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VoltageSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoltageSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,14 +107,7 @@
       <workItem from="1595499985590" duration="19145000" />
       <workItem from="1595573118044" duration="14101000" />
       <workItem from="1595607919105" duration="10252000" />
-      <workItem from="1595659926288" duration="9216000" />
-    </task>
-    <task id="LOCAL-00006" summary="bugs fixed">
-      <created>1595065874815</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1595065874815</updated>
+      <workItem from="1595659926288" duration="10072000" />
     </task>
     <task id="LOCAL-00007" summary="check">
       <created>1595069991057</created>
@@ -495,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595661075043</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="phase 2 is finished">
+      <created>1595679516329</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1595679516329</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,34 +475,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 is finished" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595661074071">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595679515157">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595661074071" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595679515157" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1595353313762">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353313762" />
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom" timestamp="1595678982171">
+    <state width="1493" height="169" key="GridCell.Tab.0.bottom" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="169" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595678982171" />
-    <state width="1493" height="169" key="GridCell.Tab.0.center" timestamp="1595678982171">
+    <state width="1493" height="169" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.center" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="169" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595678982171" />
-    <state width="1493" height="169" key="GridCell.Tab.0.left" timestamp="1595678982164">
+    <state width="1493" height="169" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.left" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="169" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595678982164" />
-    <state width="1493" height="169" key="GridCell.Tab.0.right" timestamp="1595678982171">
+    <state width="1493" height="169" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
+    <state width="1493" height="169" key="GridCell.Tab.0.right" timestamp="1595682140139">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="169" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595678982171" />
+    <state width="1493" height="169" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1595682140139" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
