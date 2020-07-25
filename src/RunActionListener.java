@@ -9,18 +9,19 @@ public class RunActionListener implements ActionListener {
     JPanel circuit;
     File file;
     JTextArea textConsole;
-    JFrame circuitFrame,mainPage;
+    JFrame circuitFrame, mainPage;
     JTextArea outPutInformationsLabel;
     InitialTextProccesor initialTextProccesor;
     Solver solver;
-    public RunActionListener(JPanel circuit,JTextArea textConsole , File file,JFrame circuitFrame,JFrame mainPage,JTextArea outPutInformationsLabel,InitialTextProccesor initialTextProccesor){
-        this.circuit=circuit;
-        this.file=file;
-        this.textConsole=textConsole;
-        this.circuitFrame=circuitFrame;
-        this.mainPage=mainPage;
-        this.outPutInformationsLabel=outPutInformationsLabel;
-        this.initialTextProccesor=initialTextProccesor;
+
+    public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage, JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor) {
+        this.circuit = circuit;
+        this.file = file;
+        this.textConsole = textConsole;
+        this.circuitFrame = circuitFrame;
+        this.mainPage = mainPage;
+        this.outPutInformationsLabel = outPutInformationsLabel;
+        this.initialTextProccesor = initialTextProccesor;
     }
 
     @Override
@@ -35,11 +36,10 @@ public class RunActionListener implements ActionListener {
         }
 
 
-
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
 
 
-        boolean cont=true;
+        boolean cont = true;
         cont = initialTextProccesor.start();
         if (cont) {
             errorFinder.find();
@@ -49,7 +49,7 @@ public class RunActionListener implements ActionListener {
 
             circuitFrame.setVisible(true);
 
-            solver= new Solver(initialTextProccesor);
+            solver = new Solver(initialTextProccesor);
 
             initialTextProccesor.create_union();
 
@@ -57,20 +57,19 @@ public class RunActionListener implements ActionListener {
 
             solver.mainsolver();
 
-            OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor,solver);
+            OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
 
             outPutInformationsLabel.setText("");
 
             outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
-
         }
     }
 
-    public void circuitDrawer(InitialTextProccesor initialTextProccesor){
+    public void circuitDrawer(InitialTextProccesor initialTextProccesor) {
 
-        DrawKit drawKit=new DrawKit(initialTextProccesor, circuit);
+        DrawKit drawKit = new DrawKit(initialTextProccesor, circuit);
         drawKit.circuitDrawer();
         circuit.revalidate();
 
@@ -78,7 +77,6 @@ public class RunActionListener implements ActionListener {
 
 
     }
-
 
 
 }

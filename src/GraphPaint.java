@@ -18,7 +18,8 @@ public class GraphPaint extends JPanel {
         this.time = time;
 
     }
-    int roundBound=1000;
+
+    int roundBound = 1000;
 
     @Override
     public void paintComponent(Graphics g) {
@@ -52,7 +53,7 @@ public class GraphPaint extends JPanel {
         int numberOfPoints = (int) (endTime / timeTick) + 1;
 
 
-        int distance = (int) (Math.ceil(1000.0 / (numberOfPoints-1)));
+        int distance = (int) (Math.ceil(1000.0 / (numberOfPoints - 1)));
         powerValues = new double[numberOfPoints];
         for (int h = 0; h < numberOfPoints; h++) {
             powerValues[h] = element.voltageValues[h] * element.currentValues[h];
@@ -79,18 +80,18 @@ public class GraphPaint extends JPanel {
 
                 for (int ii = 1; ii < numberOfPoints - 1; ii++) {
 
-                    g2d.drawLine(distance * (ii-1) + 5, 284 - (int) (Math.round(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii) + 5,
+                    g2d.drawLine(distance * (ii - 1) + 5, 284 - (int) (Math.round(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii) + 5,
                             284 - (int) (Math.round(281 * (element.voltageValues[ii + 1] / Math.abs(element.voltageValues[maxIndex])))));
                 }
             } else if (check == 1) {
                 for (int ii = 1; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii-1) + 5, 284 - (int) (Math.round(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii) + 5,
+                    g2d.drawLine(distance * (ii - 1) + 5, 284 - (int) (Math.round(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii) + 5,
                             284 - (int) (Math.round(281 * (element.currentValues[ii + 1] / Math.abs(element.currentValues[maxIndex])))));
 
                 }
             } else if (check == 2) {
                 for (int ii = 1; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii-1) + 5, 284 - (int) (Math.round(281 * (powerValues[ii] / powerValues[maxIndex]))), distance * (ii) + 5,
+                    g2d.drawLine(distance * (ii - 1) + 5, 284 - (int) (Math.round(281 * (powerValues[ii] / powerValues[maxIndex]))), distance * (ii) + 5,
                             284 - (int) (Math.round(281 * (powerValues[ii + 1] / powerValues[maxIndex]))));
 
                 }
@@ -101,7 +102,7 @@ public class GraphPaint extends JPanel {
 
         for (int i = 0; i < 11; i++) {
             time[i].setText((double) Math.round(timeStepInGraph * i * roundBound) / roundBound + "");
-            time[i].setBounds(100 * i -30, 290, 40, 10);
+            time[i].setBounds(100 * i - 30, 290, 40, 10);
         }
 
 
