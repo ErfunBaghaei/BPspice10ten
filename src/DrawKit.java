@@ -39,7 +39,7 @@ public class DrawKit {
 
 
         if (node.size() == 1) {
-            oneNode(node, 166);
+            oneNode(node, 16);
             groundDrawer(16);
         } else if (node.size() == 2) {
             twoNode(node, 15);
@@ -292,10 +292,10 @@ public class DrawKit {
         nodeDrawer(nodeP);
         nodeDrawer(nodeM);
 
-        ImageIcon voltageControlledCurrentSourceUpimage = new ImageIcon("voltageControlledCurrentSourceUp.png");
-        ImageIcon voltageControlledCurrentSourceDownimage = new ImageIcon("voltageControlledCurrentSourceDown.png");
-        ImageIcon voltageControlledCurrentSourceRightimage = new ImageIcon("voltageControlledCurrentSourceRight.png");
-        ImageIcon voltageControlledCurrentSourceLeftimage = new ImageIcon("voltageControlledCurrentSourceLeft.png");
+        ImageIcon voltageControlledCurrentSourceUpimage = new ImageIcon("voltageControledCurrentSourceUp.png");
+        ImageIcon voltageControlledCurrentSourceDownimage = new ImageIcon("voltageControledCurrentSourceDown.png");
+        ImageIcon voltageControlledCurrentSourceRightimage = new ImageIcon("voltageControledCurrentSourceRight.png");
+        ImageIcon voltageControlledCurrentSourceLeftimage = new ImageIcon("voltageControledCurrentSourceLeft.png");
         JLabel voltageControlledCurrentSourceUp;
         JLabel voltageControlledCurrentSourceDown;
         JLabel voltageControlledCurrentSourceRight;
@@ -332,11 +332,10 @@ public class DrawKit {
     public void currentControlledCurrentSourceDrawer(int nodeP, int nodeM) {
         nodeDrawer(nodeP);
         nodeDrawer(nodeM);
-
-        ImageIcon currentControlledCurrentSourceUpimage = new ImageIcon("currentControlledCurrentSourceUp.png");
-        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currentControlledCurrentSourceDown.png");
-        ImageIcon currentControlledCurrentSourceRightimage = new ImageIcon("currentControlledCurrentSourceRight.png");
-        ImageIcon currentControlledCurrentSourceLeftimage = new ImageIcon("currentControlledCurrentSourceLeft.png");
+        ImageIcon currentControlledCurrentSourceUpimage = new ImageIcon("currentControledCurrentSourceUp.png");
+        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currentControledCurrentSourceDown.png");
+        ImageIcon currentControlledCurrentSourceRightimage = new ImageIcon("currentControledCurrentSourceRight.png");
+        ImageIcon currentControlledCurrentSourceLeftimage = new ImageIcon("currentControledCurrentSourceLeft.png");
         JLabel currentControlledCurrentSourceUp;
         JLabel currentControlledCurrentSourceDown;
         JLabel currentControlledCurrentSourceRight;
@@ -747,27 +746,27 @@ public class DrawKit {
                         break;
                     case "vcv":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
+                            voltageControlledVoltageSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         else
-                            voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            voltageControlledVoltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                         break;
                     case "ccv":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
+                            currentControlledVoltageSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         else
-                            currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            currentControlledVoltageSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                         break;
                     case "vcc":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            voltageControlledCurrentSourceDrawer(currentNode, currentNode + up);
+                            voltageControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         else
-                            voltageControlledCurrentSourceDrawer(currentNode + up, currentNode);
+                            voltageControlledCurrentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                         break;
                     case "ccc":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            currentControlledCurrentSourceDrawer(currentNode, currentNode + up);
+                            currentControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         else
-                            currentControlledCurrentSourceDrawer(currentNode + up, currentNode);
+                            currentControlledCurrentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
                         break;
 
                 }
