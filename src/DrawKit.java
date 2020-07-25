@@ -292,10 +292,10 @@ public class DrawKit {
         nodeDrawer(nodeP);
         nodeDrawer(nodeM);
 
-        ImageIcon voltageControlledCurrentSourceUpimage = new ImageIcon("voltageControlledCurrentSourceUp.png");
-        ImageIcon voltageControlledCurrentSourceDownimage = new ImageIcon("voltageControlledCurrentSourceDown.png");
-        ImageIcon voltageControlledCurrentSourceRightimage = new ImageIcon("voltageControlledCurrentSourceRight.png");
-        ImageIcon voltageControlledCurrentSourceLeftimage = new ImageIcon("voltageControlledCurrentSourceLeft.png");
+        ImageIcon voltageControlledCurrentSourceUpimage = new ImageIcon("voltageControledCurrentSourceUp.png");
+        ImageIcon voltageControlledCurrentSourceDownimage = new ImageIcon("voltageControledCurrentSourceDown.png");
+        ImageIcon voltageControlledCurrentSourceRightimage = new ImageIcon("voltageControledCurrentSourceRight.png");
+        ImageIcon voltageControlledCurrentSourceLeftimage = new ImageIcon("voltageControledCurrentSourceLeft.png");
         JLabel voltageControlledCurrentSourceUp;
         JLabel voltageControlledCurrentSourceDown;
         JLabel voltageControlledCurrentSourceRight;
@@ -333,10 +333,10 @@ public class DrawKit {
         nodeDrawer(nodeP);
         nodeDrawer(nodeM);
 
-        ImageIcon currentControlledCurrentSourceUpimage = new ImageIcon("currentControlledCurrentSourceUp.png");
-        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currentControlledCurrentSourceDown.png");
-        ImageIcon currentControlledCurrentSourceRightimage = new ImageIcon("currentControlledCurrentSourceRight.png");
-        ImageIcon currentControlledCurrentSourceLeftimage = new ImageIcon("currentControlledCurrentSourceLeft.png");
+        ImageIcon currentControlledCurrentSourceUpimage = new ImageIcon("currentControledCurrentSourceUp.png");
+        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currrentControledCurrentSourceDown.png");
+        ImageIcon currentControlledCurrentSourceRightimage = new ImageIcon("currentControledCurrentSourceRight.png");
+        ImageIcon currentControlledCurrentSourceLeftimage = new ImageIcon("currentControledCurrentSourceLeft.png");
         JLabel currentControlledCurrentSourceUp;
         JLabel currentControlledCurrentSourceDown;
         JLabel currentControlledCurrentSourceRight;
