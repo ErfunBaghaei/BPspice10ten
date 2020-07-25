@@ -332,9 +332,8 @@ public class DrawKit {
     public void currentControlledCurrentSourceDrawer(int nodeP, int nodeM) {
         nodeDrawer(nodeP);
         nodeDrawer(nodeM);
-
         ImageIcon currentControlledCurrentSourceUpimage = new ImageIcon("currentControledCurrentSourceUp.png");
-        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currrentControledCurrentSourceDown.png");
+        ImageIcon currentControlledCurrentSourceDownimage = new ImageIcon("currentControledCurrentSourceDown.png");
         ImageIcon currentControlledCurrentSourceRightimage = new ImageIcon("currentControledCurrentSourceRight.png");
         ImageIcon currentControlledCurrentSourceLeftimage = new ImageIcon("currentControledCurrentSourceLeft.png");
         JLabel currentControlledCurrentSourceUp;
