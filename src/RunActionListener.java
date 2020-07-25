@@ -55,13 +55,13 @@ public class RunActionListener implements ActionListener {
 
             initialTextProccesor.set_union();
 
-          //  solver.mainsolver();
+            solver.mainsolver();
 
-          //  OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor,solver);
+            OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor,solver);
 
-           // outPutInformationsLabel.setText("");
+            outPutInformationsLabel.setText("");
 
-           // outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+            outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
 

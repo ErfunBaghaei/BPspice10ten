@@ -144,26 +144,31 @@ public class Solver {
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += -selements.get(k).currentValues[(int) (time / dt)]+dt*(sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) / selements.get(k).inductance;
                 }
-
-
-
-
                 if (selements.get(k).type.equals("c")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) - selements.get(k).voltageValues[(int) (time / dt)]) / dt;
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).capacity * ((sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) + selements.get(k).voltageValues[(int) (time / dt)]) / dt;
-                } else if (selements.get(k).type.equals("r")) {
+                }
+
+
+                else if (selements.get(k).type.equals("r")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += (sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) / selements.get(k).resistance;
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += (sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) / selements.get(k).resistance;
-                } else if (selements.get(k).type.equals("cs") || selements.get(k).type.equals("vcc") || selements.get(k).type.equals("ccc")) {
+                } else
+
+                    if (selements.get(k).type.equals("cs")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
-                        sunions.get(i).kcl -= selements.get(k).dc;
+                        sunions.get(i).kcl -= selements.get(k).dc+selements.get(k).ac*Math.sin(2*Math.PI*selements.get(k).frequncey*time+selements.get(k).phase);
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
-                        sunions.get(i).kcl += selements.get(k).dc;
+                        sunions.get(i).kcl += selements.get(k).dc+selements.get(k).ac*Math.sin(2*Math.PI*time*selements.get(k).frequncey+selements.get(k).phase);
                 }
+                if (selements.get(k).type.equals("vcc")){
+                  //  if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                }
+
             }
         }
     }

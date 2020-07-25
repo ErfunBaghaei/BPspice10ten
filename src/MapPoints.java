@@ -14,8 +14,8 @@ public class MapPoints extends JPanel {
         g2d.setStroke(new BasicStroke(4));
         g2d.setColor(Color.RED);
 
-        for(int i=0;i<8;i++) {
-            for(int h=0;h<12;h++)
+        for(int i=0;i<6;i++) {
+            for(int h=0;h<9;h++)
                 g2d.drawLine(50+h*82, 40+i*82, 50+h*82, 40+i*82);
 
         }

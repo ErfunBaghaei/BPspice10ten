@@ -185,5 +185,10 @@ public class DrawActionListener implements ActionListener {
         powerGraph.setVisible(true);
         voltageGraph.setVisible(true);
 
+
+
+
+
+
     }
 }

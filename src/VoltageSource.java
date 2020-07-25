@@ -31,10 +31,5 @@ public class VoltageSource extends Element {
         }
         frequncey = Integer.parseInt(info[5]);
         phase = Integer.parseInt(info[6]);
-
-
-
-
-
     }
 }

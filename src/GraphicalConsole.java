@@ -19,17 +19,13 @@ public class GraphicalConsole {
         //First, you must choose a file...
         JTextArea textConsole=new JTextArea("* hi this is a test\n" +
 
-        "v1 0 1 1 0 0 0\n"+
-                "i1 1 0 2 0 0 0\n"+
-                "d1 1 3\n"+
-                "d2 2 1\n"+
-        "i2 1 2 5 0 0 0\n"+
-                "v2 2 3 5 0 0 0\n"+
-                "r2 0 2 4k\n"+
-        ".tran 500m\n"+
-        "dv 1n\n"+
-        "dI 1m\n"+
-        "dT 20m\n"+
+        "l1 2 1 1m\n"+
+        "v1 1 0 5 0 0 0\n"+
+        "c2 2 0 1m\n"+
+        ".tran 6m\n"+
+        "dv 0.1m\n"+
+        "dI 5m\n"+
+        "dT 0.1m\n"+
                 "END"
         );
 
@@ -100,9 +96,9 @@ public class GraphicalConsole {
 
         mainPage.setBounds(0,0,1800,990);
 
-  //      circuit.setBounds(850,60,943,710);
+        circuit.setBounds(850,60,670,500);
 
-        circuitFrame.setBounds(13,90,940,702);
+        circuitFrame.setBounds(13,90,700,560);
 
         which.setBounds(370,34,270,20);
 

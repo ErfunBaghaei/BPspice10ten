@@ -62,9 +62,9 @@ public class InitialTextProccesor {
                         createResistor(currentLineInput);
                     else if (currentLineInput.charAt(0) == 'l' || currentLineInput.charAt(0) == 'L')
                         createInductor(currentLineInput);
-                    else if (currentLineInput.charAt(0) == 'g' || currentLineInput.charAt(0) == 'G')
-                        createCurrentControledCurrentSource(currentLineInput);
                     else if (currentLineInput.charAt(0) == 'f' || currentLineInput.charAt(0) == 'F')
+                        createCurrentControledCurrentSource(currentLineInput);
+                    else if (currentLineInput.charAt(0) == 'g' || currentLineInput.charAt(0) == 'G')
                         createVoltageControledCurrentSource(currentLineInput);
 
                     else if (currentLineInput.charAt(0) == 'v' || currentLineInput.charAt(0) == 'V') {
@@ -334,7 +334,7 @@ public class InitialTextProccesor {
         }
         else flag=0;
 
-        for (k=j+1;k<currentLineInput.length();k++) if (currentLineInput.charAt(k)==' ') break;
+        for (k=j+1;;k++) if (currentLineInput.charAt(k)==' ') break;
         node1=new Node();
         node1.name=currentLineInput.substring(j+1,k);
         for (i=0;i<nodes.size();i++) if (nodes.get(i).name.equals(node1.name)) {
