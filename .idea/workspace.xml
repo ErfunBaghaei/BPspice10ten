@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/voltageControledCurrentSourceDown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledCurrentSourceLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledCurrentSourceRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/voltageControledCurrentSourceUp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/DrawKit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledCurrentSourceDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledCurrentSourceDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledCurrentSourceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledCurrentSourceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledCurrentSourceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledCurrentSourceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledCurrentSourceUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledCurrentSourceUp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledVoltageSourceDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledVoltageSourceDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledVoltageSourceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledVoltageSourceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledVoltageSourceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledVoltageSourceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currentControledVoltageSourceUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/currentControledVoltageSourceUp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledCurrentSourceDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledCurrentSourceDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledCurrentSourceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledCurrentSourceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledCurrentSourceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledCurrentSourceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledCurrentSourceUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledCurrentSourceUp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledVoltageSourceDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledVoltageSourceDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledVoltageSourceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledVoltageSourceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledVoltageSourceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledVoltageSourceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voltageControledVoltageSourceUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/voltageControledVoltageSourceUp.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,14 +123,7 @@
       <workItem from="1595607919105" duration="10252000" />
       <workItem from="1595659926288" duration="10072000" />
       <workItem from="1595683174816" duration="2224000" />
-      <workItem from="1595693191348" duration="1576000" />
-    </task>
-    <task id="LOCAL-00010" summary="phase 2 is about to finish1">
-      <created>1595170396456</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1595170396456</updated>
+      <workItem from="1595693191348" duration="2235000" />
     </task>
     <task id="LOCAL-00011" summary="phase 2 is about to finish1">
       <created>1595235717860</created>
@@ -461,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595694644034</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="phase 2 is finished">
+      <created>1595695185355</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1595695185355</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,10 +491,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="phase 2 is finished" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595694642544">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1595695183879">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595694642544" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1595695183879" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1595353313762">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -540,10 +547,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="136" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353312919" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595694649635">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1595695189709">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595694649635" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1595695189709" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
