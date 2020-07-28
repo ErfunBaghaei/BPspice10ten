@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,8 +10,12 @@ public class Solver {
     ArrayList<Element> selements = new ArrayList<Element>();
     ArrayList<Node> snodes = new ArrayList();
     ArrayList<Node> nodesInOrder = new ArrayList();
-    Solver(InitialTextProccesor initialTextProccesor) {
+    ErrorFinder errorFinder;
+    JFrame circuit;
+    Solver(InitialTextProccesor initialTextProccesor,JFrame circuit) {
         int i, j;
+        this.circuit=circuit;
+
         endtime = initialTextProccesor.time;
         di = initialTextProccesor.deltai;
         dv = initialTextProccesor.deltav;
@@ -21,8 +26,14 @@ public class Solver {
 
         this.snodes = initialTextProccesor.nodes;
         this.sgraph = initialTextProccesor.graph;
+        errorFinder=new ErrorFinder(circuit,initialTextProccesor);
 
     }
+
+
+    //errorFinder.errorTwo(int(time/dt))
+
+
 
     void resetVoltage(int j) {
         int i, flag, k, m,w=0;
@@ -219,6 +230,8 @@ public class Solver {
                         }
                     }
                   //  System.out.println("battery: " + flag + " " + index + " " + current+ " "+ sunions.get(i).nod.get(j).name );
+                    //
+
                     if (flag == 1) {
                         if (selements.get(index).node1.equals(sunions.get(i).nod.get(j).name))
                             selements.get(index).currentValues[((int) (time / dt)) +1] = -current;
