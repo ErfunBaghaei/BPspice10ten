@@ -1,8 +1,9 @@
 * hi this is a test
-v1 1 0 2 2 4 0
-r1 1 0 4
-.tran 1
+v1 1 0 2 0 0 0
+v2 2 1 4 0 0 0
+r1 0 2 3
+.tran 3
 dv 1m
 dI 10m
-dT 10m
+dT 0.1
 END

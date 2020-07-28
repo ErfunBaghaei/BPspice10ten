@@ -9,7 +9,6 @@ public class Solver {
     ArrayList<Element> selements = new ArrayList<Element>();
     ArrayList<Node> snodes = new ArrayList();
     ArrayList<Node> nodesInOrder = new ArrayList();
-
     Solver(InitialTextProccesor initialTextProccesor) {
         int i, j;
         endtime = initialTextProccesor.time;
@@ -22,7 +21,6 @@ public class Solver {
 
         this.snodes = initialTextProccesor.nodes;
         this.sgraph = initialTextProccesor.graph;
-
 
     }
 
@@ -120,9 +118,11 @@ public class Solver {
                     selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
             }
+            batterycurrent();
+
             time += dt;
         }
-
+            for (i=1;i<=time/dt;i++) System.out.println("batt"+ selements.get(2).currentValues[i]);
         printResults();
     }
 
@@ -187,6 +187,45 @@ public class Solver {
                         sunions.get(i).kcl += control*selements.get(k).gain;
                 }
 
+            }
+        }
+    }
+
+    public void batterycurrent(){
+        int i,j,k,flag,index=0,n=0,z=0;
+        double current=0;
+        for (i = 0; i < selements.size(); i++)
+            if (selements.get(i).type.equals("vs") || selements.get(i).type.equals("ccv") || selements.get(i).type.equals("vcv")){
+                selements.get(i).currentdef = false;
+                z++;
+        }
+        for (n=1;n<=z;n++){
+            for (i = 0; i < sunions.size(); i++) {
+                for (j = 0; j < sunions.get(i).nod.size(); j++) {
+                    current = 0;
+                    flag = 0;
+                    for (k = 0; k < selements.size(); k++) {
+                        if ((sunions.get(i).nod.get(j).name.equals(selements.get(k).node1)||sunions.get(i).nod.get(j).name.equals(selements.get(k).node2))&&(selements.get(k).type.equals("vs") || selements.get(k).type.equals("ccv") || selements.get(k).type.equals("vcv")) && selements.get(k).currentdef == false) {
+                            flag++;
+                            index = k;
+                        } else {
+                            if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
+                                current += selements.get(k).currentValues[((int) (time / dt)) +1 ];
+                            if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
+                                current -= selements.get(k).currentValues[((int) (time / dt)) +1];
+                        }
+                    }
+                  //  System.out.println("battery: " + flag + " " + index + " " + current+ " "+ sunions.get(i).nod.get(j).name );
+                    if (flag == 1) {
+                        if (selements.get(index).node1.equals(sunions.get(i).nod.get(j).name))
+                            selements.get(index).currentValues[((int) (time / dt)) +1] = -current;
+                        if (selements.get(index).node2.equals(sunions.get(i).nod.get(j).name))
+                            selements.get(index).currentValues[((int) (time / dt)) +1] = current;
+                        selements.get(index).currentdef = true;
+                        //System.out.println("bat" + selements.get(index).currentValues[(int) (time / dt) + 1] + " " + selements.get(index).name);
+                    }
+                   // System.out.println("bat" + selements.get(index).currentValues[(int) (time / dt) + 1] + " " + selements.get(index).name);
+                }
             }
         }
     }
