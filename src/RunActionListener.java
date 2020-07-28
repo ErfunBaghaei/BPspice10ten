@@ -42,25 +42,28 @@ public class RunActionListener implements ActionListener {
         boolean cont = true;
         cont = initialTextProccesor.start();
         if (cont) {
-            errorFinder.find();
+
 
             circuitDrawer(initialTextProccesor);
             circuitFrame.add(circuit);
 
             circuitFrame.setVisible(true);
 
-            solver = new Solver(initialTextProccesor);
-//
+
+
+
+            solver = new Solver(initialTextProccesor,circuitFrame);
+  
             initialTextProccesor.create_union();
-//
+  
             initialTextProccesor.set_union();
-//
+  
             solver.mainsolver();
-//
+  
             OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
-//
+  
             outPutInformationsLabel.setText("");
-//
+  
             outPutInformationsLabel.setText(outPutInformationPrint.printOut());
 
 
