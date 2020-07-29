@@ -21,17 +21,26 @@ public class GraphicalConsole {
         //First, you must choose a file...
         JTextArea textConsole = new JTextArea("* hi this is a test\n" +
 
-                "v1 1 0 2 0 0 0\n" +
-                "v2 2 1 4 0 0 0\n" +
-                "r1 0 2 3\n" +
+              /*  "v1 1 0 1 0 0 0\n" +
+                //"v2 2 1 2 0 0 0\n" +
+                "v3 4 0 3 0 0 0\n" +
+                "v4 3 2 5 0 0 0\n" +
+                "r1 2 1 2\n" +
+                "r2 3 4 3\n" +
+                "r3 5 4 2\n" +
+                "v2 5 1 5 0 0 0\n" +*/
+                "v1 1 0 1 0 0 0\n" +
+                "r1 0 1 2\n" +
+                /*"v2 2 3 1 0 0 0\n" +
+                "r2 2 3 2\n" +*/
                 /*"r2 0 2 2\n" +
                 "l3 0 3 1\n" +
                 "e1 2 3 2 0 2\n" +*/
                // "v1 2 0 1 0 0 0\n" +
-                ".tran 3\n" +
-                "dv 1m\n" +
-                "dI 10m\n" +
-                "dT 0.1\n" +
+                ".tran 100m\n" +
+                "dv 0.1m\n" +
+                "dI 1m\n" +
+                "dT 10m\n" +
                 "END"
         );
 

@@ -189,8 +189,8 @@ public class InitialTextProccesor {
             }
         }
         // for (i=0;i<nodes2.size();i++)System.out.println(nodes2.get(i).name+" "+nodes2.get(i).union+" "+nodes2.get(i).added+"\n");
-        boolean flag = true;
-        while (flag) {
+        int flag = 0;
+        while (flag<2) {
             for (i = nodes2.size() - 1; i >= 0; i--) {
                 for (j = 0; j < nodes.size(); j++) if (nodes.get(j).name.equals(nodes2.get(i).name)) n = j;
                 for (j = 0; j < nodes.size(); j++) {
@@ -207,7 +207,9 @@ public class InitialTextProccesor {
                     }
                 }
             }
-            if (nodes2.size() == nodes.size()) flag = false;
+            if (nodes2.size() == nodes.size()) {
+                flag ++;
+            }
         }
     }
 

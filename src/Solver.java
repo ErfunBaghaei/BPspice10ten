@@ -27,7 +27,6 @@ public class Solver {
         this.snodes = initialTextProccesor.nodes;
         this.sgraph = initialTextProccesor.graph;
         errorFinder=new ErrorFinder(circuit,initialTextProccesor);
-
     }
 
 
@@ -78,6 +77,7 @@ public class Solver {
 
     void mainsolver() {
         int i, j, k, p, e, solveflag = 0;
+        for (i=0;i<sunions.size();i++) for (j=0;j<sunions.get(i).nod.size();j++) System.out.println("union"+sunions.get(i).name+"node"+sunions.get(i).nod.get(j).name);
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
         for (j = 0; j < sunions.size(); j++) {
@@ -108,7 +108,7 @@ public class Solver {
                     }
                     skcl = Math.sqrt(skcl);
                 }
-                System.out.println("erfunkcl " + skcl);
+                //System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -117,23 +117,26 @@ public class Solver {
                     sunions.get(e).nod.get(p).voltageValues[i] = sunions.get(e).nod.get(p).voltage;
                 }
             for (e = 0; e < selements.size(); e++) {
+                selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 if (selements.get(e).type.equals("r")) {
-                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                     selements.get(e).currentValues[i] = selements.get(e).voltageValues[i] / selements.get(e).resistance;
                 }
                 if (selements.get(e).type.equals("c")) {
-                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    selements.get(e).currentValues[i]= selements.get(e).capacity*(selements.get(e).voltageValues[i]-selements.get(e).voltageValues[i]-1)/dt;
                 }
                 if (selements.get(e).type.equals("l")){
-                    selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
+                    //selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
                     selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
+
             }
             batterycurrent();
 
             time += dt;
         }
-            for (i=1;i<=time/dt;i++) System.out.println("batt"+ selements.get(2).currentValues[i]);
+            for (i=1;i<=time/dt;i++) System.out.println("batt"+ selements.get(0).currentValues[i]+selements.get(0).name );
         printResults();
     }
 
