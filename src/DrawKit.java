@@ -46,12 +46,12 @@ public class DrawKit {
             groundDrawer(15);
         } else if (node.size() == 3) {
             threeNode(node, 14);
-            groundDrawer(14);
+            groundDrawer(13);
         }
         if (node.size() == 4) {
 
             fourNode(node, 2);
-            groundDrawer(14);
+            groundDrawer(13);
         }
 
 
@@ -779,12 +779,10 @@ public class DrawKit {
                 flag2 = true;
                 currentNode += up;
                 x++;
-                flag3 = true;
             }
         }
         currentNode += x * down;
-        if (flag3)
-            currentNode += right;
+        currentNode += right;
         boolean flag6 = false;
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
@@ -866,6 +864,13 @@ public class DrawKit {
             currentNode += left;
         return currentNode;
     }
+
+
+
+
+
+
+
 
 
     public int fourNode(ArrayList<Node> node4, int currentNode) {
