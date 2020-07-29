@@ -868,7 +868,7 @@ public class DrawKit {
     }
 
 
-    public void fourNode(ArrayList<Node> node4, int currentNode) {
+    public int fourNode(ArrayList<Node> node4, int currentNode) {
         ArrayList<Node> tempNodes = new ArrayList();
         for (int i = 0; i < 3; i++) {
             tempNodes.add(node4.get(i));
@@ -1127,5 +1127,18 @@ public class DrawKit {
                 wireDrawer(tempp - ii * 11, tempp - ii * 11 - 11);
 
         }
+        return currentNode;
     }
+
+    public void fiveNode(ArrayList<Node> node5, int currentNode) {
+        ArrayList<Node> tempNodes = new ArrayList();
+        for (int i = 0; i < 4; i++) {
+            tempNodes.add(node5.get(i));
+        }
+        currentNode = fourNode(tempNodes, 13);
+
+
+    }
+
+
 }
