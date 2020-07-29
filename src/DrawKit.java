@@ -231,6 +231,8 @@ public class DrawKit {
             currentControledVoltageSourceDown.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
 
             circuit.add(currentControledVoltageSourceDown);
+
+
         } else if (nodeM - nodeP == 11) {
             currentControledVoltageSourceUp = new JLabel(currentControledVoltageSourceUpimage);
             currentControledVoltageSourceUp.setBounds(nodeCoordinates.get(max).x - 42, nodeCoordinates.get(max).y, 80, 80);
@@ -672,7 +674,6 @@ public class DrawKit {
                     case "vcv":
                         if (elements.get(i).node1.equals("0"))
                             voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
-
                         else
                             voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
 
@@ -831,9 +832,9 @@ public class DrawKit {
                         break;
                     case "vcv":
                         if (elements.get(i).node1.equals("0"))
-                            voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                        else
                             voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                        else
+                            voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
                         break;
                     case "ccv":
                         if (elements.get(i).node1.equals("0"))
@@ -864,14 +865,6 @@ public class DrawKit {
             currentNode += left;
         return currentNode;
     }
-
-
-
-
-
-
-
-
 
     public int fourNode(ArrayList<Node> node4, int currentNode) {
         ArrayList<Node> tempNodes = new ArrayList();

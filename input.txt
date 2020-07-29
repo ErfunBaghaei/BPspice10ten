@@ -1,8 +1,8 @@
 * hi this is a test
 v1 1 0 1 0 0 0
 r1 0 1 2
-h2 3 2 1 0 2
-r2 3 2 2
+h1 2 0 1 0 0 
+r2 0 2 2
 .tran 100m
 dv 0.1m
 dI 1m
