@@ -76,9 +76,10 @@ public class Solver {
 
 
     void mainsolver() {
-        int i, j, k, p, e, solveflag = 0;
+        double [] skc = new double[4];
+        int i, j, k, p, e, solveflag = 0,loop=0;
         for (i=0;i<sunions.size();i++) for (j=0;j<sunions.get(i).nod.size();j++) System.out.println("union"+sunions.get(i).name+"node"+sunions.get(i).nod.get(j).name);
-        double skcl = 0, skcl2 = 0, kclfirst, kclnext;
+        double skcl = 0, skcl2 = 0, kclfirst, kclnext,zarib=1;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
         for (j = 0; j < sunions.size(); j++) {
             skcl += sunions.get(j).kcl * sunions.get(j).kcl;
@@ -86,6 +87,8 @@ public class Solver {
         }
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
+            zarib=1;
+            loop=0;
             System.out.println("time" + i);
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
@@ -108,7 +111,16 @@ public class Solver {
                     }
                     skcl = Math.sqrt(skcl);
                 }
-                //System.out.println("erfunkcl " + skcl);
+               /* skc[0]=skc[1];
+                skc[1]=skc[2];
+                skc[2]=skc[3];
+                skc[3]=(int)(skcl/di);*/
+               /* if (skc[0]==skc[2]&&skc[1]==skc[3]&&loop<10) {
+                    zarib/=2;
+                    loop++;
+                }*/
+                //if (loop>=10) break;
+                System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -124,13 +136,12 @@ public class Solver {
                 }
                 if (selements.get(e).type.equals("c")) {
                     //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
-                    selements.get(e).currentValues[i]= selements.get(e).capacity*(selements.get(e).voltageValues[i]-selements.get(e).voltageValues[i]-1)/dt;
+                    selements.get(e).currentValues[i]= selements.get(e).capacity*(selements.get(e).voltageValues[i]-selements.get(e).voltageValues[i-1])/dt;
                 }
                 if (selements.get(e).type.equals("l")){
                     //selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
                     selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
-
             }
             batterycurrent();
 
@@ -157,9 +168,6 @@ public class Solver {
         sunions.get(i).kcl = 0;
         for (j = 0; j < sunions.get(i).nod.size(); j++) {
             for (k = 0; k < selements.size(); k++) {
-
-
-
                 if (selements.get(k).type.equals("l")) {
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).currentValues[(int) (time / dt)]+dt*(sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node2)) / selements.get(k).inductance;
@@ -229,7 +237,7 @@ public class Solver {
                                 current -= selements.get(k).currentValues[((int) (time / dt)) +1];
                         }
                     }
-                  //  System.out.println("battery: " + flag + " " + index + " " + current+ " "+ sunions.get(i).nod.get(j).name );
+                    System.out.println("battery: " + flag + " " + index + " " + current+ " "+ sunions.get(i).nod.get(j).name );
                     //
 
                     if (flag == 1) {

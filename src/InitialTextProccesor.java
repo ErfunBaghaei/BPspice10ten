@@ -162,6 +162,7 @@ public class InitialTextProccesor {
 
 
     public void create_union() {
+        relateerror5();
         int i, n = 0, j;
         //     for (i=0;i<nodes.size();i++){
         //         System.out.println(nodes.get(i).name+":");
@@ -177,7 +178,7 @@ public class InitialTextProccesor {
         nodes2.add(nodes.get(0));
         for (i = 0; i < nodes.size(); i++) {
             if (nodes.get(i).added == false) {
-                if (graph[0][i] == 1) {
+                if (graph[0][i] == 1||graph[0][i] == 13) {
                     nodes.get(i).added = true;
                     nodes2.add(nodes.get(i));
                 }
@@ -189,13 +190,20 @@ public class InitialTextProccesor {
             }
         }
         // for (i=0;i<nodes2.size();i++)System.out.println(nodes2.get(i).name+" "+nodes2.get(i).union+" "+nodes2.get(i).added+"\n");
-        int flag = 0;
+        int flag = 0,er5=0;
+        for (j=0;j<nodes.size();j++) {
+            er5=0;
+            for (i = 0; i < elements.size(); i++)
+                if (nodes.get(j).name.equals(elements.get(i).node1)||nodes.get(j).name.equals(elements.get(i).node2)) er5++;
+             if (er5<2) System.out.println("ERROR 5 !!");
+        }
         while (flag<2) {
+            er5=nodes2.size();
             for (i = nodes2.size() - 1; i >= 0; i--) {
                 for (j = 0; j < nodes.size(); j++) if (nodes.get(j).name.equals(nodes2.get(i).name)) n = j;
                 for (j = 0; j < nodes.size(); j++) {
                     if (nodes.get(j).added == false) {
-                        if (graph[n][j] == 1) {
+                        if (graph[n][j] == 1||graph[n][j] == 13) {
                             nodes.get(j).added = true;
                             nodes2.add(nodes.get(j));
                         }
@@ -209,6 +217,10 @@ public class InitialTextProccesor {
             }
             if (nodes2.size() == nodes.size()) {
                 flag ++;
+            }
+            if (er5==nodes2.size()&&flag==0){
+                System.out.println("ERROR 5!");
+                break;
             }
         }
     }
@@ -429,6 +441,31 @@ public class InitialTextProccesor {
         } else flag = 0;
         if (graph[next][first] != 12) graph[next][first] = 1;
         if (graph[first][next] != 12) graph[first][next] = 1;
+    }
+
+    public void relateerror5(){
+        int i,j,k;
+        String name="";
+        for (i=0;i<elements.size();i++){
+            if (elements.get(i).name.indexOf("e")==0||elements.get(i).name.indexOf("g")==0||elements.get(i).name.indexOf("E")==0||elements.get(i).name.indexOf("G")==0){
+                for (j=0;j<nodes.size();j++) if (nodes.get(j).name.equals(elements.get(i).node3)) break;
+                for (k=0;k<nodes.size();k++) if (nodes.get(k).name.equals(elements.get(i).node1)) break;
+                if (graph[j][k]==0) graph[j][k]=13;
+                if (graph[k][j]==0) graph[k][j]=13;
+            }
+            if (elements.get(i).name.indexOf("h")==0||elements.get(i).name.indexOf("f")==0||elements.get(i).name.indexOf("H")==0||elements.get(i).name.indexOf("F")==0){
+                for (j=0;j<nodes.size();j++) if (nodes.get(j).name.equals(elements.get(i).node1)) break;
+                for (k=0;k<elements.size();k++) if (elements.get(k).name.equals(elements.get(i).controlelement)) {
+                    name= elements.get(k).node1;
+                    break;
+                }
+                for (k=0;k<nodes.size();k++) if (nodes.get(k).name.equals(name)) break;
+                if (graph[j][k]==0) graph[j][k]=13;
+                if (graph[k][j]==0) graph[k][j]=13;
+            }
+
+        }
+
 
     }
 
