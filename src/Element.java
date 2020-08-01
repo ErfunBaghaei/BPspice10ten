@@ -5,4 +5,5 @@ public class Element {
     boolean currentdef=false;
     double[] voltageValues=new double[10000];
     double[] currentValues=new double[10000];
+    double[] errorvoltageValues=new double[10000];
 }
