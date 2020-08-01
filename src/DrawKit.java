@@ -48,9 +48,13 @@ public class DrawKit {
             threeNode(node, 14);
             groundDrawer(13);
         }
-        if (node.size() == 4) {
+        else if (node.size() == 4) {
 
             fourNode(node, 2);
+            groundDrawer(13);
+        }
+        else if(node.size()>=5){
+            fiveNode_andMore(node,2);
             groundDrawer(13);
         }
 
@@ -1130,15 +1134,13 @@ public class DrawKit {
         return currentNode;
     }
 
-    public void fiveNode(ArrayList<Node> node5, int currentNode) {
+    public void fiveNode_andMore(ArrayList<Node> node5, int currentNode) {
         ArrayList<Node> tempNodes = new ArrayList();
         for (int i = 0; i < 4; i++) {
             tempNodes.add(node5.get(i));
         }
         currentNode = fourNode(tempNodes, 13);
-
-
+        JOptionPane.showMessageDialog(circuit,
+                "in this version, we can't draw this circuit,wait for future updates!", "Error!", JOptionPane.ERROR_MESSAGE);
     }
-
-
 }
