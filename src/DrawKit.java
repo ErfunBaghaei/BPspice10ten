@@ -48,9 +48,13 @@ public class DrawKit {
             threeNode(node, 14);
             groundDrawer(13);
         }
-        if (node.size() == 4) {
+        else if (node.size() == 4) {
 
             fourNode(node, 2);
+            groundDrawer(13);
+        }
+        else if(node.size()>=5){
+            fiveNode_andMore(node,2);
             groundDrawer(13);
         }
 
@@ -484,13 +488,15 @@ public class DrawKit {
     ArrayList<Node> node;
     boolean flag1 = false;
 
+
+
+
     public void oneNode(ArrayList<Node> node1, int currentNode) {
 
         for (int i = 0; i < elements.size(); i++) {
             type = elements.get(i).type;
             switch (type) {
                 case "c":
-
                     capacitorDrawer(currentNode, currentNode + up);
                     break;
 
@@ -584,27 +590,27 @@ public class DrawKit {
                     break;
                 case "cs":
                     if (elements.get(i).node1.equals("0"))
-                        currentSourceDrawer(currentNode + up, currentNode);
-                    else
                         currentSourceDrawer(currentNode, currentNode + up);
+                    else
+                        currentSourceDrawer(currentNode + up, currentNode);
                     break;
                 case "d":
                     if (elements.get(i).node1.equals("0"))
-                        diodeDrawer(currentNode + up, currentNode);
-                    else
                         diodeDrawer(currentNode, currentNode + up);
+                    else
+                        diodeDrawer(currentNode + up, currentNode);
                     break;
                 case "vcv":
                     if (elements.get(i).node1.equals("0"))
-                        voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                    else
                         voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                    else
+                        voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
                     break;
                 case "ccv":
                     if (elements.get(i).node1.equals("0"))
-                        currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                    else
                         currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                    else
+                        currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
                     break;
                 case "vcc":
                     if (elements.get(i).node1.equals("0"))
@@ -661,28 +667,27 @@ public class DrawKit {
                         break;
                     case "cs":
                         if (elements.get(i).node1.equals("0"))
-                            currentSourceDrawer(currentNode + up, currentNode);
-                        else
                             currentSourceDrawer(currentNode, currentNode + up);
+                        else
+                            currentSourceDrawer(currentNode + up, currentNode);
                         break;
                     case "d":
                         if (elements.get(i).node1.equals("0"))
-                            diodeDrawer(currentNode + up, currentNode);
-                        else
                             diodeDrawer(currentNode, currentNode + up);
+                        else
+                            diodeDrawer(currentNode + up, currentNode);
                         break;
                     case "vcv":
                         if (elements.get(i).node1.equals("0"))
-                            voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                        else
                             voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
-
+                        else
+                            voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
                         break;
                     case "ccv":
                         if (elements.get(i).node1.equals("0"))
-                            currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                        else
                             currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                        else
+                            currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
                         break;
                     case "vcc":
                         if (elements.get(i).node1.equals("0"))
@@ -735,15 +740,15 @@ public class DrawKit {
                         break;
                     case "cs":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            currentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
-                        else
                             currentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                        else
+                            currentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         break;
                     case "d":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            diodeDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
-                        else
                             diodeDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                        else
+                            diodeDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         break;
                     case "vcv":
                         if (elements.get(i).node1.equals(node3.get(1).name))
@@ -759,15 +764,15 @@ public class DrawKit {
                         break;
                     case "vcc":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            voltageControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
-                        else
                             voltageControlledCurrentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                        else
+                            voltageControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         break;
                     case "ccc":
                         if (elements.get(i).node1.equals(node3.get(1).name))
-                            currentControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
-                        else
                             currentControlledCurrentSourceDrawer(currentNode + 2 * up, currentNode + 2 * up + right);
+                        else
+                            currentControlledCurrentSourceDrawer(currentNode + 2 * up + right, currentNode + 2 * up);
                         break;
 
                 }
@@ -820,15 +825,15 @@ public class DrawKit {
                         break;
                     case "cs":
                         if (elements.get(i).node1.equals("0"))
-                            currentSourceDrawer(currentNode + up, currentNode);
-                        else
                             currentSourceDrawer(currentNode, currentNode + up);
+                        else
+                            currentSourceDrawer(currentNode + up, currentNode);
                         break;
                     case "d":
                         if (elements.get(i).node1.equals("0"))
-                            diodeDrawer(currentNode + up, currentNode);
-                        else
                             diodeDrawer(currentNode, currentNode + up);
+                        else
+                            diodeDrawer(currentNode + up, currentNode);
                         break;
                     case "vcv":
                         if (elements.get(i).node1.equals("0"))
@@ -838,9 +843,9 @@ public class DrawKit {
                         break;
                     case "ccv":
                         if (elements.get(i).node1.equals("0"))
-                            currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                        else
                             currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                        else
+                            currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
                         break;
                     case "vcc":
                         if (elements.get(i).node1.equals("0"))
@@ -890,12 +895,15 @@ public class DrawKit {
                         case "c":
                             capacitorDrawer(currentNode, currentNode + up);
                             break;
+
                         case "r":
                             resistorDrawer(currentNode, currentNode + up);
                             break;
+
                         case "l":
                             inductorDrawer(currentNode, currentNode + up);
                             break;
+
                         case "vs":
                             if (elements.get(i).node1.equals("0"))
                                 voltageSourceDrawer(currentNode + up, currentNode);
@@ -904,27 +912,27 @@ public class DrawKit {
                             break;
                         case "cs":
                             if (elements.get(i).node1.equals("0"))
-                                currentSourceDrawer(currentNode + up, currentNode);
-                            else
                                 currentSourceDrawer(currentNode, currentNode + up);
+                            else
+                                currentSourceDrawer(currentNode + up, currentNode);
                             break;
                         case "d":
                             if (elements.get(i).node1.equals("0"))
-                                diodeDrawer(currentNode + up, currentNode);
-                            else
                                 diodeDrawer(currentNode, currentNode + up);
+                            else
+                                diodeDrawer(currentNode + up, currentNode);
                             break;
                         case "vcv":
                             if (elements.get(i).node1.equals("0"))
-                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                            else
                                 voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            else
+                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
                             break;
                         case "ccv":
                             if (elements.get(i).node1.equals("0"))
-                                currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
-                            else
                                 currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            else
+                                currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
                             break;
                         case "vcc":
                             if (elements.get(i).node1.equals("0"))
@@ -938,8 +946,6 @@ public class DrawKit {
                             else
                                 currentControlledCurrentSourceDrawer(currentNode + up, currentNode);
                             break;
-
-
                     }
                     wireDrawer(currentNode + up, currentNode + 2 * up);
                     wireDrawer(currentNode, currentNode + down);
@@ -981,15 +987,15 @@ public class DrawKit {
                             break;
                         case "cs":
                             if (elements.get(i).node1.equals(node4.get(2).name))
-                                currentSourceDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
-                            else
                                 currentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
+                            else
+                                currentSourceDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
                             break;
                         case "d":
                             if (elements.get(i).node1.equals(node4.get(2).name))
-                                diodeDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
-                            else
                                 diodeDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
+                            else
+                                diodeDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
                             break;
                         case "vcv":
                             if (elements.get(i).node1.equals(node4.get(2).name))
@@ -1005,15 +1011,15 @@ public class DrawKit {
                             break;
                         case "vcc":
                             if (elements.get(i).node1.equals(node4.get(2).name))
-                                voltageControlledCurrentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
-                            else
                                 voltageControlledCurrentSourceDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
+                            else
+                                voltageControlledCurrentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                         case "ccc":
                             if (elements.get(i).node1.equals(node4.get(2).name))
-                                currentControlledCurrentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
-                            else
                                 currentControlledCurrentSourceDrawer(savedNode + 2 * up + right, savedNode + 2 * up);
+                            else
+                                currentControlledCurrentSourceDrawer(savedNode + 2 * up, savedNode + 2 * up + right);
                             break;
                     }
                     if (flag3) {
@@ -1053,9 +1059,9 @@ public class DrawKit {
                             break;
                         case "vs":
                             if (elements.get(i).node1.equals(node4.get(1).name))
-                                voltageSourceDrawer(currentNode, currentNode + left);
-                            else
                                 voltageSourceDrawer(currentNode + left, currentNode);
+                            else
+                                voltageSourceDrawer(currentNode, currentNode + left);
                             break;
                         case "cs":
                             if (elements.get(i).node1.equals(node4.get(1).name))
@@ -1071,15 +1077,15 @@ public class DrawKit {
                             break;
                         case "vcv":
                             if (elements.get(i).node1.equals(node4.get(1).name))
-                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + left);
-                            else
                                 voltageControlledVoltageSourceDrawer(currentNode + left, currentNode);
+                            else
+                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + left);
                             break;
                         case "ccv":
                             if (elements.get(i).node1.equals(node4.get(1).name))
-                                currentControlledVoltageSourceDrawer(currentNode, currentNode + left);
-                            else
                                 currentControlledVoltageSourceDrawer(currentNode + left, currentNode);
+                            else
+                                currentControlledVoltageSourceDrawer(currentNode, currentNode + left);
                             break;
                         case "vcc":
                             if (elements.get(i).node1.equals(node4.get(1).name))
@@ -1128,15 +1134,13 @@ public class DrawKit {
         return currentNode;
     }
 
-    public void fiveNode(ArrayList<Node> node5, int currentNode) {
+    public void fiveNode_andMore(ArrayList<Node> node5, int currentNode) {
         ArrayList<Node> tempNodes = new ArrayList();
         for (int i = 0; i < 4; i++) {
             tempNodes.add(node5.get(i));
         }
         currentNode = fourNode(tempNodes, 13);
-
-
+        JOptionPane.showMessageDialog(circuit,
+                "in this version, we can't draw this circuit,wait for future updates!", "Error!", JOptionPane.ERROR_MESSAGE);
     }
-
-
 }
