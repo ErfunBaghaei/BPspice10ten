@@ -104,15 +104,9 @@ public class GraphPaint extends JPanel {
             time[i].setText((double) Math.round(timeStepInGraph * i * roundBound) / roundBound + "");
             time[i].setBounds(100 * i - 30, 290, 40, 10);
         }
-
-
         for (int i = 0; i < 11; i++)
             this.add(time[i]);
-
-
     }
-
-
     public int max(double[] a, int size) {
         int indexOfMax = 0;
         for (int i = 0; i < size; i++) {
@@ -123,6 +117,4 @@ public class GraphPaint extends JPanel {
             return -1;
         return indexOfMax;
     }
-
-
 }
