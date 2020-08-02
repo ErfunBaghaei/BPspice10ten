@@ -188,12 +188,14 @@ public class Solver {
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += (sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) / selements.get(k).resistance;
                 } else if (selements.get(k).type.equals("cs")) {
+                    selements.get(k).currentValues[(int)(time/dt)+1]=selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * selements.get(k).frequncey * time + selements.get(k).phase);
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * selements.get(k).frequncey * time + selements.get(k).phase);
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * time * selements.get(k).frequncey + selements.get(k).phase);
                 }
                 if (selements.get(k).type.equals("vcc")) {
+                    selements.get(k).currentValues[(int)(time/dt)+1]=selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
@@ -203,6 +205,7 @@ public class Solver {
                     for (e = 0; e < selements.size(); e++)
                         if (selements.get(e).name.equals(selements.get(k).controlelement))
                             control = selements.get(e).currentValues[(int) (time / dt)];
+                    selements.get(k).currentValues[(int)(time/dt)+1]= control * selements.get(k).gain;
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= control * selements.get(k).gain;
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
