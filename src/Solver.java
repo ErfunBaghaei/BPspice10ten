@@ -322,7 +322,7 @@ public class Solver {
                 if (selements.get(i).errorvoltageValues[time] != (findNode(selements.get(i).node1) - findNode(selements.get(i).node2))) {
                     System.out.println("hi three");
                     for (int j = 0; j < sunions.get(0).nod.size(); j++)
-                        if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || Math.round(selements.get(i).node2.equals(sunions.get(0).nod.get(i)))) {
+                        if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || selements.get(i).node2.equals(sunions.get(0).nod.get(i))) {
                             flag = false;
                             break;
                         }

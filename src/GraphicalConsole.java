@@ -43,12 +43,20 @@ public class GraphicalConsole {
 
         JTextField drawElement = new JTextField("l1");
         //First, you must choose a file...
-        JTextArea textConsole = new JTextArea("* hi this is a test\n" +
+        JTextArea textConsole = new JTextArea(
+                "* hi this is a test\n" +
                 "v1 1 0 1 0 0 0\n" +
                 "r1 2 1 2\n" +
                 "c1 3 2 3\n" +
-                "r2 3 0 2\n" +
-                "l1 3 0 5\n" +
+                "r2 3 4 2\n" +
+                "v2 4 5 6 0 0 0\n" +
+                "l2 5 6 1\n" +
+                "r3 6 7 1\n" +
+                "f1 7 8 1 2 2\n"+
+                        "g1 0 8 1 2 2\n"+
+                "c2 8 9 6\n" +
+                "l2 9 10 1\n" +
+                "r3 10 0 1\n" +
                 ".tran 2m\n" +
                 "dv 0.5m\n" +
                 "dI 10m\n" +
@@ -101,9 +109,7 @@ public class GraphicalConsole {
 
         mainPage.setBounds(0, 0, 1800, 990);
 
-        //      circuit.setBounds(850,60,943,710);
-
-        circuitFrame.setBounds(13, 90, 940, 702);
+        circuitFrame.setBounds(13, 90, 1020, 702);
 
         which.setBounds(370, 34, 270, 20);
 
