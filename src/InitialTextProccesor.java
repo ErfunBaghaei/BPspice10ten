@@ -43,17 +43,29 @@ public class InitialTextProccesor {
             for (int kk = 0; kk < 1000; kk++)
                 graph[hh][kk] = 0;
 
-
+        int number=0;
         try {
             Scanner fileScan = new Scanner(file);
             currentLineInput = fileScan.nextLine();
 
-
+            String[] words;
             while (!currentLineInput.equals("END")) {
+
                 flag = 0;
                 if (currentLineInput.isEmpty()) {
                 } else if (currentLineInput.charAt(0) == '*') {
                 } else {
+                    words=currentLineInput.split("\\s+");
+                    if(!((currentLineInput.charAt(0)=='d'||currentLineInput.charAt(0)=='D')||(currentLineInput.charAt(0)=='.')))
+                    try {
+                        for(int i=1;i<words.length;i++)
+                        number=Integer.parseInt(words[i]);
+
+                    }
+                    catch (NumberFormatException e){
+                        JOptionPane.showMessageDialog(graphicalConsole.mainPage, "in Line ( "+lineNumber+" ) we see a wrong symbol!", "Error -1", JOptionPane.ERROR_MESSAGE);
+                        return -1;
+                    }
 
                     if (currentLineInput.charAt(0) == 'i' || currentLineInput.charAt(0) == 'I')
                         createCurrentSource(currentLineInput);
