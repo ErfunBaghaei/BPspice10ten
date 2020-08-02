@@ -1291,7 +1291,7 @@ public class DrawKit {
                     flag2 = true;
                 }
             }
-            currentNode+=2*up;
+            currentNode+=2*up+right;
         }
     }
 

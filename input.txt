@@ -1,6 +1,9 @@
 * hi this is a test
-v1 1 0 5 0 0 0
-v2 1 0 1 0 0 0
+v1 1 0 1 0 0 0
+r1 2 1 2
+c1 3 2 3
+r2 3 0 2
+l1 3 0 5
 .tran 2m
 dv 0.5m
 dI 10m
