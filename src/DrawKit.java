@@ -47,14 +47,12 @@ public class DrawKit {
         } else if (node.size() == 3) {
             threeNode(node, 14);
             groundDrawer(13);
-        }
-        else if (node.size() == 4) {
+        } else if (node.size() == 4) {
 
             fourNode(node, 2);
             groundDrawer(13);
-        }
-        else if(node.size()>=5){
-            fiveNode_andMore(node,2);
+        } else if (node.size() >= 5) {
+            fiveNode_andMore(node, 2);
             groundDrawer(13);
         }
 
@@ -487,8 +485,6 @@ public class DrawKit {
     ArrayList<Element> elements;
     ArrayList<Node> node;
     boolean flag1 = false;
-
-
 
 
     public void oneNode(ArrayList<Node> node1, int currentNode) {
@@ -1140,7 +1136,163 @@ public class DrawKit {
             tempNodes.add(node5.get(i));
         }
         currentNode = fourNode(tempNodes, 13);
-        JOptionPane.showMessageDialog(circuit,
-                "in this version, we can't draw this circuit,wait for future updates!", "Error!", JOptionPane.ERROR_MESSAGE);
+        currentNode += 2 * up;
+            for (int k = 4; k < node5.size(); k++) {
+            Node lastNode = node5.get(k);
+            boolean flag3 = true;
+            int savedNode = currentNode;
+            for (int i = 0; i < elements.size(); i++) {
+                type=elements.get(i).type;
+
+                if (elements.get(i).node1.equals(lastNode.name)) {
+                    switch (type) {
+
+                        case "c":
+                            capacitorDrawer(currentNode, currentNode + right);
+                            break;
+
+                        case "r":
+                            resistorDrawer(currentNode, currentNode + right);
+                            break;
+
+                        case "l":
+                            inductorDrawer(currentNode, currentNode + right);
+                            break;
+                        case "vs":
+
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                voltageSourceDrawer(currentNode + right, currentNode);
+                            else
+                                voltageSourceDrawer(currentNode, currentNode + right);
+                            break;
+                        case "cs":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                currentSourceDrawer(currentNode, currentNode + right);
+                            else
+                                currentSourceDrawer(currentNode + right, currentNode);
+                            break;
+                        case "d":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                diodeDrawer(currentNode, currentNode + right);
+                            else
+                                diodeDrawer(currentNode + right, currentNode);
+                            break;
+                        case "vcv":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                voltageControlledVoltageSourceDrawer(currentNode + right, currentNode);
+                            else
+                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + right);
+                            break;
+                        case "ccv":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                currentControlledVoltageSourceDrawer(currentNode + right, currentNode);
+                            else
+                                currentControlledVoltageSourceDrawer(currentNode, currentNode + right);
+                            break;
+                        case "vcc":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                voltageControlledCurrentSourceDrawer(currentNode, currentNode + right);
+                            else
+                                voltageControlledCurrentSourceDrawer(currentNode + right, currentNode);
+                            break;
+                        case "ccc":
+                            if (elements.get(i).node1.equals(node5.get(4).name))
+                                currentControlledCurrentSourceDrawer(currentNode, currentNode + right);
+                            else
+                                currentControlledCurrentSourceDrawer(currentNode + right, currentNode);
+                            break;
+
+
+                    }
+
+                    if (flag3) {
+                        wireDrawer(currentNode + 3 * down, currentNode + 3 * down + right);
+                        wireDrawer(currentNode + 3 * down + left, currentNode + 3 * down + right + left);
+                    }
+                    if (!flag3) {
+                        wireDrawer(currentNode, currentNode + down);
+                        wireDrawer(currentNode + right, currentNode + right + down);
+                    }
+                    currentNode += up;
+                    flag3 = false;
+                }
+            }
+
+            currentNode = savedNode;
+            currentNode += right + 2 * down;
+
+            boolean flag2 = false;
+            for (int i = 0; i < elements.size(); i++) {
+                type=elements.get(i).type;
+                if (elements.get(i).node1.equals("0") && elements.get(i).node2.equals(lastNode.name)) {
+                    switch (type) {
+                        case "c":
+                            capacitorDrawer(currentNode, currentNode + up);
+                            break;
+
+                        case "r":
+                            resistorDrawer(currentNode, currentNode + up);
+                            break;
+
+                        case "l":
+                            inductorDrawer(currentNode, currentNode + up);
+                            break;
+
+                        case "vs":
+                            if (elements.get(i).node1.equals("0"))
+                                voltageSourceDrawer(currentNode + up, currentNode);
+                            else
+                                voltageSourceDrawer(currentNode, currentNode + up);
+                            break;
+                        case "cs":
+                            if (elements.get(i).node1.equals("0"))
+                                currentSourceDrawer(currentNode, currentNode + up);
+                            else
+                                currentSourceDrawer(currentNode + up, currentNode);
+                            break;
+                        case "d":
+                            if (elements.get(i).node1.equals("0"))
+                                diodeDrawer(currentNode, currentNode + up);
+                            else
+                                diodeDrawer(currentNode + up, currentNode);
+                            break;
+                        case "vcv":
+                            if (elements.get(i).node1.equals("0"))
+                                voltageControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            else
+                                voltageControlledVoltageSourceDrawer(currentNode, currentNode + up);
+                            break;
+                        case "ccv":
+                            if (elements.get(i).node1.equals("0"))
+                                currentControlledVoltageSourceDrawer(currentNode + up, currentNode);
+                            else
+                                currentControlledVoltageSourceDrawer(currentNode, currentNode + up);
+                            break;
+                        case "vcc":
+                            if (elements.get(i).node1.equals("0"))
+                                voltageControlledCurrentSourceDrawer(currentNode, currentNode + up);
+                            else
+                                voltageControlledCurrentSourceDrawer(currentNode + up, currentNode);
+                            break;
+                        case "ccc":
+                            if (elements.get(i).node1.equals("0"))
+                                currentControlledCurrentSourceDrawer(currentNode, currentNode + up);
+                            else
+                                currentControlledCurrentSourceDrawer(currentNode + up, currentNode);
+                            break;
+                    }
+                    if (flag2) {
+                        wireDrawer(currentNode + down, currentNode + down + left);
+                        wireDrawer(currentNode + 2 * up, currentNode + 2 * up + left);
+                    }
+                    wireDrawer(currentNode + up, currentNode + 2 * up);
+                    wireDrawer(currentNode + down, currentNode);
+                    currentNode += right;
+                    flag2 = true;
+                }
+            }
+            currentNode+=2*up;
+        }
     }
+
 }

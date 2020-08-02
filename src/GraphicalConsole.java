@@ -10,10 +10,34 @@ public class GraphicalConsole {
     InitialTextProccesor initialTextProccesor;
 
     GraphicalConsole(File file) {
-        this.initialTextProccesor = new InitialTextProccesor(file);
+
+        this.initialTextProccesor = new InitialTextProccesor(file,this);
     }
 
+    ImageIcon startImage = new ImageIcon("BPSPICEIMAGE.jpg");
+
+    JLabel startImageLabel = new JLabel(startImage);
+
+    JPanel loading = new JPanel();
+
+
+
+    JButton run = new JButton("RUN");
+
+    JButton draw = new JButton("DRAW");
+
+    JButton output = new JButton("OUTPUT");
+
+    JButton open = new JButton("OPEN");
+
+    JFrame mainPage = new JFrame("BPSPICE10");
+
+    JPanel outPutInformationsPanel = new JPanel();
+
+    JTextArea outPutInformationsLabel = new JTextArea("Results will be shown here:");
+
     public void run() {
+        loading.add(startImageLabel);
 
         MapPoints mapPoints = new MapPoints();
 
@@ -30,15 +54,7 @@ public class GraphicalConsole {
                 "r3 5 4 2\n" +
                 "v2 5 1 5 0 0 0\n" +*/
                 "v1 1 0 5 0 0 0\n" +
-                "r1 1 0 1\n" +
-              //*  "d2 2 1 1\n" +
-                "f1 0 3 r1 5\n" +
-                //"v2 2 3 1 0 0 0\n" +
-                "r2 0 3 2\n" +
-                /*"r2 0 2 2\n" +
-                "l3 0 3 1\n" +
-                "e1 2 3 2 0 2\n" +*/
-               // "v1 2 0 1 0 0 0\n" +
+                "v2 1 0 1 0 0 0\n" +
                 ".tran 2m\n" +
                 "dv 0.5m\n" +
                 "dI 10m\n" +
@@ -46,27 +62,7 @@ public class GraphicalConsole {
                 "END"
         );
 
-        ImageIcon startImage = new ImageIcon("BPSPICEIMAGE.jpg");
 
-        JLabel startImageLabel = new JLabel(startImage);
-
-        JPanel loading = new JPanel();
-
-        loading.add(startImageLabel);
-
-        JButton run = new JButton("RUN");
-
-        JButton draw = new JButton("DRAW");
-
-        JButton output = new JButton("OUTPUT");
-
-        JButton open = new JButton("OPEN");
-
-        JFrame mainPage = new JFrame("BPSPICE10");
-
-        JPanel outPutInformationsPanel = new JPanel();
-
-        JTextArea outPutInformationsLabel = new JTextArea("Results will be shown here:");
         outPutInformationsLabel.setEditable(false);
 
         outPutInformationsLabel.setForeground(Color.WHITE);

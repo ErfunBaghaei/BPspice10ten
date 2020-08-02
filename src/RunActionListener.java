@@ -38,10 +38,10 @@ public class RunActionListener implements ActionListener {
 
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
 
-
-        boolean cont = true;
+        int flag1=0;
+        int cont = 0;
         cont = initialTextProccesor.start();
-        if (cont) {
+        if (cont==0) {
 
 
             circuitDrawer(initialTextProccesor);
@@ -50,24 +50,30 @@ public class RunActionListener implements ActionListener {
             circuitFrame.setVisible(true);
 
 
+            solver = new Solver(initialTextProccesor, circuitFrame);
 
+            boolean flag = initialTextProccesor.create_union();
+            if (flag) {
 
-           solver = new Solver(initialTextProccesor,circuitFrame);
-  
-           initialTextProccesor.create_union();
-  
-           initialTextProccesor.set_union();
+                initialTextProccesor.set_union();
 
-          solver.mainsolver();
-  
-          OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
-  
-          outPutInformationsLabel.setText("");
-  
-          outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+                flag1=solver.mainsolver();
+                if(flag1==0) {
 
+                    OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
 
+                    outPutInformationsLabel.setText("");
+
+                    outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+                }
+                else
+                    JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error "+flag1, JOptionPane.ERROR_MESSAGE);
+
+            }
         }
+        else if(cont==-4)
+            JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error "+cont, JOptionPane.ERROR_MESSAGE);
+
     }
 
     public void circuitDrawer(InitialTextProccesor initialTextProccesor) {

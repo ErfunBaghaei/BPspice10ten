@@ -35,9 +35,6 @@ public class Solver {
     }
 
 
-    //errorFinder.errorTwo(int(time/dt))
-
-
     void resetVoltage(int j) {
         int i, flag, k, m, w = 0;
         double volt = 0, control = 0;
@@ -65,7 +62,7 @@ public class Solver {
                                                 control = selements.get(w).currentValues[(int) (time / dt)];
                                         volt = selements.get(m).gain * control;
                                     }
-                                    selements.get(m).errorvoltageValues[(int)(time/dt)+1]=volt;
+                                    selements.get(m).errorvoltageValues[(int) (time / dt) + 1] = volt;
                                     if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
                                         sunions.get(j).nod.get(k).voltageDef = true;
                                         sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - volt;
@@ -85,8 +82,6 @@ public class Solver {
 
 
     int mainsolver() {
-        if (errorFour()==false) return -4;
-        else if (errorThree()==false) return -3;
         int i, j, k, p, e, solveflag = 0;
         for (i = 0; i < sunions.size(); i++)
             for (j = 0; j < sunions.get(i).nod.size(); j++)
@@ -99,9 +94,12 @@ public class Solver {
         }
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
-            if (errorFourAndThree(i-1)==-3) return -3;
-            else if (errorFourAndThree(i-1)==-4) return -4;
-            else if (errorTwo(i-1)==false) return -2;
+            if (errorFourAndThree(i - 1) == -3)
+                return -3;
+            else if (errorFourAndThree(i - 1) == -4)
+                return -4;
+            else if (errorTwo(i - 1) == false)
+                return -2;
             System.out.println("time" + i);
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
@@ -119,12 +117,12 @@ public class Solver {
                     sunions.get(j).nod.get(0).voltage += (dv * (Math.abs(kclfirst) - Math.abs(kclnext)) / di) - dv;
                     resetVoltage(j);
                     skcl = 0;
-                    for (k = 0; k < sunions.size(); k++) {
-                        skcl += sunions.get(k).kcl * sunions.get(k).kcl;
-                    }
-                    skcl = Math.sqrt(skcl);
-                }
-                //System.out.println("erfunkcl " + skcl);
+   //             for (k = 0; k < sunions.size(); k++) {
+   //                 skcl += sunions.get(k).kcl * sunions.get(k).kcl;
+   //             }
+   //             skcl = Math.sqrt(skcl);
+            }
+   //         //System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -140,7 +138,7 @@ public class Solver {
                 }
                 if (selements.get(e).type.equals("c")) {
                     //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
-                    selements.get(e).currentValues[i] = selements.get(e).capacity * (selements.get(e).voltageValues[i] - selements.get(e).voltageValues[i-1]) / dt;
+                    selements.get(e).currentValues[i] = selements.get(e).capacity * (selements.get(e).voltageValues[i] - selements.get(e).voltageValues[i - 1]) / dt;
                 }
                 if (selements.get(e).type.equals("l")) {
                     //selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
@@ -194,14 +192,14 @@ public class Solver {
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += (sunions.get(i).nod.get(j).voltage - findNode(selements.get(k).node1)) / selements.get(k).resistance;
                 } else if (selements.get(k).type.equals("cs")) {
-                    selements.get(k).currentValues[(int)(time/dt)+1]=selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * selements.get(k).frequncey * time + selements.get(k).phase);
+                    selements.get(k).currentValues[(int) (time / dt) + 1] = selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * selements.get(k).frequncey * time + selements.get(k).phase);
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * selements.get(k).frequncey * time + selements.get(k).phase);
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl += selements.get(k).dc + selements.get(k).ac * Math.sin(2 * Math.PI * time * selements.get(k).frequncey + selements.get(k).phase);
                 }
                 if (selements.get(k).type.equals("vcc")) {
-                    selements.get(k).currentValues[(int)(time/dt)+1]=selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
+                    selements.get(k).currentValues[(int) (time / dt) + 1] = selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
@@ -211,7 +209,7 @@ public class Solver {
                     for (e = 0; e < selements.size(); e++)
                         if (selements.get(e).name.equals(selements.get(k).controlelement))
                             control = selements.get(e).currentValues[(int) (time / dt)];
-                    selements.get(k).currentValues[(int)(time/dt)+1]= control * selements.get(k).gain;
+                    selements.get(k).currentValues[(int) (time / dt) + 1] = control * selements.get(k).gain;
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= control * selements.get(k).gain;
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
@@ -246,8 +244,6 @@ public class Solver {
                                 current -= selements.get(k).currentValues[((int) (time / dt)) + 1];
                         }
                     }
-                    //  System.out.println("battery: " + flag + " " + index + " " + current+ " "+ sunions.get(i).nod.get(j).name );
-                    //
 
                     if (flag == 1) {
                         if (selements.get(index).node1.equals(sunions.get(i).nod.get(j).name))
@@ -255,9 +251,7 @@ public class Solver {
                         if (selements.get(index).node2.equals(sunions.get(i).nod.get(j).name))
                             selements.get(index).currentValues[((int) (time / dt)) + 1] = current;
                         selements.get(index).currentdef = true;
-                        //System.out.println("bat" + selements.get(index).currentValues[(int) (time / dt) + 1] + " " + selements.get(index).name);
                     }
-                    // System.out.println("bat" + selements.get(index).currentValues[(int) (time / dt) + 1] + " " + selements.get(index).name);
                 }
             }
         }
@@ -279,9 +273,6 @@ public class Solver {
             }
         }
     }
-
-
-
 
 
     public boolean errorTwo(int time) {
@@ -319,43 +310,20 @@ public class Solver {
     }
 
 
-
-    public boolean errorThree() {
-        for (int j = 0; j < initialTextProccesor.elements.size(); j++) {
-            if (initialTextProccesor.elements.get(j).type.equals("vs")
-                    || initialTextProccesor.elements.get(j).type.equals("vcv")
-                    || initialTextProccesor.elements.get(j).type.equals("ccv")) {
-                for (int i = 0; i < initialTextProccesor.elements.size(); i++) {
-                }
-            }
-        }
-        return true;
-    }
-
-
-    public boolean errorFour() {
-        for(int i=0;i<initialTextProccesor.nodes.size();i++){
-            if(initialTextProccesor.nodes.get(i).name.equals("0"))
-                return false;
-        }
-        return true;
-
-    }
-
-
-
-
     ///////////////////////shayad niaz beshe tagrib bezani daxele errore 4
 
 
     public int errorFourAndThree(int time) {
-        boolean flag=true;
+        boolean flag = true;
         for (int i = 0; i < selements.size(); i++) {
-            if (selements.get(i).type.equals("vc") || selements.get(i).type.equals("vcv") || selements.get(i).type.equals("ccv")) {
-                if (selements.get(i).voltageValues[time] != (findNode(selements.get(i).node1) - findNode(selements.get(i).node2))) {
-                    for(int j=0;j<sunions.get(0).nod.size();j++)
-                        if(selements.get(i).node1.equals(sunions.get(0).nod.get(i))||selements.get(i).node2.equals(sunions.get(0).nod.get(i))){
-                            flag=false;
+            System.out.println("hi one "+selements.get(i).type.equals("vs"));
+            if (selements.get(i).type.equals("vs") || selements.get(i).type.equals("vcv") || selements.get(i).type.equals("ccv")) {
+                System.out.println("hi two");
+                if (selements.get(i).errorvoltageValues[time] != (findNode(selements.get(i).node1) - findNode(selements.get(i).node2))) {
+                    System.out.println("hi three");
+                    for (int j = 0; j < sunions.get(0).nod.size(); j++)
+                        if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || selements.get(i).node2.equals(sunions.get(0).nod.get(i))) {
+                            flag = false;
                             break;
                         }
                     if (flag)
@@ -368,5 +336,4 @@ public class Solver {
         }
         return 0;
     }
-
 }

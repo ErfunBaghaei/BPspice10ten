@@ -1,6 +1,7 @@
 //this is true
 
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
@@ -22,9 +23,10 @@ public class InitialTextProccesor {
     double deltai, deltav, deltat, time;
     Node node1 = new Node();
     Union union;
-
-    InitialTextProccesor(File file) {
+    GraphicalConsole graphicalConsole;
+    InitialTextProccesor(File file,GraphicalConsole graphicalConsole) {
         this.file = file;
+        this.graphicalConsole=graphicalConsole;
     }
 
     boolean end = false;
@@ -35,7 +37,7 @@ public class InitialTextProccesor {
 
     String currentLineInput;
 
-    public boolean start() {
+    public int start() {
 
         for (int hh = 0; hh < 1000; hh++)
             for (int kk = 0; kk < 1000; kk++)
@@ -102,9 +104,9 @@ public class InitialTextProccesor {
                     else {
                         System.out.println("ERROR: UNKNOWN CHARCTERS IN LINE " + i);
                         System.out.println("  >>>  " + currentLineInput);
-                        return false;
+                        JOptionPane.showMessageDialog(graphicalConsole.mainPage, "in Line ( "+lineNumber+" ) we see a wrong symbol!", "Error -1", JOptionPane.ERROR_MESSAGE);
+                        return -1;
                     }
-
                 }
                 currentLineInput = fileScan.nextLine();
                 lineNumber++;
@@ -112,7 +114,12 @@ public class InitialTextProccesor {
 
             }
 
-            int i = 0, c = 0, j = 0;
+
+
+            int i = 0, c = 0, j = 0,flag3=0;
+            flag3=errorFour();
+            if(flag3==-4)
+                return -4;
             boolean flag = false;
             while (!nodes.get(i).name.equals("0")) {
                 i++;
@@ -135,10 +142,17 @@ public class InitialTextProccesor {
         } catch (FileNotFoundException e) {
             System.out.println(e);
         }
-        return true;
+        return 0;
 
     }
 
+    public int errorFour() {
+        for(int i=0;i<nodes.size();i++){
+            if(nodes.get(i).name.equals("0"))
+                return 0;
+        }
+        return -4;
+    }
 
     public void set_union() {
         int i;
@@ -161,7 +175,7 @@ public class InitialTextProccesor {
     }
 
 
-    public void create_union() {
+    public boolean create_union() {
         relateerror5();
         int i, n = 0, j;
         //     for (i=0;i<nodes.size();i++){
@@ -195,7 +209,12 @@ public class InitialTextProccesor {
             er5=0;
             for (i = 0; i < elements.size(); i++)
                 if (nodes.get(j).name.equals(elements.get(i).node1)||nodes.get(j).name.equals(elements.get(i).node2)) er5++;
-             if (er5<2) System.out.println("ERROR 5 !!");
+             if (er5<2) {
+                 System.out.println("ERROR 5 !");
+
+                 JOptionPane.showMessageDialog(graphicalConsole.mainPage, "There is an error,you can see the error descriptions from HELP", "Error -5", JOptionPane.ERROR_MESSAGE);
+                 return false;
+             }
         }
         while (flag<2) {
             er5=nodes2.size();
@@ -220,9 +239,11 @@ public class InitialTextProccesor {
             }
             if (er5==nodes2.size()&&flag==0){
                 System.out.println("ERROR 5!");
-                break;
+                JOptionPane.showMessageDialog(graphicalConsole.mainPage, "There is an error,you can see the error descriptions from HELP", "Error -5", JOptionPane.ERROR_MESSAGE);
+                return false;
             }
         }
+        return true;
     }
 
 
@@ -465,8 +486,5 @@ public class InitialTextProccesor {
             }
 
         }
-
-
     }
-
 }
