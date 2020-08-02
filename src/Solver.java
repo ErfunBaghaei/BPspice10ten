@@ -84,7 +84,9 @@ public class Solver {
     }
 
 
-    void mainsolver() {
+    int mainsolver() {
+        if (errorFour()==false) return -4;
+        else if (errorThree()==false) return -3;
         int i, j, k, p, e, solveflag = 0;
         for (i = 0; i < sunions.size(); i++)
             for (j = 0; j < sunions.get(i).nod.size(); j++)
@@ -97,6 +99,9 @@ public class Solver {
         }
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
+            if (errorFourAndThree(i-1)==-3) return -3;
+            else if (errorFourAndThree(i-1)==-4) return -4;
+            else if (errorTwo(i-1)==false) return -2;
             System.out.println("time" + i);
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
@@ -150,6 +155,7 @@ public class Solver {
         for (i = 1; i <= time / dt; i++)
             System.out.println("batt" + selements.get(0).currentValues[i] + selements.get(0).name);
         printResults();
+        return 0;
     }
 
     double findNode(String name) {
@@ -314,7 +320,7 @@ public class Solver {
 
 
 
-    public void errorThree() {
+    public boolean errorThree() {
         for (int j = 0; j < initialTextProccesor.elements.size(); j++) {
             if (initialTextProccesor.elements.get(j).type.equals("vs")
                     || initialTextProccesor.elements.get(j).type.equals("vcv")
@@ -323,6 +329,7 @@ public class Solver {
                 }
             }
         }
+        return true;
     }
 
 
