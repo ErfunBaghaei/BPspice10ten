@@ -1,4 +1,3 @@
-import javax.print.attribute.standard.Finishings;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -308,10 +307,6 @@ public class Solver {
         }
         return true;
     }
-
-
-    ///////////////////////shayad niaz beshe tagrib bezani daxele errore 4
-
 
     public int errorFourAndThree(int time) {
         boolean flag = true;

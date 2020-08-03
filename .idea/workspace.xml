@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12c91d6b-16f9-4542-ba60-d6cc88fb88fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ErroresActionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InitialTextProccesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InitialTextProccesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/GraphicalConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/InitialTextProccesor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/RunActionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Bspice/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Bspice/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicalConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RunActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RunActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../first html project/new 3.html" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -124,14 +132,11 @@
       <workItem from="1596309156035" duration="4454000" />
       <workItem from="1596361194166" duration="147000" />
       <workItem from="1596376813002" duration="3139000" />
-      <workItem from="1596388374038" duration="8706000" />
-    </task>
-    <task id="LOCAL-00026" summary="phase 2 finishing">
-      <created>1595334611239</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1595334611239</updated>
+      <workItem from="1596388374038" duration="8817000" />
+      <workItem from="1596437685086" duration="190000" />
+      <workItem from="1596437901427" duration="234000" />
+      <workItem from="1596442892491" duration="1339000" />
+      <workItem from="1596455022647" duration="1273000" />
     </task>
     <task id="LOCAL-00027" summary="phase 2 finishing">
       <created>1595336658593</created>
@@ -469,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596402446648</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="project is 99percent finished">
+      <created>1596403621563</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1596403621563</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,34 +505,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="project is 99percent finished" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1596402445156">
+    <state x="406" y="16" key="CommitChangelistDialog2" timestamp="1596403620414">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1596402445156" />
+    <state x="406" y="16" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1596403620414" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1595353313762">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1595353313762" />
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom" timestamp="1596403593122">
+    <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1596443766038">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1596443766038" />
+    <state width="1493" height="164" key="GridCell.Tab.0.bottom" timestamp="1596456714307">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596403593122" />
-    <state width="1493" height="164" key="GridCell.Tab.0.center" timestamp="1596403593122">
+    <state width="1493" height="164" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1596456714307" />
+    <state width="1493" height="164" key="GridCell.Tab.0.center" timestamp="1596456714307">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593784884561" />
-    <state width="1493" height="164" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596403593122" />
-    <state width="1493" height="164" key="GridCell.Tab.0.left" timestamp="1596403593122">
+    <state width="1493" height="164" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1596456714307" />
+    <state width="1493" height="164" key="GridCell.Tab.0.left" timestamp="1596456714307">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593784884560" />
-    <state width="1493" height="164" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596403593122" />
-    <state width="1493" height="164" key="GridCell.Tab.0.right" timestamp="1596403593122">
+    <state width="1493" height="164" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1596456714307" />
+    <state width="1493" height="164" key="GridCell.Tab.0.right" timestamp="1596456714307">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593784884562" />
-    <state width="1493" height="164" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596403593122" />
+    <state width="1493" height="164" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1596456714307" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1595592800776">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -549,18 +565,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="136" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1596048897230" />
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1596402451061">
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2" timestamp="1596403625242">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1596402451061" />
+    <state x="361" y="153" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1596403625242" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1594476853148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594476853148" />
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596377759339">
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596456837392">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1596377759339" />
+    <state x="580" y="336" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1596456837392" />
     <state x="474" y="173" width="588" height="488" key="find.popup" timestamp="1595354925214">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

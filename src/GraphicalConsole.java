@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
@@ -139,7 +140,7 @@ public class GraphicalConsole {
         i1 = new JMenuItem("Open");
         i2 = new JMenuItem("Save as...");
         i3 = new JMenuItem("Save All");
-        i4 = new JMenuItem("Delete Procject");
+        i4 = new JMenuItem("Delete Project");
         i5 = new JMenuItem("Print");
         i6 = new JMenuItem("Copy");
         i7 = new JMenuItem("Cut");
@@ -150,7 +151,7 @@ public class GraphicalConsole {
         i12 = new JMenuItem("Find");
         i13 = new JMenuItem("Replace");
         i14 = new JMenuItem("HOW TO WORK WITH BPSPICE10?");
-        i15 = new JMenuItem("README");
+        i15 = new JMenuItem("Errores");
         i16 = new JMenuItem("LICENSE");
         i17 = new JMenuItem("ABOUT US");
 
