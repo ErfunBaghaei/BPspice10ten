@@ -61,7 +61,7 @@ public class Solver {
                                                 control = selements.get(w).currentValues[(int) (time / dt)];
                                         volt = selements.get(m).gain * control;
                                     }
-                                    selements.get(m).errorvoltageValues[(int) (time / dt) + 1] = volt;
+                                    selements.get(m).errorvoltageValues[(int) (time / dt)-1] = volt;
                                     if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
                                         sunions.get(j).nod.get(k).voltageDef = true;
                                         sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - volt;
@@ -140,8 +140,8 @@ public class Solver {
                     selements.get(e).currentValues[i] = selements.get(e).capacity * (selements.get(e).voltageValues[i] - selements.get(e).voltageValues[i - 1]) / dt;
                 }
                 if (selements.get(e).type.equals("l")) {
-                    //selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
-                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
+                    //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
 
             }

@@ -59,8 +59,10 @@ public class InitialTextProccesor {
                     if(!((currentLineInput.charAt(0)=='d'||currentLineInput.charAt(0)=='D')||(currentLineInput.charAt(0)=='.')))
 
                         for(int i=1;i<words.length;i++)
-                            if(!(words[i].charAt(0)>='0'&&words[i].charAt(0)<='0'))
+                            if(!(words[i].charAt(0)>='0'&&words[i].charAt(0)<='9')) {
+                                JOptionPane.showMessageDialog(graphicalConsole.mainPage, "in Line ( "+lineNumber+" ) we see a wrong symbol!", "Error -1", JOptionPane.ERROR_MESSAGE);
                                 return -1;
+                            }
 
                     if (currentLineInput.charAt(0) == 'i' || currentLineInput.charAt(0) == 'I')
                         createCurrentSource(currentLineInput);

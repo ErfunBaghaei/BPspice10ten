@@ -46,20 +46,20 @@ public class GraphicalConsole {
         //First, you must choose a file...
         JTextArea textConsole = new JTextArea(
                 "* hi this is a test\n" +
-                "v1 1 0 1 0 0 0\n" +
-                "r1 2 1 2\n" +
-                "c1 3 2 3\n" +
-                "r2 3 4 2\n" +
-                "v2 4 5 6 0 0 0\n" +
-                "l2 5 6 1\n" +
-                "r3 6 7 1\n" +
-                "f1 7 8 1 2 2\n"+
-                        "g1 0 8 1 2 2\n"+
-                "c2 8 9 6\n" +
-                "l2 9 10 1\n" +
-                "r3 10 0 1\n" +
-                ".tran 2m\n" +
-                "dv 0.5m\n" +
+                "v1 1 0 0 5 100 0\n" +
+                "r1 2 1 1\n" +
+                "c1 0 2 1m\n" +
+           //   "r2 3 4 2\n" +
+           //   "v2 4 5 6 0 0 0\n" +
+           //   "l2 5 6 1\n" +
+           //   "r3 6 7 1\n" +
+           //   "f1 7 8 1 2 2\n"+
+           //           "g1 0 8 1 2 2\n"+
+           //   "c2 8 9 6\n" +
+           //   "l2 9 10 1\n" +
+           //   "r3 10 0 1\n" +
+                ".tran 20m\n" +
+                "dv 0.1m\n" +
                 "dI 10m\n" +
                 "dT 0.1m\n" +
                 "END"
@@ -176,8 +176,6 @@ public class GraphicalConsole {
         menuBar.add(menu1);
         menuBar.add(menu2);
         menuBar.add(menu3);
-        ErroresActionListener erroresActionListener=new ErroresActionListener();
-        i15.addActionListener(erroresActionListener);
 
         i1.addActionListener(openActionListener);
         open.addActionListener(openActionListener);
