@@ -1,7 +1,7 @@
 * hi this is a test
-v2 1 0 0 5 100 0
-r2 1 2 1
-c2 0 2 1m
+v1 1 0 0 5 100 0
+r3 1 2 1
+c3 0 2 0.001
 .tran 40m
 dv 0.1m
 dI 10m
