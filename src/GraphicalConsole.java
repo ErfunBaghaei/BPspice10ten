@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
@@ -10,72 +11,61 @@ public class GraphicalConsole {
     InitialTextProccesor initialTextProccesor;
 
     GraphicalConsole(File file) {
-        this.initialTextProccesor = new InitialTextProccesor(file);
+
+        this.initialTextProccesor = new InitialTextProccesor(file,this);
     }
 
+    ImageIcon startImage = new ImageIcon("BPSPICEIMAGE.jpg");
+
+    JLabel startImageLabel = new JLabel(startImage);
+
+    JPanel loading = new JPanel();
+
+
+
+    JButton run = new JButton("RUN");
+
+    JButton draw = new JButton("DRAW");
+
+    JButton output = new JButton("OUTPUT");
+
+    JButton open = new JButton("OPEN");
+
+    JFrame mainPage = new JFrame("BPSPICE10");
+
+    JPanel outPutInformationsPanel = new JPanel();
+
+    JTextArea outPutInformationsLabel = new JTextArea("Results will be shown here:");
+
     public void run() {
+        loading.add(startImageLabel);
 
         MapPoints mapPoints = new MapPoints();
 
         JTextField drawElement = new JTextField("l1");
         //First, you must choose a file...
-        JTextArea textConsole = new JTextArea("* hi this is a test\n" +
-
-              /*  "v1 1 0 1 0 0 0\n" +
-                //"v2 2 1 2 0 0 0\n" +
-                "v3 4 0 3 0 0 0\n" +
-                "v4 3 2 5 0 0 0\n" +
+        JTextArea textConsole = new JTextArea(
+                "* hi this is a test\n" +
+                "v1 1 0 1 0 0 0\n" +
                 "r1 2 1 2\n" +
-                "r2 3 4 3\n" +
-                "r3 5 4 2\n" +
-                "v2 5 1 5 0 0 0\n" +*/
-                //"i1 1 0 5 0 0 0\n" +
-                //"r1 1 0 3\n" +
-                //"r2 1 2 1\n" +
-               /* "r3 2 1 1\n" +
-                "C 2 3 1m\n" +
-                "L1 3 0 1\n" +*/
-              //*  "d2 2 1 1\n" +
-               // "v2 1 0 5 0 0 0\n" +
-                //"i1 1 0 2 0 0 0\n" +
-                //"i2 3 2 2 0 0 0\n" +
-                //"r1 0 3 1\n" +
-                //"r2 1 2 2\n" +
-                "v2 1 0 0 5 100 0\n" +
-                "r2 1 2 1\n" +
-                "c2 0 2 1m\n" +
-                /*"r2 0 2 2\n" +
-                "l3 0 3 1\n" +
-                "e1 2 3 2 0 2\n" +*/
-               // "v1 2 0 1 0 0 0\n" +
-                ".tran 40m\n" +
-                "dv 0.1m\n" +
+                "c1 3 2 3\n" +
+                "r2 3 4 2\n" +
+                "v2 4 5 6 0 0 0\n" +
+                "l2 5 6 1\n" +
+                "r3 6 7 1\n" +
+                "f1 7 8 1 2 2\n"+
+                        "g1 0 8 1 2 2\n"+
+                "c2 8 9 6\n" +
+                "l2 9 10 1\n" +
+                "r3 10 0 1\n" +
+                ".tran 2m\n" +
+                "dv 0.5m\n" +
                 "dI 10m\n" +
                 "dT 0.1m\n" +
                 "END"
         );
 
-        ImageIcon startImage = new ImageIcon("BPSPICEIMAGE.jpg");
 
-        JLabel startImageLabel = new JLabel(startImage);
-
-        JPanel loading = new JPanel();
-
-        loading.add(startImageLabel);
-
-        JButton run = new JButton("RUN");
-
-        JButton draw = new JButton("DRAW");
-
-        JButton output = new JButton("OUTPUT");
-
-        JButton open = new JButton("OPEN");
-
-        JFrame mainPage = new JFrame("BPSPICE10");
-
-        JPanel outPutInformationsPanel = new JPanel();
-
-        JTextArea outPutInformationsLabel = new JTextArea("Results will be shown here:");
         outPutInformationsLabel.setEditable(false);
 
         outPutInformationsLabel.setForeground(Color.WHITE);
@@ -120,9 +110,7 @@ public class GraphicalConsole {
 
         mainPage.setBounds(0, 0, 1800, 990);
 
-        //      circuit.setBounds(850,60,943,710);
-
-        circuitFrame.setBounds(13, 90, 940, 702);
+        circuitFrame.setBounds(13, 90, 1020, 702);
 
         which.setBounds(370, 34, 270, 20);
 
@@ -152,7 +140,7 @@ public class GraphicalConsole {
         i1 = new JMenuItem("Open");
         i2 = new JMenuItem("Save as...");
         i3 = new JMenuItem("Save All");
-        i4 = new JMenuItem("Delete Procject");
+        i4 = new JMenuItem("Delete Project");
         i5 = new JMenuItem("Print");
         i6 = new JMenuItem("Copy");
         i7 = new JMenuItem("Cut");
@@ -163,7 +151,7 @@ public class GraphicalConsole {
         i12 = new JMenuItem("Find");
         i13 = new JMenuItem("Replace");
         i14 = new JMenuItem("HOW TO WORK WITH BPSPICE10?");
-        i15 = new JMenuItem("README");
+        i15 = new JMenuItem("Errores");
         i16 = new JMenuItem("LICENSE");
         i17 = new JMenuItem("ABOUT US");
 

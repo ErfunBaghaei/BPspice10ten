@@ -16,7 +16,7 @@ public class OutPutInformationPrint {
     int lineNumber = 1,powerOfTen=1000;
     public String printOut() {
         File fileOut = new File("Result.txt");
-System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+lineNumber);
+
         String labelString = new String("Nodes:\n"+lineNumber + "- ");
         try {
             FileWriter out = new FileWriter(fileOut);
@@ -35,6 +35,7 @@ System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                     }
                     labelString = labelString + (double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ";
                     out.write((double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ");
+                    System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll   "+initialTextProccesor.elements.get(0).errorvoltageValues[j]);
                     System.out.print(solver.nodesInOrder.get(i).voltageValues[j] + "|   ");
                 }
 
