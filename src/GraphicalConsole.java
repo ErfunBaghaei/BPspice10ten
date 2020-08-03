@@ -176,6 +176,8 @@ public class GraphicalConsole {
         menuBar.add(menu1);
         menuBar.add(menu2);
         menuBar.add(menu3);
+        ErroresActionListener erroresActionListener=new ErroresActionListener();
+        i15.addActionListener(erroresActionListener);
 
         i1.addActionListener(openActionListener);
         open.addActionListener(openActionListener);
