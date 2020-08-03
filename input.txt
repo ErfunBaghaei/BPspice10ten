@@ -3,7 +3,7 @@ v1 1 0 0 5 100 0
 r1 2 1 1
 c1 0 2 1m
 .tran 20m
-dv 0.1m
+dv -0.1m
 dI 10m
 dT 0.1m
 END

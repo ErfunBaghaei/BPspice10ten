@@ -85,6 +85,7 @@ public class GraphPaint extends JPanel {
                 }
             } else if (check == 1) {
                 for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+
                     g2d.drawLine(distance * (ii - 1) + 5, 284 - (int) (Math.round(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii) + 5,
                             284 - (int) (Math.round(281 * (element.currentValues[ii + 1] / Math.abs(element.currentValues[maxIndex])))));
 
