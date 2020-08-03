@@ -85,8 +85,8 @@ public class Solver {
 
 
     int mainsolver() {
-        if (errorFour()==false) return -4;
-        else if (errorThree()==false) return -3;
+       /* if (errorFour()==false) return -4;
+        else if (errorThree()==false) return -3;*/
         int i, j, k, p, e, solveflag = 0;
         for (i = 0; i < sunions.size(); i++)
             for (j = 0; j < sunions.get(i).nod.size(); j++)
@@ -99,9 +99,9 @@ public class Solver {
         }
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
-            if (errorFourAndThree(i-1)==-3) return -3;
+           /* if (errorFourAndThree(i-1)==-3) return -3;
             else if (errorFourAndThree(i-1)==-4) return -4;
-            else if (errorTwo(i-1)==false) return -2;
+            else if (errorTwo(i-1)==false) return -2;*/
             System.out.println("time" + i);
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
@@ -124,7 +124,7 @@ public class Solver {
                     }
                     skcl = Math.sqrt(skcl);
                 }
-                //System.out.println("erfunkcl " + skcl);
+               // System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -143,8 +143,8 @@ public class Solver {
                     selements.get(e).currentValues[i] = selements.get(e).capacity * (selements.get(e).voltageValues[i] - selements.get(e).voltageValues[i-1]) / dt;
                 }
                 if (selements.get(e).type.equals("l")) {
-                    //selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
-                    selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
+                    selements.get(e).currentValues[i]=selements.get(e).currentValues[i-1]+dt*(findNode(selements.get(e).node1) - findNode(selements.get(e).node2)) / selements.get(e).inductance;
+                    //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 }
 
             }
@@ -152,8 +152,8 @@ public class Solver {
 
             time += dt;
         }
-        for (i = 1; i <= time / dt; i++)
-            System.out.println("batt" + selements.get(0).currentValues[i] + selements.get(0).name);
+        /*for (i = 1; i <= time / dt; i++)
+            System.out.println(i+":self" + selements.get(2).currentValues[i] + selements.get(2).name);*/
         printResults();
         return 0;
     }
@@ -311,7 +311,7 @@ public class Solver {
                     else
                         sumOfValeus += (currentSourceElements[k].currentValues[time]);
                 }
-                if (sumOfValeus != 0)
+                if (Math.abs(sumOfValeus)>di)
                     return false;
             }
         }
