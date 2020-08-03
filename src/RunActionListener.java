@@ -41,8 +41,8 @@ public class RunActionListener implements ActionListener {
         int flag1=0;
         int cont = 0;
         cont = initialTextProccesor.start();
-        if (cont==0) {
 
+        if (cont==0) {
 
             circuitDrawer(initialTextProccesor);
             circuitFrame.add(circuit);
