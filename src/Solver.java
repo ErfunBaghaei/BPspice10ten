@@ -61,7 +61,7 @@ public class Solver {
                                                 control = selements.get(w).currentValues[(int) (time / dt)];
                                         volt = selements.get(m).gain * control;
                                     }
-                                    selements.get(m).errorvoltageValues[(int) (time / dt)-1] = volt;
+                                    selements.get(m).errorvoltageValues[(int) (time / dt)+1] = volt;
                                     if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
                                         sunions.get(j).nod.get(k).voltageDef = true;
                                         sunions.get(j).nod.get(k).voltage = sunions.get(j).nod.get(i).voltage - volt;
@@ -93,11 +93,11 @@ public class Solver {
         }
         skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
-            if (errorFourAndThree(i - 1) == -3)
+            if (errorFourAndThree(i-1 ) == -3)
                 return -3;
-            else if (errorFourAndThree(i - 1) == -4)
+            else if (errorFourAndThree(i-1 ) == -4)
                 return -4;
-            else if (errorTwo(i - 1) == false)
+            else if (errorTwo(i-1 ) == false)
                 return -2;
             System.out.println("time" + i);
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
@@ -116,12 +116,12 @@ public class Solver {
                     sunions.get(j).nod.get(0).voltage += (dv * (Math.abs(kclfirst) - Math.abs(kclnext)) / di) - dv;
                     resetVoltage(j);
                     skcl = 0;
-   //             for (k = 0; k < sunions.size(); k++) {
-   //                 skcl += sunions.get(k).kcl * sunions.get(k).kcl;
-   //             }
-   //             skcl = Math.sqrt(skcl);
+                for (k = 0; k < sunions.size(); k++) {
+                    skcl += sunions.get(k).kcl * sunions.get(k).kcl;
+                }
+                skcl = Math.sqrt(skcl);
             }
-   //         //System.out.println("erfunkcl " + skcl);
+            //System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -150,7 +150,7 @@ public class Solver {
             time += dt;
         }
         for (i = 1; i <= time / dt; i++)
-            System.out.println("batt" + selements.get(0).currentValues[i] + selements.get(0).name);
+            System.out.println("batt" + selements.get(0).voltageValues[i] +" "+ selements.get(0).name+" "+selements.get(0).errorvoltageValues[i]);
         printResults();
         return 0;
     }
@@ -199,6 +199,7 @@ public class Solver {
                 }
                 if (selements.get(k).type.equals("vcc")) {
                     selements.get(k).currentValues[(int) (time / dt) + 1] = selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
+                   // System.out.println("vcc"+"gain:" + selements.get(k).gain+"node 3: "+selements.get(k).node3+" node 4 "+selements.get(k).node4);
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
@@ -314,7 +315,7 @@ public class Solver {
             System.out.println("hi one "+selements.get(i).type.equals("vs"));
             if (selements.get(i).type.equals("vs") || selements.get(i).type.equals("vcv") || selements.get(i).type.equals("ccv")) {
                 System.out.println("hi two");
-                if (selements.get(i).errorvoltageValues[time] != (findNode(selements.get(i).node1) - findNode(selements.get(i).node2))) {
+               if (time>0) if (Math.abs(selements.get(i).errorvoltageValues[time] - selements.get(i).voltageValues[time])>dv&&Math.abs(selements.get(i).errorvoltageValues[time-1] - selements.get(i).voltageValues[time])>dv) {
                     System.out.println("hi three");
                     for (int j = 0; j < sunions.get(0).nod.size(); j++)
                         if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || selements.get(i).node2.equals(sunions.get(0).nod.get(i))) {

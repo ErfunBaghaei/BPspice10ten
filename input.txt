@@ -1,9 +1,12 @@
 * hi this is a test
 v1 1 0 0 5 100 0
-r1 2 1 1
-c1 0 2 1m
-.tran 20m
-dv -0.1m
-dI 10m
-dT 0.1m
+r3 1 0 1
+g1 2 3 0 1 5
+r1 2 3 2
+r2 4 5 3
+e1 4 5 2 3 5
+.tran 10m
+dv 10m
+dI 50m
+dT 0.25m
 END
