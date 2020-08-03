@@ -1,6 +1,5 @@
 public class VoltageControledCurrentSource extends Element{
     String input;
-    double gain=0;
     public VoltageControledCurrentSource(String input)
     {
         super.type="vcc";
@@ -37,6 +36,5 @@ public class VoltageControledCurrentSource extends Element{
                 gain *= 1e9;
                 break;
         }
-
     }
 }

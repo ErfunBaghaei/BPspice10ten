@@ -59,8 +59,8 @@ public class GraphicalConsole {
                 "l2 9 10 1\n" +
                 "r3 10 0 1\n" +*/
                "v1 1 0 0 5 100 0\n" +
-                        "r3 1 2 1\n" +
-                        "c3 3 2 1m\n" +
+                        "r3 1 0 1\n" +
+                        /*"c3 3 2 1m\n" +
                         "r4 3 4 1\n" +
                         "r5 5 4 1\n" +
                         "r6 5 6 1\n" +
@@ -71,10 +71,14 @@ public class GraphicalConsole {
                         "c3 4 5 1m\n" +
                         "r3 5 6 1\n" +
                         "r10 5 6 1\n" +
-                        "l4 7 8 1\n" +
+                        "l4 7 8 1\n" +*/
+                        "g1 2 3 0 1 5\n" +
+                        "r1 2 3 2\n" +
+                        "r2 4 5 3\n" +
+                        "e1 4 5 2 3 5\n" +
                 ".tran 10m\n" +
-                "dv 0.05m\n" +
-                "dI 0.5m\n" +
+                "dv 10m\n" +
+                "dI 50m\n" +
                 "dT 0.25m\n" +
                 "END"
         );

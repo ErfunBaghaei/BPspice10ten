@@ -199,6 +199,7 @@ public class Solver {
                 }
                 if (selements.get(k).type.equals("vcc")) {
                     selements.get(k).currentValues[(int) (time / dt) + 1] = selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
+                   // System.out.println("vcc"+"gain:" + selements.get(k).gain+"node 3: "+selements.get(k).node3+" node 4 "+selements.get(k).node4);
                     if (selements.get(k).node1.equals(sunions.get(i).nod.get(j).name))
                         sunions.get(i).kcl -= selements.get(k).gain * (findNode(selements.get(k).node3) - findNode(selements.get(k).node4));
                     if (selements.get(k).node2.equals(sunions.get(i).nod.get(j).name))
