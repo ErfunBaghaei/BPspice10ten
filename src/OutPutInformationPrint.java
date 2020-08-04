@@ -23,24 +23,18 @@ public class OutPutInformationPrint {
             out.write("Nodes:\n"+lineNumber + "- ");
             lineNumber++;
             for (int i = 1; i < solver.nodesInOrder.size(); i++) {
-
-                labelString = labelString + solver.nodesInOrder.get(i).name + "  >   ";
-                out.write(solver.nodesInOrder.get(i).name + "  >   ");
-                System.out.print(solver.nodesInOrder.get(i).name + "  >   ");
-                for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
+                labelString = labelString + solver.nodesInOrder.get(i).name + "  >    ";
+                out.write(solver.nodesInOrder.get(i).name + "  >    ");
+                for (int j = 0; j < (solver.timees); j++) {
                     if(j%16==0&&j!=0) {
                         out.write("\n"+lineNumber+"-  ");
                         labelString += "\n"+lineNumber+"-  ";
                         lineNumber++;
                     }
-                    labelString = labelString + (double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ";
-                    out.write((double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + "|   ");
-                    System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll   "+initialTextProccesor.elements.get(0).errorvoltageValues[j]);
-                    System.out.print(solver.nodesInOrder.get(i).voltageValues[j] + "|   ");
+                    labelString = labelString + (double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + " |    ";
+                    out.write((double) Math.round( solver.nodesInOrder.get(i).voltageValues[j]* powerOfTen) / powerOfTen + " |    ");
                 }
 
-
-                System.out.println();
                 out.write("\n"+lineNumber+"- ");
                 if(i != solver.nodesInOrder.size() - 1) {
                     labelString = labelString + "\n" + lineNumber + "- ";
@@ -58,8 +52,7 @@ public class OutPutInformationPrint {
 
                 labelString = labelString + initialTextProccesor.elements.get(i).name + "  >   ";
                 out.write(initialTextProccesor.elements.get(i).name + "  >   ");
-                System.out.print(initialTextProccesor.elements.get(i).name + "  > " + "  ");
-                for (int j = 0; j < (int) Math.ceil(initialTextProccesor.time / initialTextProccesor.deltat); j++) {
+                for (int j = 0; j < solver.timees; j++) {
                     if(j%5==0&&j!=0) {
                         out.write("\n"+lineNumber+" -  ");
                         labelString += "\n"+lineNumber+" -  ";
@@ -67,26 +60,16 @@ public class OutPutInformationPrint {
                     }
                     labelString = labelString + " v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* powerOfTen) / powerOfTen
                             + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen
-                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+"|   ";
+                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+" |    ";
                     out.write(" v: " +(double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]* powerOfTen) / powerOfTen
                             + " i: " +(double) Math.round( initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen
-                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+"|   ");
-
-                    System.out.print(" v: " + initialTextProccesor.elements.get(i).voltageValues[j]);
-                    System.out.print(" i: " + initialTextProccesor.elements.get(i).currentValues[j]);
-                    System.out.print(" p: " + initialTextProccesor.elements.get(i).voltageValues[j]
-                            * initialTextProccesor.elements.get(i).currentValues[j] + "|   ");
-
-
+                            + " p: " + (double) Math.round( initialTextProccesor.elements.get(i).voltageValues[j]*initialTextProccesor.elements.get(i).currentValues[j]* powerOfTen) / powerOfTen+" |    ");
                 }
 
                 out.write("\n\n"+lineNumber+"- ");
                 labelString+="\n";
                 if (i != initialTextProccesor.elements.size() - 1)
                     labelString = labelString + "\n" + lineNumber + "- ";
-
-                System.out.println();
-
                 lineNumber++;
             }
             out.close();

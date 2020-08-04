@@ -13,8 +13,10 @@ public class RunActionListener implements ActionListener {
     JTextArea outPutInformationsLabel;
     InitialTextProccesor initialTextProccesor;
     Solver solver;
+    JProgressBar percent;
 
-    public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage, JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor) {
+    public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage
+            , JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor, JProgressBar percent) {
         this.circuit = circuit;
         this.file = file;
         this.textConsole = textConsole;
@@ -22,6 +24,7 @@ public class RunActionListener implements ActionListener {
         this.mainPage = mainPage;
         this.outPutInformationsLabel = outPutInformationsLabel;
         this.initialTextProccesor = initialTextProccesor;
+        this.percent = percent;
     }
 
     @Override
@@ -38,42 +41,41 @@ public class RunActionListener implements ActionListener {
 
         ErrorFinder errorFinder = new ErrorFinder(mainPage, initialTextProccesor);
 
-        int flag1=0;
+        int flag1 = 0;
         int cont = 0;
         cont = initialTextProccesor.start();
 
-        if (cont==0) {
+        if (cont == 0) {
 
             circuitDrawer(initialTextProccesor);
             circuitFrame.add(circuit);
 
             circuitFrame.setVisible(true);
 
-            solver = new Solver(initialTextProccesor, circuitFrame);
+            solver = new Solver(initialTextProccesor, circuitFrame, percent);
 
-       boolean flag = initialTextProccesor.create_union();
-       if (flag) {
+            boolean flag = initialTextProccesor.create_union();
+            if (flag) {
 
-           initialTextProccesor.set_union();
+                initialTextProccesor.set_union();
 
-           flag1=solver.mainsolver();
-           if(flag1==0) {
+                flag1 = solver.mainsolver();
+                if (flag1 == 0) {
 
-               OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
+                    OutPutInformationPrint outPutInformationPrint = new OutPutInformationPrint(outPutInformationsLabel, initialTextProccesor, solver);
 
-               outPutInformationsLabel.setText("");
+                    outPutInformationsLabel.setText("");
 
-               outPutInformationsLabel.setText(outPutInformationPrint.printOut());
-           }
-           else
-               JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error "+flag1, JOptionPane.ERROR_MESSAGE);
+                    outPutInformationsLabel.setText(outPutInformationPrint.printOut());
+                } else
+                    JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error " + flag1, JOptionPane.ERROR_MESSAGE);
 
-       }
-        }
-        else if(cont==-4)
-            JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error "+cont, JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (cont == -4)
+            JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error " + cont, JOptionPane.ERROR_MESSAGE);
 
     }
+
 
     public void circuitDrawer(InitialTextProccesor initialTextProccesor) {
 

@@ -14,7 +14,7 @@ public class DrawKit {
     HashMap<Integer, PixelCoordinate> nodeCoordinates = new HashMap<Integer, PixelCoordinate>();
     HashMap<Integer, String> nodeCodes = new HashMap<Integer, String>();
     HashMap<Integer, Node> nodeIndex = new HashMap<Integer, Node>();
-
+    boolean threeTOone = false;
 
     public DrawKit(InitialTextProccesor initialTextProccesor, JPanel circuit) {
         this.initialTextProccesor = initialTextProccesor;
@@ -1030,7 +1030,7 @@ public class DrawKit {
 
         currentNode = currentNode + right;
 
-        boolean threeTOone = false;
+        threeTOone = false;
         currentNode += left;
         boolean flag4 = false;
         boolean flag5 = true;
@@ -1137,6 +1137,16 @@ public class DrawKit {
             tempNodes.add(node5.get(i));
         }
         currentNode = fourNode(tempNodes, 13);
+        if(threeTOone) {
+            currentNode += down;
+            wireDrawer(currentNode,currentNode+left);
+            wireDrawer(currentNode,currentNode+right);
+            wireDrawer(currentNode+left,currentNode+left+up);
+            wireDrawer(currentNode+right,currentNode+right+up);
+            wireDrawer(currentNode+2*down,currentNode+left+2*down);
+            wireDrawer(currentNode+2*down,currentNode+2*left+2*down);
+            currentNode+=up+right;
+        } else
         currentNode += 2 * up;
         for (int k = 4; k < node5.size(); k++) {
             Node lastNode = node5.get(k);
