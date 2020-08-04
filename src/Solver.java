@@ -57,10 +57,12 @@ public class Solver {
                                     if (selements.get(m).type.equals("vcv"))
                                         volt = selements.get(m).gain * (findNode(selements.get(m).node3) - findNode(selements.get(m).node4));
                                     if (selements.get(m).type.equals("ccv")) {
+
                                         for (w = 0; w < selements.size(); w++)
                                             if (selements.get(w).name.equals(selements.get(m).controlelement))
                                                 control = selements.get(w).currentValues[(int) (time / dt)];
                                         volt = selements.get(m).gain * control;
+                                        System.out.println(selements.get(m).type+" gain  "+volt);
                                     }
                                     selements.get(m).errorvoltageValues[(int) (time / dt)+1] = volt;
                                     if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
@@ -280,6 +282,9 @@ public class Solver {
     }
 
 
+
+
+
     public boolean errorTwo(int time) {
         Element[] currentSourceElements = new Element[5];
         double sumOfValeus = 0;
@@ -289,9 +294,10 @@ public class Solver {
             currentSourceNumbers = 0;
             allElements = 0;
             for (int j = 0; j < initialTextProccesor.elements.size(); j++) {
+                allElements++;
                 if (initialTextProccesor.elements.get(j).node1.equals(initialTextProccesor.nodes.get(i).name)
-                        || initialTextProccesor.elements.get(j).node1.equals(initialTextProccesor.nodes.get(i).name)) {
-                    allElements++;
+                        || initialTextProccesor.elements.get(j).node2.equals(initialTextProccesor.nodes.get(i).name)) {
+
                     if (initialTextProccesor.elements.get(j).type.equals("cs")
                             || initialTextProccesor.elements.get(j).type.equals("ccc")
                             || initialTextProccesor.elements.get(j).type.equals("vcc")) {
@@ -313,6 +319,9 @@ public class Solver {
         }
         return true;
     }
+
+
+
 
     public int errorFourAndThree(int time) {
         boolean flag = true;
