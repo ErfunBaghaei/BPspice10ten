@@ -13,8 +13,10 @@ public class RunActionListener implements ActionListener {
     JTextArea outPutInformationsLabel;
     InitialTextProccesor initialTextProccesor;
     Solver solver;
+    JProgressBar percent;
 
-    public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage, JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor) {
+    public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage
+            , JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor, JProgressBar percent) {
         this.circuit = circuit;
         this.file = file;
         this.textConsole = textConsole;
@@ -22,6 +24,7 @@ public class RunActionListener implements ActionListener {
         this.mainPage = mainPage;
         this.outPutInformationsLabel = outPutInformationsLabel;
         this.initialTextProccesor = initialTextProccesor;
+        this.percent=percent;
     }
 
     @Override
@@ -49,7 +52,7 @@ public class RunActionListener implements ActionListener {
 
             circuitFrame.setVisible(true);
 
-            solver = new Solver(initialTextProccesor, circuitFrame);
+            solver = new Solver(initialTextProccesor, circuitFrame,percent);
 
        boolean flag = initialTextProccesor.create_union();
        if (flag) {

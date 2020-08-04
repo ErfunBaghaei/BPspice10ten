@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 
 public class Solver {
+    int timees;
     int[][] sgraph;
     double di, dv, dt, time = 0, endtime;
     ArrayList<Union> sunions = new ArrayList();
@@ -13,11 +14,11 @@ public class Solver {
     ErrorFinder errorFinder;
     JFrame circuit;
     InitialTextProccesor initialTextProccesor;
-
-    Solver(InitialTextProccesor initialTextProccesor, JFrame circuit) {
+    JProgressBar percent;
+    Solver(InitialTextProccesor initialTextProccesor, JFrame circuit,JProgressBar percent) {
         int i, j;
         this.circuit = circuit;
-
+        this.percent=percent;
         endtime = initialTextProccesor.time;
         di = initialTextProccesor.deltai;
         dv = initialTextProccesor.deltav;
@@ -82,16 +83,17 @@ public class Solver {
 
     int mainsolver() {
         int i, j, k, p, e, solveflag = 0;
-        for (i = 0; i < sunions.size(); i++)
-            for (j = 0; j < sunions.get(i).nod.size(); j++)
-                System.out.println("union" + sunions.get(i).name + "node" + sunions.get(i).nod.get(j).name);
+        timees=(int)(endtime/dt);
+     //   for (i = 0; i < sunions.size(); i++)
+     //       for (j = 0; j < sunions.get(i).nod.size(); j++)
+     //           System.out.println("union" + sunions.get(i).name + "node" + sunions.get(i).nod.get(j).name);
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
-        for (j = 0; j < sunions.size(); j++) {
-            skcl += sunions.get(j).kcl * sunions.get(j).kcl;
-            System.out.println("kcl" + sunions.get(j).kcl);
-        }
-        skcl = Math.sqrt(skcl);
+    //   for (j = 0; j < sunions.size(); j++) {
+    //       skcl += sunions.get(j).kcl * sunions.get(j).kcl;
+    //       System.out.println("kcl" + sunions.get(j).kcl);
+    //   }
+    //   skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
             if (errorFourAndThree(i-1 ) == -3)
                 return -3;
@@ -99,7 +101,10 @@ public class Solver {
                 return -4;
             else if (errorTwo(i-1 ) == false)
                 return -2;
-            System.out.println("time" + i);
+            System.out.println("time" + (int)(100*((double)i/(double) timees))+"  "+timees+"  "+endtime+"  "+dt);
+            percent.setValue((int)(100*((double)i/(double) timees)));
+            //percent.repaint();
+            percent.update(percent.getGraphics());
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
             while (solveflag == 1) {
@@ -149,8 +154,8 @@ public class Solver {
 
             time += dt;
         }
-        for (i = 1; i <= time / dt; i++)
-            System.out.println("batt" + selements.get(0).voltageValues[i] +" "+ selements.get(0).name+" "+selements.get(0).errorvoltageValues[i]);
+     //   for (i = 1; i <= time / dt; i++)
+       //     System.out.println("batt" + selements.get(0).voltageValues[i] +" "+ selements.get(0).name+" "+selements.get(0).errorvoltageValues[i]);
         printResults();
         return 0;
     }
@@ -312,11 +317,9 @@ public class Solver {
     public int errorFourAndThree(int time) {
         boolean flag = true;
         for (int i = 0; i < selements.size(); i++) {
-            System.out.println("hi one "+selements.get(i).type.equals("vs"));
             if (selements.get(i).type.equals("vs") || selements.get(i).type.equals("vcv") || selements.get(i).type.equals("ccv")) {
-                System.out.println("hi two");
                if (time>0) if (Math.abs(selements.get(i).errorvoltageValues[time] - selements.get(i).voltageValues[time])>dv&&Math.abs(selements.get(i).errorvoltageValues[time-1] - selements.get(i).voltageValues[time])>dv) {
-                    System.out.println("hi three");
+
                     for (int j = 0; j < sunions.get(0).nod.size(); j++)
                         if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || selements.get(i).node2.equals(sunions.get(0).nod.get(i))) {
                             flag = false;

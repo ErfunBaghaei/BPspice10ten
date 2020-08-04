@@ -21,7 +21,7 @@ public class GraphicalConsole {
 
     JPanel loading = new JPanel();
 
-
+    JProgressBar percent=new JProgressBar();
 
     JButton run = new JButton("RUN");
 
@@ -42,47 +42,9 @@ public class GraphicalConsole {
 
         MapPoints mapPoints = new MapPoints();
 
-        JTextField drawElement = new JTextField("l1");
+        JTextField drawElement = new JTextField("e1");
         //First, you must choose a file...
-        JTextArea textConsole = new JTextArea(
-                "* hi this is a test\n" +
-               /* "v1 1 0 1 0 0 0\n" +
-                "r1 2 1 2\n" +
-                "c1 3 2 3\n" +
-                "r2 3 4 2\n" +
-                "v2 4 5 6 0 0 0\n" +
-                "l2 5 6 1\n" +
-                "r3 6 7 1\n" +
-                "f1 7 8 1 2 2\n"+
-                        "g1 0 8 1 2 2\n"+
-                "c2 8 9 6\n" +
-                "l2 9 10 1\n" +
-                "r3 10 0 1\n" +*/
-               "v1 1 0 0 5 100 0\n" +
-                        "r3 1 0 1\n" +
-                        /*"c3 3 2 1m\n" +
-                        "r4 3 4 1\n" +
-                        "r5 5 4 1\n" +
-                        "r6 5 6 1\n" +
-                        "r7 6 7 1\n" +
-                        "r8 7 8 1\n" +
-                        "r9 8 0 1\n" +
-                        "l3 3 4 1\n" +
-                        "c3 4 5 1m\n" +
-                        "r3 5 6 1\n" +
-                        "r10 5 6 1\n" +
-                        "l4 7 8 1\n" +*/
-                        "g1 2 3 0 1 5\n" +
-                        "r1 2 3 2\n" +
-                        "r2 4 5 3\n" +
-                        "e1 4 5 2 3 5\n" +
-                ".tran 10m\n" +
-                "dv 10m\n" +
-                "dI 50m\n" +
-                "dT 0.25m\n" +
-                "END"
-        );
-
+        JTextArea textConsole = new JTextArea("Please select a file or write your circuit here...");
 
         outPutInformationsLabel.setEditable(false);
 
@@ -104,6 +66,7 @@ public class GraphicalConsole {
 
         JFrame circuitFrame = new JFrame("Circuit Graph");
 
+
         JPanel circuit = new MapPoints();
 
         JMenuBar menuBar = new JMenuBar();
@@ -113,7 +76,7 @@ public class GraphicalConsole {
         JLabel which = new JLabel("Type the name of the element to draw its graphs:");
 
 
-        textConsole.setBounds(10, 60, 570, 725);
+        textConsole.setBounds(10, 60, 570, 716);
 
         loading.setBounds(480, 250, 497, 300);
         loading.setBackground(Color.white);
@@ -133,13 +96,16 @@ public class GraphicalConsole {
         which.setBounds(370, 34, 270, 20);
 
         drawElement.setBounds(643, 35, 70, 22);
+        percent.setBounds(11,777,200,20);
 
         which.setBackground(Color.gray);
 
         JScrollPane scroll = new JScrollPane(outPutInformationsLabel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scroll.setBounds(580, 60, 940, 725);
-        outPutInformationsLabel.setBounds(580, 60, 940, 725);
+
+        scroll.setBounds(580, 60, 940, 717);
+
+        outPutInformationsLabel.setBounds(580, 60, 940, 717);
 
 
         circuit.setBackground(Color.WHITE);
@@ -202,7 +168,7 @@ public class GraphicalConsole {
         file = ((OpenActionListener) openActionListener).file;
 
 
-        ActionListener runActionListener = new RunActionListener(circuit, textConsole, file, circuitFrame, mainPage, outPutInformationsLabel, initialTextProccesor);
+        ActionListener runActionListener = new RunActionListener(circuit, textConsole, file, circuitFrame, mainPage, outPutInformationsLabel, initialTextProccesor,percent);
         run.addActionListener(runActionListener);
 
         ActionListener drawActionListener = new DrawActionListener((RunActionListener) runActionListener, ((RunActionListener) runActionListener).initialTextProccesor, drawElement);
@@ -220,11 +186,16 @@ public class GraphicalConsole {
         draw.setBorder(border);
         output.setBorder(border);
         menuBar.setBorder(border);
+        percent.setBorder(border);
 
         rootPane.setBorder(border);
         circuit.setBorder(border);
         textConsole.setBorder(border);
         outPutInformationsLabel.setBorder(border);
+
+        percent.setMaximum(100);
+        percent.setMinimum(0);
+        percent.setStringPainted(true);
         border = BorderFactory.createLineBorder(new Color(19, 193, 30), 3, true);
         mainPage.setLayout(null);
 
@@ -240,6 +211,7 @@ public class GraphicalConsole {
         }
 
 
+        mainPage.add(percent);
         loading.setVisible(false);
         mainPage.setVisible(false);
         mainPage.add(textConsole);
