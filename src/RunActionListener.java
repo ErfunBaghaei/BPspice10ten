@@ -73,7 +73,6 @@ public class RunActionListener implements ActionListener {
             }
         } else if (cont == -4)
             JOptionPane.showMessageDialog(mainPage, "There is an error,you can see the error descriptions from HELP", "Error " + cont, JOptionPane.ERROR_MESSAGE);
-
     }
 
 
@@ -84,9 +83,5 @@ public class RunActionListener implements ActionListener {
         circuit.revalidate();
 
         circuit.repaint();
-
-
     }
-
-
 }
