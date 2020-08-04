@@ -1,5 +1,4 @@
 public class Element {
-
     double resistance,dc,ac,capacity,inductance,phase,frequncey,gain;
     String name,node1,node2,node3=null,node4=null,type,controlelement=null;
     boolean currentdef=false,hasdraw=false;

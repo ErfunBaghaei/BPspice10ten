@@ -9,6 +9,7 @@ public class GraphPaint extends JPanel {
     Element element;
     double[] powerValues = new double[10000];
     JLabel[] time;
+    int power=1;
 
     public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element, JLabel[] time) {
         this.runActionListener = runActionListener;
@@ -16,13 +17,20 @@ public class GraphPaint extends JPanel {
         this.initialTextProccesor = initialTextProccesor;
         this.element = element;
         this.time = time;
+        ;
+        for(int i=0;i<9;i++)
+            if(power*initialTextProccesor.time<1)
+                power*=10;
+            else
+                break;
 
     }
 
-    int roundBound = 10000;
+
 
     @Override
     public void paintComponent(Graphics g) {
+        int roundBound = power*10;
         super.paintComponent(g);
         int cc = -58;
         Graphics2D g2d = (Graphics2D) g;
@@ -103,7 +111,7 @@ public class GraphPaint extends JPanel {
 
         for (int i = 0; i < 11; i++) {
             time[i].setText((double) Math.round(timeStepInGraph * i * roundBound) / roundBound + "");
-            time[i].setBounds(100 * i - 30, 290, 40, 10);
+            time[i].setBounds(100 * i - 32, 290, 40, 10);
         }
         for (int i = 0; i < 11; i++)
             this.add(time[i]);
