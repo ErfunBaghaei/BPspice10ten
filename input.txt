@@ -1,10 +1,14 @@
-* hi this is a test
-v1 0 2 1 0 0 0
-c1 1 2 5u
-r1 0 2 5k
-l1 1 0 2m
-dv 10u
-di 100u
+di 1m
+dv 100u
 dt 10u
-.tran 10m
+V1 1 0 0 1 1000 0
+* sine voltage source between node 1 and gnd with freq 1k and peak value of 1V
+L1 1 2 10u
+C1 2 3 1u
+L3 3 0 10u
+C3 3 0 1u
+L2 3 4 10u
+C2 4 5 1u
+R1 5 0 100k
+.tran 1m
 END
