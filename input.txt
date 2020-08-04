@@ -1,9 +1,9 @@
-di 500u
-dv 50u
-dt 0.2u
-V1 1 0 1 0 0 0
-R1 1 2 100m
-L1 2 3 1m
-C1 3 0 25n
-.tran 50u
+di 100u
+dv 5u
+dt 10u
+I1 1 0 10m 0 0 0
+L1 1 0 10u
+C1 1 0 1u
+R1 1 0 1K
+.tran 5m
 END

@@ -196,6 +196,7 @@ public class GraphicalConsole {
         percent.setMaximum(100);
         percent.setMinimum(0);
         percent.setStringPainted(true);
+
         border = BorderFactory.createLineBorder(new Color(19, 193, 30), 3, true);
         mainPage.setLayout(null);
 

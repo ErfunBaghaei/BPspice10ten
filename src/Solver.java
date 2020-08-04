@@ -82,21 +82,13 @@ public class Solver {
             }
         }
     }
-
+    double f=0;
 
     int mainsolver() {
         int i, j, k, p, e, solveflag = 0;
         timees = (int) (endtime / dt);
-        //   for (i = 0; i < sunions.size(); i++)
-        //       for (j = 0; j < sunions.get(i).nod.size(); j++)
-        //           System.out.println("union" + sunions.get(i).name + "node" + sunions.get(i).nod.get(j).name);
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
-        //   for (j = 0; j < sunions.size(); j++) {
-        //       skcl += sunions.get(j).kcl * sunions.get(j).kcl;
-        //       System.out.println("kcl" + sunions.get(j).kcl);
-        //   }
-        //   skcl = Math.sqrt(skcl);
         for (i = 1; i <= endtime / dt; i++) {
             if (errorFourAndThree(i - 1) == -3)
                 return -3;
@@ -104,14 +96,16 @@ public class Solver {
                 return -4;
             else if (errorTwo(i - 1) == false)
                 return -2;
-            System.out.println("time" + (int) (100 * ((double) i / (double) timees)) + "  " + timees + "  " + endtime + "  " + dt);
-            percent.setValue((int) (100 * ((double) i / (double) timees)));
-            //percent.repaint();
-            percent.update(percent.getGraphics());
+            System.out.println("time" + (int) (100 * ((double) i / (double) timees)));
+            if((100 * ((double) i / (double) timees))!=f) {
+
+                f= (100 * ((double) i / (double) timees));
+                percent.setValue((int) (100 * ((double) i / (double) timees)));
+                percent.update(percent.getGraphics());
+            }
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
             while (solveflag == 1) {
-                //down text?//
                 solveflag = 0;
                 for (j = 1; j < sunions.size(); j++) {
                     resetVoltage(j);
