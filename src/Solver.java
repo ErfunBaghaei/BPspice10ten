@@ -126,7 +126,7 @@ public class Solver {
                 }
                 skcl = Math.sqrt(skcl);
             }
-            //System.out.println("erfunkcl " + skcl);
+            System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
