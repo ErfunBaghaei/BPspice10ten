@@ -60,8 +60,58 @@ public class CurrentSource extends Element {
                 ac *= 1e9;
                 break;
         }
-        frequncey = Double.parseDouble(info[5]);
-        phase = Double.parseDouble(info[6]);
+        if (info[5].charAt(info[5].length() - 1) >= '0' && info[5].charAt(info[5].length() - 1) <= '9')
+            frequncey = Double.parseDouble(info[5]);
+        else frequncey = Double.parseDouble(info[5].substring(0, info[5].length() - 1));
+        switch (info[5].charAt(info[5].length() - 1)) {
+            case 'p':
+                frequncey *= 1e-12;
+                break;
+            case 'n':
+                frequncey *= 1e-9;
+                break;
+            case 'u':
+                frequncey *= 1e-6;
+                break;
+            case 'm':
+                frequncey *= 1e-3;
+                break;
+            case 'k':
+                frequncey *= 1e3;
+                break;
+            case 'M':
+                frequncey *= 1e6;
+                break;
+            case 'G':
+                frequncey *= 1e9;
+                break;
+        }
+        if (info[6].charAt(info[6].length() - 1) >= '0' && info[6].charAt(info[6].length() - 1) <= '9')
+            phase = Double.parseDouble(info[6]);
+        else phase = Double.parseDouble(info[6].substring(0, info[6].length() - 1));
+        switch (info[6].charAt(info[6].length() - 1)) {
+            case 'p':
+                phase *= 1e-12;
+                break;
+            case 'n':
+                phase *= 1e-9;
+                break;
+            case 'u':
+                phase *= 1e-6;
+                break;
+            case 'm':
+                phase *= 1e-3;
+                break;
+            case 'k':
+                phase *= 1e3;
+                break;
+            case 'M':
+                phase *= 1e6;
+                break;
+            case 'G':
+                phase *= 1e9;
+                break;
+        }
 
     }
 }

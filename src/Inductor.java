@@ -9,8 +9,8 @@ public class Inductor extends Element {
         node1 = info[1];
         node2 = info[2];
         if (info[3].charAt(info[3].length() - 1) >= '0' && info[3].charAt(info[3].length() - 1) <= '9')
-            inductance = Integer.parseInt(info[3]);
-        else inductance = Integer.parseInt(info[3].substring(0, info[3].length() - 1));
+            inductance = Double.parseDouble(info[3]);
+        else inductance = Double.parseDouble(info[3].substring(0, info[3].length() - 1));
         switch (info[3].charAt(info[3].length() - 1)) {
             case 'p':
                 inductance *= 1e-12;
