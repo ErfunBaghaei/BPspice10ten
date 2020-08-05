@@ -1,3 +1,5 @@
+import javax.xml.crypto.dom.DOMCryptoContext;
+
 public class Capacitor extends Element {
     String input;
 
@@ -10,8 +12,8 @@ public class Capacitor extends Element {
         node1 = info[1];
         node2 = info[2];
         if (info[3].charAt(info[3].length() - 1) >= '0' && info[3].charAt(info[3].length() - 1) <= '9')
-            capacity = Integer.parseInt(info[3]);
-        else capacity = Integer.parseInt(info[3].substring(0, info[3].length() - 1));
+            capacity = Double.parseDouble(info[3]);
+        else capacity = Double.parseDouble(info[3].substring(0, info[3].length() - 1));
         switch (info[3].charAt(info[3].length() - 1)) {
             case 'p':
                 capacity *= 1e-12;
