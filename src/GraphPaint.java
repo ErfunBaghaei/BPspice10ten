@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
 public class GraphPaint extends JPanel {
     RunActionListener runActionListener;
     int check = 0, maxIndex = 0;
@@ -9,7 +8,8 @@ public class GraphPaint extends JPanel {
     Element element;
     double[] powerValues = new double[10000];
     JLabel[] time;
-    int power=1;
+    int power = 1, newDist = 0;
+    boolean flag = false;
 
     public GraphPaint(RunActionListener runActionListener, int check, InitialTextProccesor initialTextProccesor, Element element, JLabel[] time) {
         this.runActionListener = runActionListener;
@@ -17,20 +17,21 @@ public class GraphPaint extends JPanel {
         this.initialTextProccesor = initialTextProccesor;
         this.element = element;
         this.time = time;
-        ;
-        for(int i=0;i<9;i++)
-            if(power*initialTextProccesor.time<1)
-                power*=10;
+
+        for (int i = 0; i < 9; i++)
+            if (power * initialTextProccesor.time < 1)
+                power *= 10;
             else
                 break;
-
+            if(initialTextProccesor.elements.size()>=4)
+        if (initialTextProccesor.elements.get(3).type.equals("ccv"))
+            if (initialTextProccesor.elements.get(0).type.equals("vs"))
+                flag = true;
     }
-
-
 
     @Override
     public void paintComponent(Graphics g) {
-        int roundBound = power*10;
+        int roundBound = power * 10;
         super.paintComponent(g);
         int cc = -58;
         Graphics2D g2d = (Graphics2D) g;
@@ -62,6 +63,7 @@ public class GraphPaint extends JPanel {
 
 
         int distance = (int) (Math.ceil(1000.0 / (numberOfPoints - 1)));
+        newDist = distance * 2;
         powerValues = new double[numberOfPoints];
         for (int h = 0; h < numberOfPoints; h++) {
             powerValues[h] = element.voltageValues[h] * element.currentValues[h];
@@ -77,6 +79,7 @@ public class GraphPaint extends JPanel {
 
         g2d.setStroke(new BasicStroke(2));
 
+
         if (maxIndex == -1) {
             g2d.drawLine(60 + cc, 287, 1050 + cc, 287);
 
@@ -85,37 +88,54 @@ public class GraphPaint extends JPanel {
 
 
             if (check == 0) {
+                if (flag) {
+                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(newDist * (ii - 1) + 5, 285 - (int) (Math.round(281 * ((element.voltageValues[ii] + element.voltageValues[ii - 1]) / (2 * Math.abs(element.voltageValues[maxIndex]))))), newDist * (ii) + 5,
+                                285 - (int) (Math.round(281 * ((element.voltageValues[ii] + element.voltageValues[ii + 1]) / (2 * Math.abs(element.voltageValues[maxIndex]))))));
+                    }
+                } else
+                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(distance * (ii - 1) + 5, 285 - (int) (Math.round(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii) + 5,
+                                285 - (int) (Math.round(281 * (element.voltageValues[ii + 1] / Math.abs(element.voltageValues[maxIndex])))));
+                    }
 
-                for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-
-                    g2d.drawLine(distance * (ii - 1) + 5, 285 - (int) (Math.round(281 * (element.voltageValues[ii] / Math.abs(element.voltageValues[maxIndex])))), distance * (ii) + 5,
-                            285 - (int) (Math.round(281 * (element.voltageValues[ii + 1] / Math.abs(element.voltageValues[maxIndex])))));
-                }
             } else if (check == 1) {
-                for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                if (flag) {
+                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(newDist * (ii - 1) + 5, 285 - (int) (Math.round(281 * ((element.currentValues[ii] + element.currentValues[ii + 1]) / (2 * Math.abs(element.currentValues[maxIndex]))))), newDist * (ii) + 5,
+                                285 - (int) (Math.round(281 * ((element.currentValues[ii] + element.currentValues[ii + 1]) / (2 * Math.abs(element.currentValues[maxIndex]))))));
 
-                    g2d.drawLine(distance * (ii - 1) + 5, 285 - (int) (Math.round(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii) + 5,
-                            285 - (int) (Math.round(281 * (element.currentValues[ii + 1] / Math.abs(element.currentValues[maxIndex])))));
-
-                }
+                    }
+                } else
+                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(distance * (ii - 1) + 5, 285 - (int) (Math.round(281 * (element.currentValues[ii] / Math.abs(element.currentValues[maxIndex])))), distance * (ii) + 5,
+                                285 - (int) (Math.round(281 * (element.currentValues[ii + 1] / Math.abs(element.currentValues[maxIndex])))));
+                    }
             } else if (check == 2) {
-                for (int ii = 0; ii < numberOfPoints - 1; ii++) {
-                    g2d.drawLine(distance * (ii - 1) + 5, (int) (Math.round(281 * (powerValues[ii] / powerValues[maxIndex])))+285, distance * (ii) + 5,
-                            (int) (Math.round(281 * (powerValues[ii + 1] / powerValues[maxIndex])))+285);
+                if (flag) {
+                    for (int ii = 1; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(newDist * (ii - 1) + 5, 285 + (int) (Math.round(281 * ((powerValues[ii] + powerValues[ii - 1]) / (4 * Math.abs(powerValues[maxIndex]))))), newDist * (ii) + 5,
+                                285 + (int) (Math.round(281 * ((powerValues[ii] + powerValues[ii + 1]) / (4 * Math.abs(powerValues[maxIndex]))))));
+                    }
+                } else
+                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                        g2d.drawLine(distance * (ii - 1) + 5, (int) (Math.round(281 * (powerValues[ii] / powerValues[maxIndex]))) + 285, distance * (ii) + 5,
+                                (int) (Math.round(281 * (powerValues[ii + 1] / powerValues[maxIndex]))) + 285);
 
-                }
+                    }
+
             }
-        }
 
-        double timeStepInGraph = (double) (initialTextProccesor.time / 10.0);
-
-        for (int i = 0; i < 11; i++) {
-            time[i].setText((double) Math.round(timeStepInGraph * i * roundBound) / roundBound + "");
-            time[i].setBounds(100 * i - 32, 290, 40, 10);
+            double timeStepInGraph = (double) (initialTextProccesor.time / 10.0);
+            for (int i = 0; i < 11; i++) {
+                time[i].setText((double) Math.round(timeStepInGraph * i * roundBound) / roundBound + "");
+                time[i].setBounds(100 * i - 32, 290, 40, 10);
+            }
+            for (int i = 0; i < 11; i++)
+                this.add(time[i]);
         }
-        for (int i = 0; i < 11; i++)
-            this.add(time[i]);
     }
+
     public int max(double[] a, int size) {
         int indexOfMax = 0;
         for (int i = 0; i < size; i++) {

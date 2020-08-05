@@ -42,7 +42,7 @@ public class GraphicalConsole {
 
         MapPoints mapPoints = new MapPoints();
 
-        JTextField drawElement = new JTextField("e1");
+        JTextField drawElement = new JTextField("R1");
         //First, you must choose a file...
         JTextArea textConsole = new JTextArea("Please select a file or write your circuit here...");
 
@@ -50,7 +50,7 @@ public class GraphicalConsole {
 
         outPutInformationsLabel.setForeground(Color.WHITE);
 
-        outPutInformationsLabel.setBackground(Color.BLUE);
+        outPutInformationsLabel.setBackground(new Color(72, 107, 251));
 
         Font font = new Font(Font.SERIF, Font.PLAIN, 16);
 

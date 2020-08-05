@@ -77,14 +77,13 @@ public class DrawActionListener implements ActionListener {
         powerGraph.getContentPane().setBackground(Color.WHITE);
 
 
-        voltageGraph.setBounds(0, 80, 1090, 610);
-        currentGraph.setBounds(0, 600, 1090, 610);
-        powerGraph.setBounds(1050, 0, 1090, 610);
+        voltageGraph.setBounds(0, 100, 1090, 610);
+        currentGraph.setBounds(0, 650, 1090, 610);
+        powerGraph.setBounds(900, 100, 1090, 610);
 
         voltageGraphPaint.setBounds(60, 0, 1020, 610);
         currentGraphPaint.setBounds(60, 0, 1020, 610);
         powerGraphPaint.setBounds(60, 0, 1020, 610);
-
 
         voltageGraph.setLayout(null);
         currentGraph.setLayout(null);
@@ -120,7 +119,7 @@ public class DrawActionListener implements ActionListener {
 
             unit = Math.abs(element.voltageValues[VmaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowV[i].setText(((int) ((Math.abs(element.voltageValues[VmaxIndex]) - unit * i) * 10000.0) / 10000.0) + "");
+                rowV[i].setText(((int) ((Math.abs(element.voltageValues[VmaxIndex]) - unit * i) * 100000.0) / 100000.0) + "");
 
             }
         } else {
@@ -131,7 +130,7 @@ public class DrawActionListener implements ActionListener {
         if (ImaxIndex != -1) {
             unit = Math.abs(element.currentValues[ImaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowI[i].setText(((int) ((Math.abs(element.currentValues[ImaxIndex]) - unit * i) * 10000.0) / 10000.0) + "");
+                rowI[i].setText(((int) ((Math.abs(element.currentValues[ImaxIndex]) - unit * i) * 100000.0) / 100000.0) + "");
 
             }
         } else {
@@ -142,13 +141,13 @@ public class DrawActionListener implements ActionListener {
         if (PmaxIndex != -1) {
             unit = Math.abs(powerValues[PmaxIndex] / 4.0);
             for (int i = 0; i < 9; i++) {
-                rowP[i].setText(((int) ((Math.abs(powerValues[PmaxIndex]) - unit * i) * 10000.0) / 10000.0) + "");
+                rowP[i].setText(((int) ((Math.abs(powerValues[PmaxIndex]) - unit * i) * 1000000.0) / 1000000.0) + "");
 
             }
         } else {
             for (int i = 0; i < 9; i++)
                 rowP[i].setText(4 - i + "*10^-17");
-            rowP[4].setText("       0");
+            rowP[4].setText("        0");
         }
 
 
