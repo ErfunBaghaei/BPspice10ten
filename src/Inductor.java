@@ -34,5 +34,6 @@ public class Inductor extends Element {
                 inductance *= 1e9;
                 break;
         }
+        System.out.println(inductance+";l;l;l;l;ll;l;l;l;l;");
     }
 }

@@ -53,7 +53,7 @@ public class Solver {
                             for (m = 0; m < selements.size(); m++) {
                                 if (selements.get(m).type.equals("vs") || selements.get(m).type.equals("vcv") || selements.get(m).type.equals("ccv")) {
                                     if (selements.get(m).type.equals("vs"))
-                                        volt = selements.get(m).dc + selements.get(m).ac * Math.sin(2 * Math.PI * selements.get(m).frequncey * (time+dt) + selements.get(m).phase);
+                                        volt = selements.get(m).dc + selements.get(m).ac * Math.sin(2 * Math.PI * selements.get(m).frequncey * (time + dt) + selements.get(m).phase);
                                     if (selements.get(m).type.equals("vcv"))
                                         volt = selements.get(m).gain * (findNode(selements.get(m).node3) - findNode(selements.get(m).node4));
                                     if (selements.get(m).type.equals("ccv")) {
@@ -81,10 +81,11 @@ public class Solver {
             }
         }
     }
-    double f=0;
+
+    int f = 0;
 
     int mainsolver() {
-        int i, j, k, p, e, solveflag = 0,sor=0;
+        int i, j, k, p, e, solveflag = 0, sor = 0;
         timees = (int) (endtime / dt);
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
@@ -96,20 +97,20 @@ public class Solver {
             else if (errorTwo(i - 1) == false)
                 return -2;
             System.out.println("time" + (int) (100 * ((double) i / (double) timees)));
-            if((100 * ((double) i / (double) timees))!=f) {
+            if ((100 * ((double) i / (double) timees)) != f) {
 
-                f= (100 * ((double) i / (double) timees));
-                percent.setValue((int) (100 * ((double) i / (double) timees)));
+                f =(int) (100 * ((double) i / (double) timees));
+                percent.setValue(f);
                 percent.update(percent.getGraphics());
             }
             for (j = 0; j < sunions.size(); j++) resetVoltage(j);
             solveflag = 1;
-            sor=0;
+            sor = 0;
             while (solveflag == 1) {
-               /////
-               // if (sor==100000) break;
+                /////
+                // if (sor==100000) break;
                 sor++;
-               ///////
+                ///////
                 solveflag = 0;
                 for (j = 1; j < sunions.size(); j++) {
                     resetVoltage(j);
@@ -121,13 +122,13 @@ public class Solver {
                     kclnext = sunions.get(j).kcl;
                     sunions.get(j).nod.get(0).voltage += (dv * (Math.abs(kclfirst) - Math.abs(kclnext)) / di) - dv;
                     resetVoltage(j);
-                   skcl = 0;
-                   for (k = 0; k < sunions.size(); k++) {
-                       skcl += sunions.get(k).kcl * sunions.get(k).kcl;
-                   }
-                   skcl = Math.sqrt(skcl);
+                    skcl = 0;
+                    for (k = 0; k < sunions.size(); k++) {
+                        skcl += sunions.get(k).kcl * sunions.get(k).kcl;
+                    }
+                    skcl = Math.sqrt(skcl);
                 }
-               System.out.println("erfunkcl " + skcl);
+                System.out.println("erfunkcl " + skcl);
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
@@ -155,8 +156,6 @@ public class Solver {
 
             time += dt;
         }
-           for (i = 1; i <= time / dt; i++)
-             System.out.println("time "+i+"self " + selements.get(5).voltageValues[i] +" "+ selements.get(5).name);
         printResults();
         return 0;
     }

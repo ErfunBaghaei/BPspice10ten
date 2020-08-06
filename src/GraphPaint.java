@@ -89,7 +89,7 @@ public class GraphPaint extends JPanel {
 
             if (check == 0) {
                 if (flag) {
-                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                    for (int ii = 1; ii < numberOfPoints - 1; ii++) {
                         g2d.drawLine(newDist * (ii - 1) + 5, 285 - (int) (Math.round(281 * ((element.voltageValues[ii] + element.voltageValues[ii - 1]) / (2 * Math.abs(element.voltageValues[maxIndex]))))), newDist * (ii) + 5,
                                 285 - (int) (Math.round(281 * ((element.voltageValues[ii] + element.voltageValues[ii + 1]) / (2 * Math.abs(element.voltageValues[maxIndex]))))));
                     }
@@ -101,7 +101,7 @@ public class GraphPaint extends JPanel {
 
             } else if (check == 1) {
                 if (flag) {
-                    for (int ii = 0; ii < numberOfPoints - 1; ii++) {
+                    for (int ii = 1; ii < numberOfPoints - 1; ii++) {
                         g2d.drawLine(newDist * (ii - 1) + 5, 285 - (int) (Math.round(281 * ((element.currentValues[ii] + element.currentValues[ii + 1]) / (2 * Math.abs(element.currentValues[maxIndex]))))), newDist * (ii) + 5,
                                 285 - (int) (Math.round(281 * ((element.currentValues[ii] + element.currentValues[ii + 1]) / (2 * Math.abs(element.currentValues[maxIndex]))))));
 
@@ -113,9 +113,9 @@ public class GraphPaint extends JPanel {
                     }
             } else if (check == 2) {
                 if (flag) {
-                    for (int ii = 1; ii < numberOfPoints - 1; ii++) {
-                        g2d.drawLine(newDist * (ii - 1) + 5, 285 + (int) (Math.round(281 * ((powerValues[ii] + powerValues[ii - 1]) / (4 * Math.abs(powerValues[maxIndex]))))), newDist * (ii) + 5,
-                                285 + (int) (Math.round(281 * ((powerValues[ii] + powerValues[ii + 1]) / (4 * Math.abs(powerValues[maxIndex]))))));
+                    for (int ii = 1; ii < numberOfPoints/2 - 1; ii++) {
+                        g2d.drawLine(newDist * (ii - 1) + 5, 285 - (int) (Math.round(281 * ((powerValues[2*ii-1]) / (4 * Math.abs(powerValues[maxIndex]))))), newDist * (ii) + 5,
+                                285 - (int) (Math.round(281 * ((powerValues[2*ii+1]) / (4 * Math.abs(powerValues[maxIndex]))))));
                     }
                 } else
                     for (int ii = 0; ii < numberOfPoints - 1; ii++) {

@@ -39,6 +39,9 @@ public class DrawKit {
         for (int i = 1; i < elements.size() - 1; i++)
             if (!elements.get(i).type.equals("r"))
                 flag7 = false;
+            if(elements.size()>9)
+            if(flag7)
+                elements.get(9).hasdraw=true;
 
 
         if (node.size() == 1) {

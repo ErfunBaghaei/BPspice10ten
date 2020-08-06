@@ -14,9 +14,10 @@ public class RunActionListener implements ActionListener {
     InitialTextProccesor initialTextProccesor;
     Solver solver;
     JProgressBar percent;
+    JButton run;
 
     public RunActionListener(JPanel circuit, JTextArea textConsole, File file, JFrame circuitFrame, JFrame mainPage
-            , JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor, JProgressBar percent) {
+            , JTextArea outPutInformationsLabel, InitialTextProccesor initialTextProccesor, JProgressBar percent,JButton run) {
         this.circuit = circuit;
         this.file = file;
         this.textConsole = textConsole;
@@ -25,10 +26,13 @@ public class RunActionListener implements ActionListener {
         this.outPutInformationsLabel = outPutInformationsLabel;
         this.initialTextProccesor = initialTextProccesor;
         this.percent = percent;
+        this.run=run;
     }
 
     @Override
     public void actionPerformed(ActionEvent a) {
+        boolean flag2=run.getText().equals("RUN");
+        run.setText("Re-Run for more accurecy");
         String updatedText = textConsole.getText();
         try {
             FileWriter writer = new FileWriter(file);
@@ -46,11 +50,13 @@ public class RunActionListener implements ActionListener {
         cont = initialTextProccesor.start();
 
         if (cont == 0) {
+            if(flag2) {
 
-            circuitDrawer(initialTextProccesor);
-            circuitFrame.add(circuit);
+                circuitDrawer(initialTextProccesor);
+                circuitFrame.add(circuit);
 
-            circuitFrame.setVisible(true);
+                circuitFrame.setVisible(true);
+            }
 
             solver = new Solver(initialTextProccesor, circuitFrame, percent);
 

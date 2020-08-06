@@ -168,7 +168,7 @@ public class GraphicalConsole {
         file = ((OpenActionListener) openActionListener).file;
 
 
-        ActionListener runActionListener = new RunActionListener(circuit, textConsole, file, circuitFrame, mainPage, outPutInformationsLabel, initialTextProccesor,percent);
+        ActionListener runActionListener = new RunActionListener(circuit, textConsole, file, circuitFrame, mainPage, outPutInformationsLabel, initialTextProccesor,percent,run);
         run.addActionListener(runActionListener);
 
         ActionListener drawActionListener = new DrawActionListener((RunActionListener) runActionListener, ((RunActionListener) runActionListener).initialTextProccesor, drawElement);
