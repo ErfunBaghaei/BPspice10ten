@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -62,7 +63,7 @@ public class Solver {
                                             if (selements.get(w).name.equals(selements.get(m).controlelement))
                                                 control = selements.get(w).currentValues[(int) (time / dt)];
                                         volt = selements.get(m).gain * control;
-                                        System.out.println(selements.get(m).type + " gain  " + volt);
+                                      //  System.out.println(selements.get(m).type + " gain  " + volt);
                                     }
                                     selements.get(m).errorvoltageValues[(int) (time / dt) + 1] = volt;
                                     if (selements.get(m).node1.equals(sunions.get(j).nod.get(i).name) && selements.get(m).node2.equals(sunions.get(j).nod.get(k).name)) {
@@ -85,21 +86,21 @@ public class Solver {
     int f = 0;
 
     int mainsolver() {
+        double[] continouesKCL = new double[4];
         int i, j, k, p, e, solveflag = 0, sor = 0;
         timees = (int) (endtime / dt);
         double skcl = 0, skcl2 = 0, kclfirst, kclnext;
         for (j = 0; j < sunions.size(); j++) resetVoltage(j);
         for (i = 1; i <= timees; i++) {
+           Arrays.fill(continouesKCL,0);
             if (errorFourAndThree(i - 1) == -3)
                 return -3;
             else if (errorFourAndThree(i - 1) == -4)
                 return -4;
-            else if (errorTwo(i - 1) == false)
-                return -2;
-            System.out.println("time" + (int) (100 * ((double) i / (double) timees)));
-            if ((100 * ((double) i / (double) timees)) != f) {
+          //  System.out.println("time" + (int) (100 * ((double) i / (double) timees)));
+            if ((int) ((100 * ((double) i / (double) timees))) != f) {
 
-                f =(int) (100 * ((double) i / (double) timees));
+                f = (int) (100 * ((double) i / (double) timees));
                 percent.setValue(f);
                 percent.update(percent.getGraphics());
             }
@@ -129,17 +130,23 @@ public class Solver {
                     skcl = Math.sqrt(skcl);
                 }
                 System.out.println("erfunkcl " + skcl);
+                continouesKCL[0] = continouesKCL[1];
+                continouesKCL[1] = continouesKCL[2];
+                continouesKCL[2] = continouesKCL[3];
+                continouesKCL[3] = skcl;
+                if (continouesKCL[0] == continouesKCL[1] && continouesKCL[2] == continouesKCL[1] && continouesKCL[2] == continouesKCL[3]) {
+                    return -2;
+                }
                 for (k = 0; k < sunions.size(); k++) if (Math.abs(sunions.get(k).kcl) >= di) solveflag = 1;
             }
             for (e = 0; e < sunions.size(); e++)
                 for (p = 0; p < sunions.get(e).nod.size(); p++) {
-                    System.out.println(sunions.get(e).nod.get(p).name + "voltage:" + sunions.get(e).nod.get(p).voltage);
+                 //   System.out.println(sunions.get(e).nod.get(p).name + "voltage:" + sunions.get(e).nod.get(p).voltage);
                     sunions.get(e).nod.get(p).voltageValues[i] = sunions.get(e).nod.get(p).voltage;
                 }
             for (e = 0; e < selements.size(); e++) {
                 selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                 if (selements.get(e).type.equals("r")) {
-                    //selements.get(e).voltageValues[i] = findNode(selements.get(e).node1) - findNode(selements.get(e).node2);
                     selements.get(e).currentValues[i] = selements.get(e).voltageValues[i] / selements.get(e).resistance;
                 }
                 if (selements.get(e).type.equals("c")) {
@@ -279,56 +286,19 @@ public class Solver {
         }
     }
 
-
-    public boolean errorTwo(int time) {
-        Element[] currentSourceElements = new Element[5];
-        double sumOfValeus = 0;
-        int currentSourceNumbers = 0, allElements = 0;
-        for (int i = 0; i < initialTextProccesor.nodes.size(); i++) {
-            sumOfValeus = 0;
-            currentSourceNumbers = 0;
-            allElements = 0;
-            for (int j = 0; j < initialTextProccesor.elements.size(); j++) {
-                allElements++;
-                if (initialTextProccesor.elements.get(j).node1.equals(initialTextProccesor.nodes.get(i).name)
-                        || initialTextProccesor.elements.get(j).node2.equals(initialTextProccesor.nodes.get(i).name)) {
-
-                    if (initialTextProccesor.elements.get(j).type.equals("cs")
-                            || initialTextProccesor.elements.get(j).type.equals("ccc")
-                            || initialTextProccesor.elements.get(j).type.equals("vcc")) {
-                        currentSourceElements[currentSourceNumbers] = initialTextProccesor.elements.get(j);
-                        currentSourceNumbers++;
-                    }
-                }
-            }
-            if (currentSourceNumbers == allElements) {
-                for (int k = 0; k < currentSourceNumbers; k++) {
-                    if (currentSourceElements[k].node1.equals(initialTextProccesor.nodes.get(i).name))
-                        sumOfValeus -= (currentSourceElements[k].currentValues[time]);
-                    else
-                        sumOfValeus += (currentSourceElements[k].currentValues[time]);
-                }
-                if (sumOfValeus != 0)
-                    return false;
-            }
-        }
-        return true;
-    }
-
-
     public int errorFourAndThree(int time) {
-        boolean flag = true;
+        boolean flag9 = true;
         for (int i = 0; i < selements.size(); i++) {
             if (selements.get(i).type.equals("vs") || selements.get(i).type.equals("vcv") || selements.get(i).type.equals("ccv")) {
                 if (time > 0)
                     if (Math.abs(selements.get(i).errorvoltageValues[time] - selements.get(i).voltageValues[time]) > dv && Math.abs(selements.get(i).errorvoltageValues[time - 1] - selements.get(i).voltageValues[time]) > dv) {
-
-                        for (int j = 0; j < sunions.get(0).nod.size(); j++)
-                            if (selements.get(i).node1.equals(sunions.get(0).nod.get(i)) || selements.get(i).node2.equals(sunions.get(0).nod.get(i))) {
-                                flag = false;
+                        for (int j = 0; j < sunions.get(0).nod.size(); j++) {
+                            if (selements.get(i).node1.equals(sunions.get(0).nod.get(j).name) || selements.get(i).node2.equals(sunions.get(0).nod.get(j).name)) {
+                                flag9 = false;
                                 break;
                             }
-                        if (flag)
+                        }
+                        if (flag9)
                             return -3;
 
                         else

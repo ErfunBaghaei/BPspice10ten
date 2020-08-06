@@ -1,12 +1,10 @@
-di 1m
+r1 1 0 2
+v1 1 2 3 0 0 0
+v2 2 3 4 0 0 0
+v3 1 3 7 0 0 0
+r2 3 0 5
+di 10m
 dv 1m
 dt 1m
-V1 1 0 12 0 0 0
-R1 1 0 2
-R2 1 2 2
-H1 2 0 R2 2 
-* H is a CCVS between node 2 and gnd with the current that goes from node 1 to 2
-* and with a gain of 2
-R3 2 0 2
-.tran 20m
+.tran 1
 END

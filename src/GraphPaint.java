@@ -123,7 +123,6 @@ public class GraphPaint extends JPanel {
                                 (int) (Math.round(281 * (powerValues[ii + 1] / powerValues[maxIndex]))) + 285);
 
                     }
-
             }
 
             double timeStepInGraph = (double) (initialTextProccesor.time / 10.0);
